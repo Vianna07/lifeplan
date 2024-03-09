@@ -1,1 +1,65 @@
-/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+@include mat.core();
+
+
+// Available color palettes: https://material.io/design/color/
+$lifeplan-primary: mat.define-palette(mat.$indigo-palette);
+$lifeplan-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$lifeplan-warn: mat.define-palette(mat.$red-palette);
+$lifeplan-typography: mat.define-typography-config(
+  $font-family: 'Open Sans, Montserrat, sans-serif',
+  $headline-1: mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+  $headline-2: mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+  $headline-3: mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+  $headline-4: mat.define-typography-level(34px, 40px, 400),
+  $headline-5: mat.define-typography-level(24px, 32px, 400),
+  $headline-6: mat.define-typography-level(20px, 24px, 500),
+  $subtitle-1: mat.define-typography-level(16px, 20px, 400),
+  $body-1: mat.define-typography-level(14px, 20px, 400),
+  $body-2: mat.define-typography-level(12px, 16px, 500),
+  $caption: mat.define-typography-level(10px, 12px, 400)
+);
+
+$lifeplan-theme: mat.define-light-theme((
+  color: (
+    primary: $lifeplan-primary,
+    accent: $lifeplan-accent,
+    warn: $lifeplan-warn,
+    ),
+    typography: $lifeplan-typography,
+    density: 0
+));
+
+@include mat.all-component-themes($lifeplan-theme);
+
+:root {
+  --lf-bg-primary: #1f1f1f;
+  --lf-bg-contrast: #0f0f0f;
+  --lf-text-primary: #eeeeee;
+  --lf-text-contrast: #a0a0a0;
+  --lf-primary-gradient: linear-gradient(to right, #a93fff, #ff008c)
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Open Sans', 'Montserrat', sans-serif;
+  background-color: var(--lf-bg-primary);
+}
+
+.lf-title {
+  background-image: var(--lf-primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

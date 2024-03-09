@@ -1,0 +1,26 @@
+<header class="app-header">
+    <section class="logo">
+        <img  ngSrc="favicon.ico" width="32" height="32">
+        <h1 class="lf-title">
+            Lifeplan
+        </h1>
+    </section>
+    <aside class="menu">
+        <section class="topic" *ngFor="let topic of menuContent">
+            <section class="topic-title">
+                <mat-icon style="color: var(--lf-text-primary); margin-right: 10px;">{{topic.titleIcon}}</mat-icon>
+                <h1 class="lf-title" (click)="topic.showContent = !topic.showContent">
+                    {{topic.title}}
+                </h1>
+            </section>
+            <ul>
+                <li *ngFor="let topicContent of topic.content">
+                    <a [routerLink]="topicContent.link"
+                        fragment="{{topicContent.fragment}}">
+                    {{topicContent.name}}
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </aside>
+</header>

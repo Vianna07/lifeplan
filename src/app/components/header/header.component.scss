@@ -1,0 +1,105 @@
+.app-header {
+    text-align: start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    max-width: 280px;
+    min-width: 280px;
+    background-color: var(--lf-bg-contrast);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px 30px 50px 30px;
+
+        .icon {
+            // color: var(--lf-text-primary) !important;
+            color: azure;
+            margin-right: 10px;
+        }
+        h1 {
+
+            font-size: 30px;
+            font-weight: 700;
+            margin: 0 0 0 10px;
+        }
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .topic {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .topic-title {
+                display: flex;
+
+                h1 {
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                    cursor: pointer;
+                }
+            }
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                list-style-type: none;
+                padding: 0;
+                gap: 15px;
+                padding-bottom: 15px;
+                transition: 0.5s ease-in-out;
+                overflow: hidden;
+
+                li {
+                    font-weight: 500;
+                    cursor: pointer;
+
+                    a {
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+                        text-decoration: none;
+                        z-index: 1;
+                        color: var(--lf-text-contrast);
+                        padding: 2px;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            z-index: -1;
+                            top: 0;
+                            right: 0;
+                            width: 0;
+                            height: 100%;
+                            border-bottom: 2px solid;
+                            border-image: var(--lf-primary-gradient);
+                            border-image-slice: 1;
+                            transition: width 0.35s ease-in-out, color 0.35s ease-in-out;
+                        }
+                    }
+
+                    &:hover {
+                        a {
+                            color: var(--lf-text-primary);
+                        }
+                        a::after {
+                            left: 0;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+      }
+}
