@@ -3,10 +3,9 @@
     position: fixed;
     top: 0;
     left: 0;
-    min-height: 100vh;
-    max-width: 280px;
-    min-width: 280px;
-    background-color: var(--lf-bg-contrast);
+    height: 100%;
+    width: 280px;
+    background-color: var(--lf-bg-secondary);
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -24,7 +23,7 @@
             margin-right: 10px;
         }
         h1 {
-
+            cursor: pointer;
             font-size: 30px;
             font-weight: 700;
             margin: 0 0 0 10px;
@@ -71,7 +70,7 @@
                         position: relative;
                         text-decoration: none;
                         z-index: 1;
-                        color: var(--lf-text-contrast);
+                        color: var(--lf-text-secondary);
                         padding: 2px;
 
                         &::after {
