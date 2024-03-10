@@ -1,0 +1,70 @@
+$lf-text-primary: var(--lf-text-primary);
+$lf-text-secondary: var(--lf-text-secondary);
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.app-home {
+  main {
+    height: 100%;
+
+    article {
+      letter-spacing: 1.8px;
+
+      .title {
+        @include flex(row, center, center);
+        margin-bottom: 15px;
+
+        h1 {
+          margin-left: 10px;
+          font-size: 40px;
+        }
+      }
+
+      h2 {
+        color: $lf-text-primary;
+      }
+
+      .modules {
+        @include flex(row, space-between, stretch);
+        gap: 55px;
+
+        .module {
+          flex: 1;
+          height: 100%;
+
+          .description {
+            @include flex(column, start, center);
+          }
+
+          .topics {
+            height: 100%;
+            @include flex(row, start, start);
+            gap: 15px;
+
+            .topic {
+              @include flex(column, start, start);
+              list-style: none;
+                li {
+                  @include flex(column, start, start);
+                }
+            }
+          }
+        }
+      }
+
+      section {
+        @include flex(column, center, center);
+        margin: 15px 0;
+      }
+
+      h3, p {
+        color: $lf-text-secondary;
+      }
+    }
+  }
+}

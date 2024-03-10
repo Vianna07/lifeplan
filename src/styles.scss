@@ -35,11 +35,7 @@ $lifeplan-theme: mat.define-light-theme((
 @include mat.all-component-themes($lifeplan-theme);
 
 :root {
-  --lf-bg-primary: #1f1f1f;
-  --lf-bg-contrast: #0f0f0f;
-  --lf-text-primary: #eeeeee;
-  --lf-text-contrast: #a0a0a0;
-  --lf-primary-gradient: linear-gradient(to right, #a93fff, #ff008c)
+  --lf-primary-gradient: linear-gradient(to right, #a93fff, #ff008c);
 }
 
 * {
@@ -55,11 +51,70 @@ html, body {
 body {
   font-family: 'Open Sans', 'Montserrat', sans-serif;
   background-color: var(--lf-bg-primary);
+  overflow-y: hidden;
 }
 
-.lf-title {
-  background-image: var(--lf-primary-gradient);
+body.dark {
+  --lf-bg-primary: #1f1f1f;
+  --lf-bg-secondary: #0f0f0f;
+  --lf-text-primary: #eeeeee;
+  --lf-text-secondary: #a0a0a0;
+  --lf-bg-page: #7a7a7a;
+}
+
+body.light {
+  
+}
+
+@mixin text-gradient($color) {
+  background-image: var($color);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.lf-title {
+  @include text-gradient(--lf-primary-gradient);
+}
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.page {
+  height: 100%;
+  padding: 12px;
+  background: var(--lf-bg-page);
+
+  .container {
+      @include flex(column, start, center);
+      padding: 15px 25px 25px 25px;
+      height: 100%;
+      background-color: var(--lf-bg-primary);
+      border-radius: 15px;
+
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+          width: 8px;
+          border-radius: 15px;
+        }
+      &::-webkit-scrollbar-track {
+          border-radius: 15px;
+          background-color: var(--lf-bg-primary);
+        }
+      &::-webkit-scrollbar-thumb {
+          background-color: var(--lf-text-secondary);
+          border-radius: 15px;
+      }
+  }
+}
+
+.hr {
+  border-radius: 5px;
+  border: 1px solid var(--lf-text-secondary);
+  width: 100%;
 }
