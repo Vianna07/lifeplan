@@ -1,6 +1,7 @@
 $lf-text-primary: var(--lf-text-primary);
 $lf-text-secondary: var(--lf-text-secondary);
 
+
 @mixin flex($direction, $justify, $align) {
   display: flex;
   flex-direction: $direction;
