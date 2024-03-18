@@ -63,7 +63,11 @@ body.dark {
 }
 
 body.light {
-  
+
+}
+
+.mat-icon {
+  color: var(--lf-text-primary) !important;
 }
 
 @mixin text-gradient($color) {
@@ -77,39 +81,44 @@ body.light {
   @include text-gradient(--lf-primary-gradient);
 }
 
-@mixin flex($direction, $justify, $align) {
+@mixin flex($direction, $justify, $align, $gap) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
   align-items: $align;
+  gap: $gap;
 }
 
 .page {
+  position: relative;
+  top: 0;
+  left: 0;
   height: 100%;
-  padding: 12px;
-  background: var(--lf-bg-page);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 280px auto;
+  grid-template-rows: 100%;
 
-  .container {
-      @include flex(column, start, center);
-      padding: 15px 25px 25px 25px;
-      height: 100%;
-      background-color: var(--lf-bg-primary);
-      border-radius: 15px;
+  .page-content {
+    @include flex(column, start, center, 0);
+    padding: 15px 25px 25px 25px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--lf-bg-primary);
+    overflow-x: hidden;
 
-      overflow-y: auto;
+    overflow-y: auto;
 
-      &::-webkit-scrollbar {
-          width: 8px;
-          border-radius: 15px;
-        }
-      &::-webkit-scrollbar-track {
-          border-radius: 15px;
-          background-color: var(--lf-bg-primary);
-        }
-      &::-webkit-scrollbar-thumb {
-          background-color: var(--lf-text-secondary);
-          border-radius: 15px;
+    &::-webkit-scrollbar {
+        width: 8px;
       }
+    &::-webkit-scrollbar-track {
+        background-color: var(--lf-bg-primary);
+      }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 15px;
+        background-color: var(--lf-text-secondary);
+    }
   }
 }
 
@@ -117,4 +126,10 @@ body.light {
   border-radius: 5px;
   border: 1px solid var(--lf-text-secondary);
   width: 100%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .page {
+    grid-template-columns: 75px auto;
+  }
 }

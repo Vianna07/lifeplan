@@ -1,19 +1,20 @@
 <header class="app-header">
     <section class="logo">
-        <img  ngSrc="favicon.ico" width="32" height="32">
+        <img ngSrc="favicon.ico" width="32" height="32" alt="logo">
         <h1 class="lf-title" [routerLink]="" fragment="">
             Lifeplan
         </h1>
     </section>
     <aside class="menu">
-        <section class="topic" *ngFor="let topic of menuContent">
+        <section class="topic" *ngFor="let topic of menuContent" [ngClass]="{'hidden-content': topic.hiddenContent}">
             <section class="topic-title">
-                <mat-icon style="color: var(--lf-text-primary); margin-right: 10px;">{{topic.titleIcon}}</mat-icon>
-                <h1 class="lf-title" (click)="topic.showContent = !topic.showContent">
+                <mat-icon class="topic-icon">{{topic.titleIcon}}</mat-icon>
+                <h1 class="lf-title" (click)="topic.hiddenContent = !topic.hiddenContent">
                     {{topic.title}}
                 </h1>
+                <mat-icon class="arrow">keyboard_arrow_down</mat-icon>
             </section>
-            <ul>
+            <ul class="topic-content">
                 <li *ngFor="let topicContent of topic.content">
                     <a [routerLink]="topicContent.link"
                         fragment="{{topicContent.fragment}}">

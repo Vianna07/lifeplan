@@ -8,5 +8,5 @@ export interface MenuContent {
     title: string;
     titleIcon: string;
     content: MenuContentItem[];
-    showContent: boolean;
+    hiddenContent: boolean;
 }
