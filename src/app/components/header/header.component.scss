@@ -1,27 +1,47 @@
+$lf-bg-secondary: var(--lf-bg-secondary);
+$lf-text-primary: var(--lf-text-primary);
+$lf-text-secondary: var(--lf-text-secondary);
+$lf-primary-gradient: var(--lf-primary-gradient);
+
+@mixin flex($direction, $justify, $align, $gap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+@mixin after-border-animation() {
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    border-bottom: 2px solid;
+    border-image: $lf-primary-gradient;
+    border-image-slice: 1;
+    transition: width 0.35s ease-in-out, color 0.35s ease-in-out;
+  }
+}
+
 .app-header {
+    @include flex(column, start, center, 0);
     text-align: start;
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 280px;
-    background-color: var(--lf-bg-secondary);
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
+    background-color: $lf-bg-secondary;
+    transition: width 0.35s ease-in-out;
 
     .logo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex(row, center, center, 0);
         margin: 30px 30px 50px 30px;
 
-        .icon {
-            // color: var(--lf-text-primary) !important;
-            color: azure;
-            margin-right: 10px;
-        }
         h1 {
             cursor: pointer;
             font-size: 30px;
@@ -31,36 +51,39 @@
     }
 
     .menu {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+        @include flex(column, start, start, 20px);
 
         .topic {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            @include flex(column, start, start, 10px);
+            overflow: hidden;
 
             .topic-title {
-                display: flex;
+                @include flex(row, start, center, 0);
+                margin-bottom: 10px;
+
+                .topic-icon {
+                    margin-right: 10px;
+                }
 
                 h1 {
                     font-size: 18px;
-                    margin-bottom: 10px;
                     cursor: pointer;
+                }
+
+                .arrow {
+                    transition: transform 0.6s ease-in-out;
+                    transform: rotate(0);
                 }
             }
 
-            ul {
-                display: flex;
-                flex-direction: column;
+            .topic-content {
+                @include flex(column, start, start, 15px);
                 list-style-type: none;
-                padding: 0;
-                gap: 15px;
-                padding-bottom: 15px;
-                transition: 0.5s ease-in-out;
+                transition: height 0.6s ease-in-out;
                 overflow: hidden;
 
                 li {
+                    width: 100%;
                     font-weight: 500;
                     cursor: pointer;
 
@@ -70,27 +93,14 @@
                         position: relative;
                         text-decoration: none;
                         z-index: 1;
-                        color: var(--lf-text-secondary);
+                        color: $lf-text-secondary;
                         padding: 2px;
-
-                        &::after {
-                            content: '';
-                            position: absolute;
-                            z-index: -1;
-                            top: 0;
-                            right: 0;
-                            width: 0;
-                            height: 100%;
-                            border-bottom: 2px solid;
-                            border-image: var(--lf-primary-gradient);
-                            border-image-slice: 1;
-                            transition: width 0.35s ease-in-out, color 0.35s ease-in-out;
-                        }
+                        @include after-border-animation()
                     }
 
                     &:hover {
                         a {
-                            color: var(--lf-text-primary);
+                            color: $lf-text-primary;
                         }
                         a::after {
                             left: 0;
@@ -100,5 +110,66 @@
                 }
             }
         }
-      }
+    }
+}
+
+.hidden-content {
+    .arrow {
+        transform: rotate(-90deg) !important;
+    }
+    .topic-content {
+      height: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .app-header {
+        width: 75px;
+
+        .logo {
+            h1 {
+                display: none;
+            }
+        }
+
+        .menu {
+            .topic {
+                width: 100%;
+                height: 100%;
+                padding: 10px;
+                position: relative;
+                z-index: 1;
+                border-bottom: 2px solid transparent;
+                color: aqua;
+                cursor: pointer;
+                @include after-border-animation();
+
+                .topic-title {
+                    justify-content: center;
+                    margin: 0;
+
+                    .topic-icon {
+                        margin: 0;
+                    }
+
+                    h1 {
+                        display: none;
+                    }
+
+                    .arrow {
+                      display: none;
+                    }
+                }
+
+                .topic-content {
+                    display: none;
+                }
+
+                &:hover::after {
+                    left: 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
 }

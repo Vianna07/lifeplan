@@ -1,6 +1,6 @@
 import { MatIconModule } from '@angular/material/icon';
-import { NgFor, NgIf, NgOptimizedImage } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { NgClass, NgFor, NgOptimizedImage } from '@angular/common';
+import { AfterViewInit, Component, ElementRef, Inject, OnInit, Renderer2 } from '@angular/core';
 import { MenuContent } from './menu-content.interface';
 import { RouterLink } from '@angular/router';
 
@@ -10,19 +10,26 @@ import { RouterLink } from '@angular/router';
   imports: [
     NgFor,
     NgOptimizedImage,
-    NgIf,
+    NgClass,
     RouterLink,
     MatIconModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
   public menuContent!: MenuContent[];
 
-  constructor() {}
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+  ) {}
   ngOnInit(): void {
     this.__setMenuContent()
+  }
+
+  ngAfterViewInit(): void {
+    this.__setHeightOfTopicContent()
   }
 
   private __setMenuContent(): void {
@@ -40,7 +47,7 @@ export class HeaderComponent implements OnInit {
           { name: 'Ações', link: '/finance', fragment: 'stocks' },
           { name: 'Criptomoedas', link: '/finance', fragment: 'cryptocurrencies' }
         ],
-        showContent: true
+        hiddenContent: false
       },
       {
         title: 'Planejamento',
@@ -49,8 +56,17 @@ export class HeaderComponent implements OnInit {
           { name: 'Carreira', link: '/career', fragment: '' },
           { name: 'Investimentos', link: '/investments', fragment: '' }
         ],
-        showContent: true
+        hiddenContent: false
       }
     ]
+  }
+
+  private __setHeightOfTopicContent(): void {
+    const topicContentList = this.el.nativeElement.querySelectorAll('.topic-content')
+
+    topicContentList.forEach((topicContent: HTMLElement) => {
+      const topicContentHeight = topicContent.offsetHeight
+      this.renderer.setStyle(topicContent, 'height', `${topicContentHeight + 15}px`)
+    })
   }
 }
