@@ -1,36 +1,38 @@
-<app-header></app-header>
 <section class="app-home page">
-    <main>
-        <article class="container">
-            <section class="title">
-                <img src="favicon.ico" alt="LifePlan Icon" width="32" height="32">
-                <h1 class="lf-title">
-                    LifePlan: Planejando um Futuro Melhor
-                </h1>
-            </section>
-            <hr class="hr">
-            <section>
-                <h2>
-                    Introdução
-                </h2>
-                <p>
-                    LifePlan é uma plataforma projetada para ajudar os usuários a planejar e gerenciar diversos aspectos de suas vidas, visando um futuro mais promissor e bem-sucedido. Com foco em finanças, carreira e investimentos, o LifePlan oferece recursos, orientações e informações que capacitam os usuários a tomar decisões informadas e alcançar seus objetivos pessoais e profissionais.
-                </p>
-            </section>
-            <section class="modules">
-                <section class="module" *ngFor="let module of moduleContent">
-                    <section class="description">
-                        <h2>{{module.title}}</h2>
-                        <p>{{module.description}}</p>
+        <app-header></app-header>
+        <section class="page-content">
+            <main>
+                <article>
+                    <section class="title">
+                        <img src="favicon.ico" alt="LifePlan Icon" width="32" height="32">
+                        <h1 class="lf-title">
+                            LifePlan: Planejando um Futuro Melhor
+                        </h1>
                     </section>
-                    <section class="topics">
-                        <section class="topic" *ngFor="let topic of module.topics">
-                            <h3>{{topic.title}}</h3>
-                            <p>{{topic.description}}</p>
+                    <hr class="hr">
+                    <section>
+                        <h2>
+                            Introdução
+                        </h2>
+                        <p>
+                            LifePlan é uma plataforma projetada para ajudar os usuários a planejar e gerenciar diversos aspectos de suas vidas, visando um futuro mais promissor e bem-sucedido. Com foco em finanças, carreira e investimentos, o LifePlan oferece recursos, orientações e informações que capacitam os usuários a tomar decisões informadas e alcançar seus objetivos pessoais e profissionais.
+                        </p>
+                    </section>
+                    <section class="modules">
+                        <section class="module" *ngFor="let module of moduleContent">
+                            <section class="description">
+                                <h2>{{module.title}}</h2>
+                                <p>{{module.description}}</p>
+                            </section>
+                            <section class="topics">
+                                <section class="topic" *ngFor="let topic of module.topics">
+                                    <h3>{{topic.title}}</h3>
+                                    <p>{{topic.description}}</p>
+                                </section>
+                            </section>
                         </section>
                     </section>
-                </section>
-            </section>
-        </article>
-    </main>
+                </article>
+            </main>
+        </section>
 </section>
