@@ -1,14 +1,14 @@
-<header class="app-header">
+<header class="app-nav-menu-wrapper">
     <section class="logo">
-        <img ngSrc="favicon.ico" width="32" height="32" alt="logo">
-        <h1 class="lf-title" [routerLink]="" fragment="">
+        <img ngSrc="favicon.ico" width="32" height="32" alt="logo" [routerLink]="['/']">
+        <h1 class="lf-title" [routerLink]="['/']">
             Lifeplan
         </h1>
     </section>
     <aside class="menu">
         <section class="topic" *ngFor="let topic of menuContent" [ngClass]="{'hidden-content': topic.hiddenContent}">
             <section class="topic-title">
-                <mat-icon class="topic-icon">{{topic.titleIcon}}</mat-icon>
+                <mat-icon class="topic-icon" (click)="openSection(topic.sectionName)">{{topic.titleIcon}}</mat-icon>
                 <h1 class="lf-title" (click)="topic.hiddenContent = !topic.hiddenContent">
                     {{topic.title}}
                 </h1>
@@ -23,5 +23,8 @@
                 </li>
             </ul>
         </section>
+        <!-- <section >
+
+        </section> -->
     </aside>
 </header>

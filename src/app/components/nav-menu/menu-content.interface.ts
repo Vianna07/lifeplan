@@ -7,6 +7,7 @@ interface MenuContentItem {
 export interface MenuContent {
     title: string;
     titleIcon: string;
+    sectionName: string;
     content: MenuContentItem[];
     hiddenContent: boolean;
 }
