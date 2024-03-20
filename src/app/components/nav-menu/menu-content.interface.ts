@@ -10,4 +10,5 @@ export interface MenuContent {
     sectionName: string;
     content: MenuContentItem[];
     hiddenContent: boolean;
+    iconIsSelected: boolean;
 }
