@@ -1,5 +1,5 @@
 import { MatIconModule } from '@angular/material/icon';
-import { NgClass, NgFor, NgIf, NgOptimizedImage } from '@angular/common';
+import { NgClass, NgFor, NgOptimizedImage, NgStyle } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core';
 import { MenuContent } from './menu-content.interface';
 import { RouterLink } from '@angular/router';
@@ -11,15 +11,17 @@ import { RouterLink } from '@angular/router';
     NgFor,
     NgOptimizedImage,
     NgClass,
-    NgIf,
     RouterLink,
     MatIconModule,
+    NgStyle
   ],
   templateUrl: './nav-menu.component.html',
   styleUrl: './nav-menu.component.scss'
 })
 export class NavMenuComponent implements OnInit, AfterViewInit {
   public menuContent!: MenuContent[];
+  public openedSection!: MenuContent;
+  public isOpen: boolean = false;
   private sections!: object;
   private enableSections!: boolean;
 
@@ -41,7 +43,7 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
       {
         title: 'Finanças',
         titleIcon: 'monetization_on',
-        sectionName: 'Finance',
+        sectionName: 'finance',
         content: [
           { name: 'O que é?', link: '/finance', fragment: 'what-is-it' },
           { name: 'Poupança', link: '/finance', fragment: 'savings-account' },
@@ -52,19 +54,23 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
           { name: 'Ações', link: '/finance', fragment: 'stocks' },
           { name: 'Criptomoedas', link: '/finance', fragment: 'cryptocurrencies' }
         ],
-        hiddenContent: false
+        hiddenContent: false,
+        iconIsSelected: false
       },
       {
         title: 'Planejamento',
         titleIcon: 'manage_accounts',
-        sectionName: 'Planning',
+        sectionName: 'planning',
         content: [
           { name: 'Carreira', link: '/career', fragment: '' },
           { name: 'Investimentos', link: '/investments', fragment: '' }
         ],
-        hiddenContent: false
+        hiddenContent: false,
+        iconIsSelected: false,
       }
     ]
+
+    this.openedSection = this.menuContent[0]
   }
 
   private __setSections(): void {
@@ -74,14 +80,30 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
     }
   }
 
-  public getSection(sectionName): void {
+  public openSection(sectionName): void {
     if (this.enableSections) {
-      return this.sections[sectionName + 'Section']
+      const topic = this.sections[sectionName + 'Section']
+      this.openedSection = topic
+
+      if (this.__isDifferentTopic(topic)) {
+        this.isOpen = true
+        console.log(1);
+
+      } else {
+        this.isOpen = !this.isOpen
+        console.log(2);
+
+      }
+      console.log(3, this.isOpen);
+
     }
   }
 
-  public openSection(sectionName): void {
-    return this.sections[sectionName + 'Section']
+  private __isDifferentTopic(topic: MenuContent): boolean {
+    const topicJson = JSON.stringify(topic)
+    const currentTopicJson = JSON.stringify(this.openedSection)
+
+    return topicJson !== currentTopicJson
   }
 
   @HostListener('window:resize')
@@ -93,18 +115,31 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
 
       if (navMenuWidth == 75) {
         this.enableSections = true
+        this.isOpen = false
       } else {
         this.enableSections = false
+        this.isOpen = false
       }
     }
 
-    const topicContentList = this.el.nativeElement.querySelectorAll('.topic-content')
+    if (this.enableSections) {
+      this.__setHeight('topic-content')
+    }
+  }
 
-    topicContentList.forEach((topicContent: HTMLElement) => {
-      const topicContentHeight = topicContent.offsetHeight
-      if (topicContentHeight) {
-        this.renderer.setStyle(topicContent, 'height', `${topicContentHeight}px`)
-      }
+  private __setHeight(classOfElement: string): void {
+    const element = this.el.nativeElement.querySelectorAll(`.${classOfElement}`)
+
+    element.forEach((element: HTMLElement) => {
+      this.__defineHeightValue(element)
     })
+  }
+
+  private __defineHeightValue(element: HTMLElement): void {
+    const elementHeight = element.offsetHeight
+
+    if (elementHeight) {
+      this.renderer.setStyle(element, 'height', `${elementHeight}px`)
+    }
   }
 }
