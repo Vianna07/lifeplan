@@ -11,9 +11,9 @@ import { RouterLink } from '@angular/router';
     NgFor,
     NgOptimizedImage,
     NgClass,
+    NgStyle,
     RouterLink,
     MatIconModule,
-    NgStyle
   ],
   templateUrl: './nav-menu.component.html',
   styleUrl: './nav-menu.component.scss'
@@ -21,9 +21,8 @@ import { RouterLink } from '@angular/router';
 export class NavMenuComponent implements OnInit, AfterViewInit {
   public menuContent!: MenuContent[];
   public openedSection!: MenuContent;
-  public isOpen: boolean = false;
+  public sectionIsOpen: boolean = false;
   private sections!: object;
-  private enableSections!: boolean;
 
   constructor(
     private el: ElementRef,
@@ -36,6 +35,7 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.__onResize()
+    this.__setHeight('topic-content')
   }
 
   private __setMenuContent(): void {
@@ -75,27 +75,27 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
 
   private __setSections(): void {
     this.sections = {
-      financeSection: this.menuContent[0],
-      planningSection: this.menuContent[1],
+      finance: this.menuContent[0],
+      planning: this.menuContent[1],
     }
   }
 
   public openSection(sectionName): void {
-    if (this.enableSections) {
-      const topic = this.sections[sectionName + 'Section']
-      this.openedSection = topic
+    const topic = this.sections[sectionName]
 
-      if (this.__isDifferentTopic(topic)) {
-        this.isOpen = true
-        console.log(1);
-
+    if (this.__isDifferentTopic(topic)) {
+      if (!this.sectionIsOpen) {
+        this.openedSection = topic
+        this.sectionIsOpen = true
       } else {
-        this.isOpen = !this.isOpen
-        console.log(2);
-
+        this.sectionIsOpen = false
+        setTimeout(() => {
+          this.sectionIsOpen = true
+          this.openedSection = topic
+        }, 350)
       }
-      console.log(3, this.isOpen);
-
+    } else {
+      this.sectionIsOpen = !this.sectionIsOpen
     }
   }
 
@@ -108,21 +108,14 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
 
   @HostListener('window:resize')
   private __onResize(): void {
-    const navMenu = this.el.nativeElement.querySelector('.app-nav-menu-wrapper');
+    const body = this.el.nativeElement.ownerDocument.body
 
-    if (navMenu) {
-      const navMenuWidth = navMenu.offsetWidth
+    if (body.offsetWidth <= 768) {
 
-      if (navMenuWidth == 75) {
-        this.enableSections = true
-        this.isOpen = false
-      } else {
-        this.enableSections = false
-        this.isOpen = false
-      }
-    }
-
-    if (this.enableSections) {
+    } else if (body.offsetWidth <= 1024) {
+      this.__setHeight('topic-content')
+    } else {
+      this.sectionIsOpen = false
       this.__setHeight('topic-content')
     }
   }

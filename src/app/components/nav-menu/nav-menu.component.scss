@@ -45,69 +45,6 @@ $lf-primary-gradient: var(--lf-primary-gradient);
   }
 }
 
-@mixin menu-styles() {
-  @include flex(column, start, start, 20px);
-
-  .topic {
-      @include flex(column, start, start, 10px);
-      overflow: hidden;
-
-      .topic-title {
-          @include flex(row, start, center, 0);
-          margin-bottom: 10px;
-
-          .topic-icon {
-              margin-right: 10px;
-          }
-
-          h1 {
-              font-size: 18px;
-              cursor: pointer;
-          }
-
-          .arrow {
-              transition: transform 0.5s ease-in-out;
-              transform: rotate(0);
-          }
-      }
-
-      .topic-content {
-          @include flex(column, start, start, 0);
-          list-style-type: none;
-          transition: height 0.5s ease-in-out;
-          overflow: hidden;
-
-          li {
-              padding: 7.5px 0;
-              width: 100%;
-              font-weight: 500;
-              cursor: pointer;
-
-              a {
-                  width: 100%;
-                  height: 100%;
-                  position: relative;
-                  text-decoration: none;
-                  z-index: 1;
-                  color: $lf-text-secondary;
-                  padding: 2px;
-                  @include border-animation()
-              }
-
-              &:hover {
-                  a {
-                      color: $lf-text-primary;
-                  }
-                  a::after {
-                      left: 0;
-                      width: 100%;
-                  }
-              }
-          }
-      }
-  }
-}
-
 .app-nav-menu-wrapper {
     @include flex(column, start, center, 0);
     text-align: start;
@@ -118,6 +55,7 @@ $lf-primary-gradient: var(--lf-primary-gradient);
     width: 280px;
     background-color: $lf-bg-secondary;
     transition: width 0.35s ease-in-out;
+    white-space: nowrap;
 
     .logo {
         @include flex(row, center, center, 0);
@@ -131,24 +69,89 @@ $lf-primary-gradient: var(--lf-primary-gradient);
         }
     }
 
-    .menu {
-      @include menu-styles()
+    .nav, .section {
+      @include flex(column, start, start, 20px);
+
+      .topic {
+          @include flex(column, start, start, 10px);
+          overflow: hidden;
+
+          .topic-title {
+              @include flex(row, start, center, 0);
+              margin-bottom: 10px;
+
+              .topic-icon {
+                  margin-right: 10px;
+                  pointer-events: none;
+                  height: auto;
+                  width: auto;
+              }
+
+              h1 {
+                  font-size: 18px;
+                  cursor: pointer;
+              }
+
+              .arrow {
+                  transition: transform 0.5s ease-in-out;
+                  transform: rotate(0);
+              }
+          }
+
+          .topic-content {
+              @include flex(column, start, start, 0);
+              list-style-type: none;
+              transition: height 0.5s ease-in-out;
+              overflow: hidden;
+
+              li {
+                  padding: 7.5px 0;
+                  width: 100%;
+                  font-weight: 500;
+                  cursor: pointer;
+
+                  a {
+                      width: 100%;
+                      height: 100%;
+                      position: relative;
+                      text-decoration: none;
+                      z-index: 1;
+                      color: $lf-text-secondary;
+                      padding: 2px;
+                      @include border-animation()
+                  }
+
+                  &:hover {
+                      a {
+                          color: $lf-text-primary;
+                      }
+                      a::after {
+                          left: 0;
+                          width: 100%;
+                        }
+                    }
+                }
+            }
+        }
     }
-}
 
-.section {
-  @include menu-styles();
+    .nav {
+        z-index: 1;
+    }
 
-  position: absolute;
-  height: 100%;
-  left: 75px;
-  width: 0px;
-  background-color: $lf-bg-secondary;
-  @include flex(row, center, start, 0);
-  transition: width 0.3s ease-in-out;
-  width: 200px;
-  opacity: 0.99;
-  overflow: hidden;
+    .section {
+      position: absolute;
+      height: 100%;
+      top: 0;
+      left: 75px;
+      width: 0px;
+      background-color: $lf-bg-secondary;
+      @include flex(row, center, start, 0);
+      transition: width 0.3s ease-in-out;
+      width: 200px;
+      opacity: 0.99;
+      overflow: hidden;
+    }
 }
 
 .hidden-content {
@@ -173,15 +176,18 @@ $lf-primary-gradient: var(--lf-primary-gradient);
             }
         }
 
-        .menu {
+        .nav {
             .topic {
               @include icon-border-animation();
+              padding: 0;
 
                 .topic-title {
                     justify-content: center;
                     margin: 0;
 
                     .topic-icon {
+                        padding: 10px;
+                        pointer-events: all !important;
                         margin: 0;
                     }
 
@@ -212,4 +218,8 @@ $lf-primary-gradient: var(--lf-primary-gradient);
           width: 100% !important;
         }
       }
+}
+
+@media only screen and (max-width: 768px) {
+
 }
