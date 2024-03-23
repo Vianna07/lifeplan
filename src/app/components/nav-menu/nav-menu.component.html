@@ -1,46 +1,61 @@
 <header class="app-nav-menu-wrapper">
   <section class="logo">
-      <img ngSrc="favicon.ico" width="32" height="32" alt="logo" [routerLink]="['/']">
-      <h1 class="lf-title" [routerLink]="['/']">
-          Lifeplan
+      <img ngSrc="favicon.ico"
+           width="32" height="32"
+           alt="logo"
+           [routerLink]="['/']">
+      <h1 class="lf-title"
+          [routerLink]="['/']">
+        Lifeplan
       </h1>
   </section>
   <aside class="menu">
-      <section class="topic" *ngFor="let topic of menuContent" [ngClass]="{'hidden-content': topic.hiddenContent}" (click)="openSection(topic.sectionName)">
-          <section class="topic-title">
-              <mat-icon class="topic-icon">{{topic.titleIcon}}</mat-icon>
-              <h1 class="lf-title" (click)="topic.hiddenContent = !topic.hiddenContent">
-                  {{topic.title}}
-              </h1>
-              <mat-icon class="arrow">keyboard_arrow_down</mat-icon>
-          </section>
-          <ul class="topic-content">
-              <li *ngFor="let topicContent of topic.content">
-                  <a [routerLink]="topicContent.link"
-                      fragment="{{topicContent.fragment}}">
-                  {{topicContent.name}}
-                  </a>
-              </li>
-          </ul>
+    <section class="nav">
+      <section class="topic"
+               *ngFor="let topic of menuContent"
+               [ngClass]="{'hidden-content': topic.hiddenContent}">
+        <section class="topic-title">
+            <mat-icon class="topic-icon"
+                      (click)="openSection(topic.sectionName)">
+              {{topic.titleIcon}}
+            </mat-icon>
+            <h1 class="lf-title"
+                (click)="topic.hiddenContent = !topic.hiddenContent">
+                {{topic.title}}
+            </h1>
+            <mat-icon class="arrow">keyboard_arrow_down</mat-icon>
+        </section>
+        <ul class="topic-content">
+            <li *ngFor="let topicContent of topic.content">
+                <a [routerLink]="topicContent.link"
+                    fragment="{{topicContent.fragment}}">
+                {{topicContent.name}}
+                </a>
+            </li>
+        </ul>
+    </section>
+    </section>
+    <section class="section"
+             [ngStyle]="{'width': sectionIsOpen ? '200px' : 0}">
+      <section class="topic"
+               [ngClass]="{'hidden-content': openedSection.hiddenContent}">
+        <section class="topic-title">
+            <h1 class="lf-title"
+                (click)="openedSection.hiddenContent = !openedSection.hiddenContent">
+                {{openedSection.title}}
+            </h1>
+            <mat-icon class="arrow">keyboard_arrow_down</mat-icon>
+        </section>
+        <ul class="topic-content">
+            <li *ngFor="let topicContent of openedSection.content">
+                <a [routerLink]="topicContent.link"
+                   fragment="{{topicContent.fragment}}">
+                {{topicContent.name}}
+                </a>
+            </li>
+        </ul>
       </section>
+    </section>
   </aside>
 </header>
 
-<section class="section" [ngStyle]="{'width': isOpen ? '200px' : 0}">
-  <section class="topic" [ngClass]="{'hidden-content': openedSection.hiddenContent}">
-    <section class="topic-title">
-        <h1 class="lf-title" (click)="openedSection.hiddenContent = !openedSection.hiddenContent">
-            {{openedSection.title}}
-        </h1>
-        <mat-icon class="arrow">keyboard_arrow_down</mat-icon>
-    </section>
-    <ul class="topic-content">
-        <li *ngFor="let topicContent of openedSection.content">
-            <a [routerLink]="topicContent.link"
-                fragment="{{topicContent.fragment}}">
-            {{topicContent.name}}
-            </a>
-        </li>
-    </ul>
-  </section>
-</section>
