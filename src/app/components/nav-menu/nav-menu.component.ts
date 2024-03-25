@@ -1,7 +1,7 @@
 import { MatIconModule } from '@angular/material/icon';
-import { NgClass, NgFor, NgOptimizedImage, NgStyle } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core';
-import { MenuContent } from './menu-content.interface';
+import { NgClass, NgFor, NgIf, NgOptimizedImage, NgStyle } from '@angular/common';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, SimpleChanges } from '@angular/core';
+import { Module } from './module.interface';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -11,7 +11,6 @@ import { RouterLink } from '@angular/router';
     NgFor,
     NgOptimizedImage,
     NgClass,
-    NgStyle,
     RouterLink,
     MatIconModule,
   ],
@@ -19,27 +18,28 @@ import { RouterLink } from '@angular/router';
   styleUrl: './nav-menu.component.scss'
 })
 export class NavMenuComponent implements OnInit, AfterViewInit {
-  public menuContent!: MenuContent[];
-  public openedSection!: MenuContent;
+  public modules!: Module[];
+  public openedModule!: Module;
   public sectionIsOpen: boolean = false;
   private sections!: object;
 
   constructor(
-    private el: ElementRef,
+    public el: ElementRef,
     private renderer: Renderer2,
   ) {}
   ngOnInit(): void {
-    this.__setMenuContent()
+    this.__setModules()
+    this.__setModuleTabindex()
+    this.openedModule = this.modules[0]
     this.__setSections()
   }
 
   ngAfterViewInit(): void {
-    this.__onResize()
-    this.__setHeight('topic-content')
+    this.__setHeightOf('module-content')
   }
 
-  private __setMenuContent(): void {
-    this.menuContent = [
+  private __setModules(): void {
+    this.modules = [
       {
         title: 'Finanças',
         titleIcon: 'monetization_on',
@@ -55,7 +55,8 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
           { name: 'Criptomoedas', link: '/finance', fragment: 'cryptocurrencies' }
         ],
         hiddenContent: false,
-        iconIsSelected: false
+        iconIsSelected: false,
+        tabindex: 0
       },
       {
         title: 'Planejamento',
@@ -63,67 +64,64 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
         sectionName: 'planning',
         content: [
           { name: 'Carreira', link: '/career', fragment: '' },
-          { name: 'Investimentos', link: '/investments', fragment: '' }
+          { name: 'Investimentos', link: '/investments', fragment: '' },
         ],
         hiddenContent: false,
         iconIsSelected: false,
+        tabindex: 0
       }
     ]
+  }
 
-    this.openedSection = this.menuContent[0]
+  private __setModuleTabindex(): void {
+    this.modules.forEach((module, index) => {
+      try {
+        module.tabindex = (this.modules[index - 1].tabindex)  + (this.modules[index -1].content.length) + 1
+      } catch (e) {
+        module.tabindex = 1
+      }
+    })
   }
 
   private __setSections(): void {
     this.sections = {
-      finance: this.menuContent[0],
-      planning: this.menuContent[1],
+      finance: this.modules[0],
+      planning: this.modules[1],
     }
   }
 
   public openSection(sectionName): void {
-    const topic = this.sections[sectionName]
+    const module = this.sections[sectionName]
+    this.__setHeightOf('section-module-content')
 
-    if (this.__isDifferentTopic(topic)) {
+    if (this.__isDifferentModule(module)) {
       if (!this.sectionIsOpen) {
-        this.openedSection = topic
+        this.openedModule = module
         this.sectionIsOpen = true
       } else {
         this.sectionIsOpen = false
         setTimeout(() => {
+          this.openedModule = module
           this.sectionIsOpen = true
-          this.openedSection = topic
-        }, 350)
+        }, 300)
       }
+
     } else {
       this.sectionIsOpen = !this.sectionIsOpen
     }
   }
 
-  private __isDifferentTopic(topic: MenuContent): boolean {
-    const topicJson = JSON.stringify(topic)
-    const currentTopicJson = JSON.stringify(this.openedSection)
+  private __isDifferentModule(module: Module): boolean {
+    const moduleJson = JSON.stringify(module)
+    const currentModuleJson = JSON.stringify(this.openedModule)
 
-    return topicJson !== currentTopicJson
+    return moduleJson !== currentModuleJson
   }
 
-  @HostListener('window:resize')
-  private __onResize(): void {
-    const body = this.el.nativeElement.ownerDocument.body
+  private __setHeightOf(element: string): void {
+    const elements = this.el.nativeElement.querySelectorAll(`.${element}`)
 
-    if (body.offsetWidth <= 768) {
-
-    } else if (body.offsetWidth <= 1024) {
-      this.__setHeight('topic-content')
-    } else {
-      this.sectionIsOpen = false
-      this.__setHeight('topic-content')
-    }
-  }
-
-  private __setHeight(classOfElement: string): void {
-    const element = this.el.nativeElement.querySelectorAll(`.${classOfElement}`)
-
-    element.forEach((element: HTMLElement) => {
+    elements.forEach((element: HTMLElement) => {
       this.__defineHeightValue(element)
     })
   }
@@ -133,6 +131,9 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
 
     if (elementHeight) {
       this.renderer.setStyle(element, 'height', `${elementHeight}px`)
+    } else {
+      const children = element.querySelectorAll('li')
+      this.renderer.setStyle(element, 'height', `${children.length * 37}px`)
     }
   }
 }

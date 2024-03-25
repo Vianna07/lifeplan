@@ -1,14 +1,15 @@
-interface MenuContentItem {
+interface ModuleContent {
     name: string;
     link: string;
     fragment: string;
 }
 
-export interface MenuContent {
+export interface Module {
     title: string;
     titleIcon: string;
     sectionName: string;
-    content: MenuContentItem[];
+    content: ModuleContent[];
     hiddenContent: boolean;
     iconIsSelected: boolean;
+    tabindex: number;
 }
