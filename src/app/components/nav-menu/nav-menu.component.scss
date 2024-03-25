@@ -2,6 +2,7 @@ $lf-bg-secondary: var(--lf-bg-secondary);
 $lf-text-primary: var(--lf-text-primary);
 $lf-text-secondary: var(--lf-text-secondary);
 $lf-primary-gradient: var(--lf-primary-gradient);
+$section-border: 1.5px solid $lf-text-primary;
 
 @mixin flex($direction, $justify, $align, $gap) {
     display: flex;
@@ -9,6 +10,21 @@ $lf-primary-gradient: var(--lf-primary-gradient);
     justify-content: $justify;
     align-items: $align;
     gap: $gap;
+}
+
+@mixin scroll() {
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+      width: 8px;
+    }
+  &::-webkit-scrollbar-track {
+      background-color: $lf-bg-secondary;
+    }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+      background-color: $lf-text-secondary;
+  }
 }
 
 @mixin border-animation() {
@@ -45,6 +61,36 @@ $lf-primary-gradient: var(--lf-primary-gradient);
   }
 }
 
+@mixin default-module-responsive() {
+  .module {
+    @include icon-border-animation();
+    padding: 0;
+
+      .module-title {
+          justify-content: center;
+          margin: 0;
+
+          .module-icon {
+              padding: 10px;
+              pointer-events: all;
+              margin: 0;
+          }
+
+          h1 {
+              display: none;
+          }
+
+          .arrow {
+            display: none;
+          }
+      }
+
+      .module-content {
+          display: none;
+      }
+  }
+}
+
 .app-nav-menu-wrapper {
     @include flex(column, start, center, 0);
     text-align: start;
@@ -69,18 +115,20 @@ $lf-primary-gradient: var(--lf-primary-gradient);
         }
     }
 
-    .nav, .section {
+    .nav {
       @include flex(column, start, start, 20px);
+    }
 
-      .topic {
+    .nav, .section {
+      .module {
           @include flex(column, start, start, 10px);
           overflow: hidden;
 
-          .topic-title {
+          .module-title {
               @include flex(row, start, center, 0);
               margin-bottom: 10px;
 
-              .topic-icon {
+              .module-icon {
                   margin-right: 10px;
                   pointer-events: none;
                   height: auto;
@@ -98,11 +146,12 @@ $lf-primary-gradient: var(--lf-primary-gradient);
               }
           }
 
-          .topic-content {
+          .module-content, .section-module-content {
               @include flex(column, start, start, 0);
               list-style-type: none;
               transition: height 0.5s ease-in-out;
               overflow: hidden;
+              width: auto;
 
               li {
                   padding: 7.5px 0;
@@ -135,22 +184,19 @@ $lf-primary-gradient: var(--lf-primary-gradient);
         }
     }
 
-    .nav {
-        z-index: 1;
-    }
-
     .section {
-      position: absolute;
-      height: 100%;
-      top: 0;
-      left: 75px;
-      width: 0px;
+      display: none;
+      position: fixed;
       background-color: $lf-bg-secondary;
-      @include flex(row, center, start, 0);
-      transition: width 0.3s ease-in-out;
-      width: 200px;
       opacity: 0.99;
       overflow: hidden;
+      @include scroll();
+
+      .close {
+        @include flex(row, center, center, 0);
+        height: 10px;
+        width:  10px;
+      }
     }
 }
 
@@ -158,12 +204,12 @@ $lf-primary-gradient: var(--lf-primary-gradient);
     .arrow {
         transform: rotate(-90deg) !important;
     }
-    .topic-content {
+    .module-content, .section-module-content {
       height: 0 !important;
     }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
     .app-nav-menu-wrapper {
         width: 75px;
 
@@ -177,42 +223,31 @@ $lf-primary-gradient: var(--lf-primary-gradient);
         }
 
         .nav {
-            .topic {
-              @include icon-border-animation();
-              padding: 0;
+          @include default-module-responsive()
+        }
 
-                .topic-title {
-                    justify-content: center;
-                    margin: 0;
+        .section {
+          @include flex(row, center, start, 0);
+          transition: width 0.3s ease-in-out;
+          top: 0;
+          left: 75px;
+          width: 0;
+          height: 100%;
+          padding-top: 30px;
+          border-left: $section-border;
 
-                    .topic-icon {
-                        padding: 10px;
-                        pointer-events: all !important;
-                        margin: 0;
-                    }
+          .close {
+            display: none;
+          }
+        }
 
-                    h1 {
-                        display: none;
-                    }
-
-                    .arrow {
-                      display: none;
-                    }
-                }
-
-                .topic-content {
-                    display: none;
-                }
-            }
+        .open {
+          width: 200px !important;
         }
       }
 
-      .section {
-        padding-top: 30px;
-        border-left: 1.5px solid $lf-text-primary;
-      }
 
-      .selected ~ .topic {
+      .selected ~ .module {
         &::after {
           left: 0 !important;
           width: 100% !important;
@@ -221,5 +256,65 @@ $lf-primary-gradient: var(--lf-primary-gradient);
 }
 
 @media only screen and (max-width: 768px) {
+  .app-nav-menu-wrapper {
+    @include flex(row, space-between, center, 0);
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
 
+    .logo {
+      margin: 0;
+      margin-left: 20px;
+      height: 100%;
+
+        img {
+            cursor: pointer;
+            width: 28px;
+            height: 28px;
+        }
+        h1 {
+          display: inline;
+          font-size: 22px
+        }
+    }
+
+    .nav {
+      @include flex(row, center, center, 20px);
+      @include default-module-responsive();
+      margin-right: 20px;
+    }
+
+    .section {
+      @include flex(row, space-between, start, 0);
+      transition: height 0.3s ease-in-out, padding 0.3s ease-in-out;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      height: 0;
+      border-top: $section-border;
+
+      .arrow {
+        display: none;
+      }
+
+
+      .close {
+        padding: 5px;
+        cursor: pointer;
+      }
+    }
+
+    .open {
+      padding: 25px 20px;
+      height: 200px !important;
+    }
+  }
+
+
+  .selected ~ .module {
+    &::after {
+      left: 0 !important;
+      width: 100% !important;
+    }
+  }
 }
