@@ -28,8 +28,8 @@ export class AppComponent implements OnInit {
     if (theme) {
       this.renderer.addClass(body, theme)
     } else {
-      this.renderer.addClass(body, 'dark')
-      this.storage.set('theme', 'dark');
+      this.renderer.addClass(body, 'light')
+      this.storage.set('theme', 'light');
     }
   }
 }
