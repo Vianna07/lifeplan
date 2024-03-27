@@ -1,6 +1,6 @@
 import { MatIconModule } from '@angular/material/icon';
 import { NgClass, NgFor, NgIf, NgOptimizedImage, NgStyle } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { Module } from './module.interface';
 import { RouterLink } from '@angular/router';
 
@@ -134,6 +134,24 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
     } else {
       const children = element.querySelectorAll('li')
       this.renderer.setStyle(element, 'height', `${children.length * 37}px`)
+    }
+  }
+
+  @HostListener('document:click', ['$event'])
+  private __onClick(event: MouseEvent): void {
+    if (!this.el.nativeElement.contains(event.target)) {
+      this.sectionIsOpen = false
+    }
+  }
+
+  @HostListener('keyup', ['$event'])
+  private __onKeyUp(event: KeyboardEvent): void {
+    const targetElement = event.target as HTMLElement
+
+    if (event.key === 'Escape' || event.key === 'Backspace') {
+      this.sectionIsOpen = false
+    } else if (event.key === 'Enter') {
+      targetElement.click()
     }
   }
 }

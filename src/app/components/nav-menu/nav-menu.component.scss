@@ -43,6 +43,11 @@ $section-border: 1.5px solid $lf-text-primary;
   }
 }
 
+@mixin complements-after-effect() {
+  left: 0;
+  width: 100%;
+}
+
 @mixin icon-border-animation() {
   right: 0;
   top: 0;
@@ -56,8 +61,7 @@ $section-border: 1.5px solid $lf-text-primary;
   @include border-animation();
 
   &:hover::after {
-    left: 0;
-    width: 100%;
+    @include complements-after-effect()
   }
 }
 
@@ -160,8 +164,6 @@ $section-border: 1.5px solid $lf-text-primary;
                   cursor: pointer;
 
                   a {
-                      width: 100%;
-                      height: 100%;
                       position: relative;
                       text-decoration: none;
                       z-index: 1;
@@ -170,13 +172,23 @@ $section-border: 1.5px solid $lf-text-primary;
                       @include border-animation()
                   }
 
+                  a:focus-visible {
+                    outline: none;
+
+                  }
+
+                  a:focus-visible::after{
+                    & {
+                      @include complements-after-effect()
+                    }
+                  }
+
                   &:hover {
                       a {
                           color: $lf-text-primary;
                       }
                       a::after {
-                          left: 0;
-                          width: 100%;
+                          @include complements-after-effect()
                         }
                     }
                 }
@@ -292,6 +304,12 @@ $section-border: 1.5px solid $lf-text-primary;
       width: 100%;
       height: 0;
       border-top: $section-border;
+
+      .module {
+        .module-title {
+          pointer-events: none;
+        }
+      }
 
       .arrow {
         display: none;
