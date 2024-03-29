@@ -59,9 +59,9 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
         tabindex: 0
       },
       {
-        title: 'Planejamento',
+        title: 'Projeto de vida',
         titleIcon: 'manage_accounts',
-        sectionName: 'planning',
+        sectionName: 'lifeProject',
         content: [
           { name: 'Carreira', link: '/career', fragment: '' },
           { name: 'Investimentos', link: '/investments', fragment: '' },
@@ -74,7 +74,7 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
   }
 
   private __setModuleTabindex(): void {
-    this.modules.forEach((module, index) => {
+    this.modules.forEach((module: Module, index: number) => {
       try {
         module.tabindex = (this.modules[index - 1].tabindex)  + (this.modules[index -1].content.length) + 1
       } catch (e) {
@@ -86,13 +86,14 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
   private __setSections(): void {
     this.sections = {
       finance: this.modules[0],
-      planning: this.modules[1],
+      lifeProject: this.modules[1],
     }
   }
 
-  public openSection(sectionName): void {
-    const module = this.sections[sectionName]
-    this.__setHeightOf('section-module-content')
+  public openSection(sectionName: string): void {
+    const module: Module = this.sections[sectionName]
+    this.__deselectAllModules()
+    module.iconIsSelected = true
 
     if (this.__isDifferentModule(module)) {
       if (!this.sectionIsOpen) {
@@ -103,12 +104,18 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
         setTimeout(() => {
           this.openedModule = module
           this.sectionIsOpen = true
-        }, 300)
+        }, 350)
       }
-
+      this.__setHeightOf('section-module-content', module)
     } else {
       this.sectionIsOpen = !this.sectionIsOpen
     }
+  }
+
+  private __deselectAllModules(): void {
+    this.modules.forEach((module: Module) => {
+      module.iconIsSelected = false
+    })
   }
 
   private __isDifferentModule(module: Module): boolean {
@@ -118,23 +125,24 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
     return moduleJson !== currentModuleJson
   }
 
-  private __setHeightOf(element: string): void {
+  private __setHeightOf(element: string,  module: Module | null = null): void {
     const elements = this.el.nativeElement.querySelectorAll(`.${element}`)
 
     elements.forEach((element: HTMLElement) => {
-      this.__defineHeightValue(element)
+      this.__defineHeightValue(element, module)
     })
   }
 
-  private __defineHeightValue(element: HTMLElement): void {
-    const elementHeight = element.offsetHeight
+  private __defineHeightValue(element: HTMLElement, module: Module | null = null): void {
+    let children;
 
-    if (elementHeight) {
-      this.renderer.setStyle(element, 'height', `${elementHeight}px`)
+    if (module) {
+      children = module.content
     } else {
-      const children = element.querySelectorAll('li')
-      this.renderer.setStyle(element, 'height', `${children.length * 37}px`)
+      children = element.querySelectorAll('li')
     }
+
+    this.renderer.setStyle(element, 'height', `${children.length * 37}px`)
   }
 
   @HostListener('document:click', ['$event'])
