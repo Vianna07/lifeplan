@@ -13,8 +13,6 @@ $lf-text-secondary: var(--lf-text-secondary);
     height: 100%;
 
     article {
-      letter-spacing: 1.8px;
-
       .title {
         @include flex(row, center, center);
         margin-bottom: 15px;
@@ -23,10 +21,6 @@ $lf-text-secondary: var(--lf-text-secondary);
           margin-left: 10px;
           font-size: 40px;
         }
-      }
-
-      h2 {
-        color: $lf-text-primary;
       }
 
       .modules {
@@ -60,10 +54,6 @@ $lf-text-secondary: var(--lf-text-secondary);
       section {
         @include flex(column, center, center);
         margin: 15px 0;
-      }
-
-      h3, p {
-        color: $lf-text-secondary;
       }
     }
   }

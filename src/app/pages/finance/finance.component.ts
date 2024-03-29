@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../../components/header/header.component';
+import { NavMenuComponent } from '../../components/nav-menu/nav-menu.component';
+
 
 @Component({
   selector: 'app-finance',
   standalone: true,
   imports: [
-    HeaderComponent
+    NavMenuComponent
   ],
   templateUrl: './finance.component.html',
   styleUrl: './finance.component.scss'
