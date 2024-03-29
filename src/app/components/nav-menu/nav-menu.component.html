@@ -15,7 +15,7 @@
     <section class="nav">
       <section class="module"
                *ngFor="let module of modules; index as moduleIndex"
-               [ngClass]="{'hidden-content': module.hiddenContent}">
+               [ngClass]="{'hidden-content': module.hiddenContent, 'selected': module.iconIsSelected && sectionIsOpen}">
         <section class="module-title">
             <mat-icon class="module-icon"
                       (click)="openSection(module.sectionName)"
