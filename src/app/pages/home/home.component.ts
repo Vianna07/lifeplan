@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from '../../components/header/header.component';
+import { NavMenuComponent } from '../../components/nav-menu/nav-menu.component';
 import { NgFor, NgOptimizedImage } from '@angular/common';
 import { moduleContent } from './module-content.interface';
 
@@ -7,7 +7,7 @@ import { moduleContent } from './module-content.interface';
   selector: 'app-home',
   standalone: true,
   imports: [
-    HeaderComponent,
+    NavMenuComponent,
     NgOptimizedImage,
     NgFor,
   ],
@@ -55,5 +55,4 @@ export class HomeComponent implements OnInit {
       }
     ]
   }
-
 }

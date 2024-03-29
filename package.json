@@ -7,7 +7,8 @@
     "build": "ng build --optimization",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:lifeplan": "node dist/lifeplan/server/server.mjs"
+    "serve:ssr:lifeplan": "node dist/lifeplan/server/server.mjs",
+    "deploy:gh-pages": "ng deploy --dir=dist/lifeplan/browser --branch=gh-pages"
   },
   "private": true,
   "dependencies": {
