@@ -3,7 +3,6 @@
 @use '@angular/material' as mat;
 @include mat.core();
 
-
 // Available color palettes: https://material.io/design/color/
 $lifeplan-primary: mat.define-palette(mat.$indigo-palette);
 $lifeplan-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
@@ -48,11 +47,6 @@ html, body {
   height: 100%;
 }
 
-body {
-  font-family: 'Open Sans', 'Montserrat', sans-serif;
-  background-color: var(--lf-bg-primary);
-  overflow-y: hidden;
-}
 
 body.dark {
   --lf-bg-primary: #1f1f1f;
@@ -63,58 +57,97 @@ body.dark {
 }
 
 body.light {
-  
+
+}
+
+$lf-bg-primary: var(--lf-bg-primary);
+$lf-bg-secondary: var(--lf-bg-secondary);
+$lf-text-primary: var(--lf-text-primary);
+$lf-text-secondary: var(--lf-text-secondary);
+$lf-bg-page: var(--lf-bg-page);
+$lf-primary-gradient: var(--lf-primary-gradient);
+
+body {
+  font-family: 'Open Sans', 'Montserrat', sans-serif;
+  background-color: $lf-bg-primary;
+  overflow-y: hidden;
+}
+
+.mat-icon {
+  color: $lf-text-primary !important;
 }
 
 @mixin text-gradient($color) {
-  background-image: var($color);
+  background-image: $color;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .lf-title {
-  @include text-gradient(--lf-primary-gradient);
+  @include text-gradient($lf-primary-gradient);
 }
 
-@mixin flex($direction, $justify, $align) {
+@mixin flex($direction, $justify, $align, $gap) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
   align-items: $align;
+  gap: $gap;
+}
+
+@mixin scroll() {
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+      width: 8px;
+    }
+  &::-webkit-scrollbar-track {
+      background-color: $lf-bg-primary;
+    }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+      background-color: $lf-text-secondary;
+  }
 }
 
 .page {
+  position: relative;
+  top: 0;
+  left: 0;
   height: 100%;
-  padding: 12px;
-  background: var(--lf-bg-page);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 280px auto;
+  grid-template-rows: 100%;
 
-  .container {
-      @include flex(column, start, center);
-      padding: 15px 25px 25px 25px;
-      height: 100%;
-      background-color: var(--lf-bg-primary);
-      border-radius: 15px;
+  .page-content {
+    @include flex(column, start, center, 0);
+    padding: 15px 25px 25px 25px;
+    width: 100%;
+    height: 100%;
+    background-color: $lf-bg-primary;
+    overflow-x: hidden;
 
-      overflow-y: auto;
-
-      &::-webkit-scrollbar {
-          width: 8px;
-          border-radius: 15px;
-        }
-      &::-webkit-scrollbar-track {
-          border-radius: 15px;
-          background-color: var(--lf-bg-primary);
-        }
-      &::-webkit-scrollbar-thumb {
-          background-color: var(--lf-text-secondary);
-          border-radius: 15px;
-      }
+    @include scroll()
   }
 }
 
 .hr {
   border-radius: 5px;
-  border: 1px solid var(--lf-text-secondary);
+  border: 1px solid $lf-text-secondary;
   width: 100%;
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .page {
+    grid-template-columns: 75px auto;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .page {
+    grid-template-columns: auto;
+    grid-template-rows: 50px auto;
+  }
 }
