@@ -1,0 +1,218 @@
+[
+{
+  title: "Oque é:", 
+  description: " As finanças são a gestão inteligente dos recursos financeiros, desde decisões pessoais até estratégias empresariais. Elas abrangem orçamentação, investimentos, gestão de dívidas e muito mais, tanto em nível pessoal quanto corporativo. Nos mercados financeiros, compreender oferta, demanda e diversificação é essencial. Além disso, as finanças públicas garantem estabilidade econômica. Em resumo, dominar os princípios financeiros é crucial para alcançar metas e garantir um futuro próspero."
+},
+{
+  title: "Taxas",
+  topics: [
+    {
+	title: "Taxa Selic",
+      description:"taxa SELIC é uma das mais conhecidas para o cálculo de investimentos, mas muitas pessoas não entendem o que ela é de fato ou como é calculada. A SELIC é a taxa básica de juros e é definida pelo governo a partir de diversos fatores, como a inflação e o crescimento do país. Ela é a base de cálculo para o rendimento de diversos tipos de investimento, como o Tesouro SELIC e as LCIs e LCAs. Então, quanto maior o valor dessa taxa, maior será a rentabilidade desses tipos de investimentos. Em tempos de crise, a SELIC costuma aumentar bastante e, por isso, muitas pessoas começam a investir em aplicações baseadas nela."
+    }, 
+    {
+     title:"IPCA",
+     description:"O IPCA também é utilizado como base de cálculo para determinados investimentos. O IPCA, ou Índice Nacional de Preços ao Consumidor Amplo, é o indicador oficial da inflação no Brasil. Ele é calculado pelo IBGE e mede a variação nos preços de todos os produtos do país, a partir de grupos específicos. Investimentos como o Tesouro IPCA e os CDBs usam essa taxa como base de cálculo para a rentabilidade e são bastante interessantes, uma vez que garantem que seu dinheiro renda sempre acima da inflação e, assim, não desvalorize – como acontece em aplicações como a poupança, que normalmente rendem abaixo da inflação."
+    },
+    {
+     title:"Depósito interfinanceiro - DI",
+     description:"O DI, ou Depósito Interfinanceiro, também tratado às vezes por CDI, é uma taxa de juros que representa a média de todas as taxas praticadas por instituições financeiras nas operações que são realizadas entre elas. A taxa DI segue a SELIC bem de perto, mas normalmente é ligeiramente inferior a ela. Portanto, na hora de investir, vale a pena seguir o mesmo critério da SELIC e avaliar se as taxas de juros estão altas ou tendem a aumentar."
+    },
+    {
+     title:"B3",
+     description:"A B3 é a principal bolsa de valores do Brasil, onde são negociados diversos ativos financeiros, como ações, derivativos e títulos de renda fixa. Sua função é fornecer infraestrutura para a negociação, estabelecendo regras e promovendo transparência no mercado. A B3 desempenha um papel fundamental no desenvolvimento do mercado de capitais brasileiro, proporcionando liquidez e segurança aos investidores."
+    },
+    {
+     title:"IOF",
+     description:"A IOF (Imposto sobre Operações Financeiras) é um imposto federal aplicado em diversas operações financeiras no Brasil. Ele regula o mercado financeiro e controla o fluxo de capital. Suas taxas e base de cálculo variam de acordo com o tipo de operação. O governo pode ajustar as taxas para atender aos objetivos econômicos, como controle da inflação."
+    },
+    {
+     title:"IR",
+     decription:"O IR (Imposto de Renda) é um tributo aplicado sobre a renda de pessoas físicas e jurídicas no Brasil. Ele incide sobre diversos tipos de ganhos, como salários, investimentos e aluguéis. As alíquotas e bases de cálculo variam conforme o tipo de renda e a faixa de rendimentos do contribuinte. O IR é fundamental para o financiamento de serviços públicos, como saúde e educação. O pagamento é feito anualmente através da declaração para pessoas físicas e conforme o regime tributário para empresas."
+	},
+  ]
+},
+{
+ 	title:"CDB",
+	topics: [
+	{
+	 title:"Oque é",
+	 description:"O Certificado de Depósito Bancário (CDB) é uma popular opção de investimento em renda fixa. Funciona como um empréstimo ao banco, com remuneração por meio de juros.Com baixo risco e garantido pelo FGC, oferece rentabilidade atrativa, podendo ter diferentes prazos e tipos de remuneração. É uma escolha acessível e diversificada para quem busca segurança e previsibilidade nos investimentos."
+	},
+	{
+	title:"como investir",
+	list: [
+	  "Pesquise e compare opções de CDB.",
+	  "Escolha uma instituição financeira confiável.",
+	  "Abra uma conta de investimento, se necessário.",
+	  "Escolha entre CDB prefixado ou pós-fixado.",
+	  "Determine o valor do investimento.",
+	  "Realize a compra do CDB.",
+	  "Monitore o investimento regularmente.",
+	  "No vencimento, resgate ou renove o CDB conforme necessário.",
+	  ]
+	},
+	{
+	 title:"rendimento",
+	 description:"O rendimento do CDI (Certificado de Depósito Interbancário) representa a taxa de juros que os bancos utilizam para emprestar dinheiro entre si. Essa taxa é determinada diariamente com base em fatores como oferta e demanda no mercado financeiro. O CDI serve como referência para diversos investimentos de renda fixa no Brasil, indicando seu potencial de retorno. Investimentos vinculados ao CDI, como CDBs e fundos de investimento, acompanham de perto essa taxa Hoje, 06/03/2024 100% do CDI rende 11,15% ao ano."
+	},
+  ]
+},
+	{
+	title:"tesouro",
+	topics: [
+	{
+	 title:"oque é",
+	 description:"O Tesouro Direto é um programa do governo brasileiro que permite que pessoas físicas comprem títulos públicos federais pela internet. Esses títulos são uma forma de investimento onde o investidor empresta dinheiro ao governo e recebe juros em troca. O programa oferece uma variedade de títulos com diferentes prazos e formas de remuneração, com baixo custo e liquidez diária. É uma opção segura e acessível para diversificar a carteira de investimentos e planejar o futuro financeiro."
+	},
+	{
+	 title:"como investir",
+	 list: [
+	  "Cadastre-se em uma corretora ou banco habilitado.",
+	  "Escolha o título que melhor se adapta aos seus objetivos.",
+	  "Defina o valor que deseja investir e realize a compra do título.",
+	  "Acompanhe o desempenho do seu investimento.",
+	  "No vencimento, resgate o valor investido com os juros acumulados.",
+	  "O Tesouro Direto é um investimento de baixo risco.",
+	  ]
+	},
+	{
+	 title:"tipos de tesouro",
+	subTopics: [
+	{
+	 title:"tesouro SELIC",
+	 description:"O Tesouro Selic é um título público federal oferecido pelo Tesouro Nacional através do programa Tesouro Direto. É conhecido por sua remuneração atrelada à taxa Selic, o que o torna uma opção conservadora e com boa liquidez. Investidores podem resgatar seu dinheiro a qualquer momento. É uma escolha popular para formação de reserva de emergência e diversificação de investimentos."
+	},
+	{
+	 title:"tesouro PREFIXADO",
+	 description:"O Tesouro Prefixado é um tipo de título público oferecido pelo Tesouro Nacional via Tesouro Direto. Sua principal característica é a taxa de juros fixa, determinada no momento da compra, independente das variações do mercado. Com baixo risco e prazo de vencimento definido, é uma opção para investidores que buscam previsibilidade e segurança nos retornos."
+	},
+	{
+	 title:"tesouro IPCA",
+	 description:"O Tesouro IPCA é um tipo de título público oferecido pelo Tesouro Nacional através do Tesouro Direto. Sua característica principal é a remuneração composta por uma taxa de juros prefixada mais a variação do IPCA, índice oficial de inflação. Isso proporciona proteção contra a inflação e oferece um retorno real ao investidor. Com baixo risco e prazo de vencimento definido, é uma opção para quem busca segurança e preservação do poder de compra ao longo do tempo."
+	},
+	]
+},
+]
+},
+	{
+	 title:cripto
+	 topics: [
+	{
+	title:"oque é",
+	description:" Criptomoedas são uma forma de dinheiro digital descentralizado, operando em uma tecnologia chamada blockchain. Elas garantem transações seguras por meio de criptografia e não são controladas por nenhum governo ou autoridade central. Caracterizadas por anonimato, segurança e uso variado, as criptomoedas são conhecidas por sua volatilidade e riscos associados ao investimento."
+	},
+	{
+	 title:"rendimento",
+	 description:" O rendimento das criptomoedas é altamente volátil e especulativo, influenciado por diversos fatores.Estes incluem oferta e demanda, adoção e popularidade, desenvolvimentos tecnológicos, regulação governamental e eventos do mercado financeiro. É importante entender os riscos antes de investir, pois os preços podem variar significativamente em curtos períodos de tempo."
+	},
+	{
+	 title:"meodas mais cotadas no mercado"
+	 subTopics: [
+	 {
+	  title:"bitcoin"
+	  description:"O Bitcoin é uma moeda digital descentralizada, criada em 2009 por Satoshi Nakamoto. Operando em uma rede peer-to-peer, ele não é controlado por nenhum governo ou instituição central. Com oferta limitada a 21 milhões de unidades, o Bitcoin é deflacionário e utiliza criptografia avançada para garantir segurança e anonimato nas transações. Sua volatilidade e riscos associados ao investimento são características marcantes."
+},
+	 {
+	  title:"ethereum (ETH)"
+	  description:"O Ethereum é uma plataforma de computação distribuída e uma criptomoeda chamada Ether (ETH). Lançada em 2015, ela permite a criação e execução de contratos inteligentes e aplicativos descentralizados (DApps). Flexível e altamente utilizado, o Ethereum está em processo de transição para um sistema de consenso de Prova de Participação (PoS). O Ether é a criptomoeda nativa usada na rede para pagar taxas de transação e recompensar os mineradores."
+},
+	{
+	 title:"como investir",
+	 list: [
+	  "Escolha uma plataforma de negociação confiável.",
+	  "Crie uma conta e deposite fundos.",
+	  "Escolha as criptomoedas desejadas para investir.",
+	  "Execute as negociações na plataforma.",
+	  "Armazene suas criptomoedas de forma segura.",
+	  "Acompanhe o mercado e faça ajustes conforme necessário.",
+	  ]
+	},
+]
+},
+]
+},
+	{
+	 title:LCI
+	 topics: [
+	{
+	title:"oque é",
+	description:"   O mercado de ações é onde são negociadas partes de propriedade de empresas, chamadas de ações.
+Os investidores compram e vendem essas ações em bolsas de valores, como a NYSE e a NASDAQ.
+Apesar da volatilidade, o mercado de ações tem sido historicamente uma das melhores opções de investimento de longo prazo, proporcionando retornos significativos ao longo do tempo. 
+ No entanto, há riscos envolvidos, e os preços das ações podem flutuar devido a uma variedade de fatores, incluindo notícias econômicas e desempenho financeiro da empresa."
+	},
+	{
+	title:"como investir",
+	list: [
+	  "Escolha uma instituição financeira.",
+	  "Abra uma conta de investimento.",
+	  "Escolha o tipo de LCI que deseja.",
+	  "Faça o investimento transferindo os fundos.",
+	  "Acompanhe o desempenho do investimento.",
+	  "No vencimento, resgate ou renove o investimento.",
+	},
+	{
+	title:"rendimento",
+	 description:"  O rendimento do LCI (Letra de Crédito Imobiliário) é determinado pela taxa de juros acordada no momento da compra do título, podendo ser pré ou pós-fixada. Esse rendimento também é influenciado pelo prazo de vencimento do título. Importante ressaltar que o LCI oferece isenção de Imposto de Renda para pessoas físicas, tornando seu rendimento líquido mais atrativo."
+	},
+]
+},
+	 title:açoes
+	 topics: [
+	{
+	title:"oque é",
+	description:"  O mercado de ações é onde são negociadas partes de propriedade de empresas, chamadas de ações.
+ Os investidores compram e vendem essas ações em bolsas de valores, como a NYSE e a NASDAQ.
+Apesar da volatilidade, o mercado de ações tem sido historicamente uma das melhores opções de investimento de longo prazo, proporcionando retornos significativos ao longo do tempo.
+No entanto, há riscos envolvidos, e os preços das ações podem flutuar devido a uma variedade de fatores, incluindo notícias econômicas e desempenho financeiro da empresa.
+	},
+
+
+	{
+	title:"como investir",
+	list: [
+	  "Eduque-se sobre o mercado de ações e entenda os riscos e recompensas.,
+	  "Defina seus objetivos financeiros e tolerância ao risco.",
+	  "Abra uma conta em uma corretora de valores.",
+	  "Pesquise e analise as empresas em que pretende investir.",
+	  "Diversifique sua carteira de investimentos.",
+	  "Escolha entre comprar ações individuais, fundos de investimento ou ETFs.",
+	  "Monitore regularmente seus investimentos e faça ajustes conforme necessário.",
+	  "Mantenha a disciplina e evite decisões baseadas em emoções.",
+	]
+},
+	{
+ title:"rendimento",
+	 description:" O rendimento da bolsa de valores é determinado pelo desempenho dos ativos negociados nesse mercado.
+Esse desempenho pode ser influenciado por uma série de fatores, como notícias econômicas, eventos geopolíticos, desempenho financeiro das empresas e sentimentos do mercado. Os investidores podem obter lucro com a valorização dos ativos, como ações, e também através do recebimento de dividendos. No entanto, é importante ressaltar que o rendimento da bolsa de valores é volátil e pode variar ao longo do tempo. Portanto, é essencial realizar uma análise completa e entender os riscos antes de investir."
+	},
+	{
+	title:fii
+	 topics: [
+	{
+	title:"oque é",
+	description:"  Um Fundo de Investimento Imobiliário (FII) é um tipo de investimento coletivo que reúne recursos de vários investidores para aplicar em empreendimentos do mercado imobiliário, como edifícios comerciais e shoppings. Os investidores compram cotas do fundo e recebem rendimentos proporcionais aos aluguéis e ganhos de capital dos imóveis. Os FIIs oferecem uma forma acessível e diversificada de investir no mercado imobiliário, proporcionando liquidez através da negociação das cotas na bolsa de valores. No entanto, estão sujeitos a riscos, como vacância dos imóveis e variações nos preços do mercado."
+	},
+	{
+	title:"como investir",
+	list: [
+	  "Abra uma conta em uma corretora de valores.,
+	  "Transfira os recursos para sua conta na corretora.",
+	  "Escolha o FII adequado, considerando histórico, gestão e qualidade dos imóveis.",
+	  "Realize a compra das cotas através da plataforma da corretora.",
+	  "Diversifique sua carteira de investimentos.",
+	  "Acompanhe regularmente o desempenho dos seus investimentos..",
+	  "Considere reinvestir os rendimentos para aumentar sua participação no mercado imobiliário.",
+	]
+},
+	{
+ title:"rendimento",
+	list: [
+	  "O rendimento de um Fundo de Investimento Imobiliário (FII) vem principalmente de duas fontes: <br>
+**Rendimentos de Aluguel:** Os aluguéis recebidos dos imóveis do fundo são distribuídos aos cotistas como dividendos, proporcionando uma renda periódica.
+**Valorização das Cotas:** As cotas do fundo podem se valorizar ao longo do tempo, refletindo a valorização dos imóveis da carteira do fundo.
+O rendimento de um FII pode variar e não é garantido, sendo influenciado por fatores como vacância, inadimplência e variações nos preços dos imóveis. Diversificação é importante para mitigar os riscos.",
+	]
+	},
+
