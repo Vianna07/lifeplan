@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavMenuComponent } from '../../components/nav-menu/nav-menu.component';
 import { NgFor, NgOptimizedImage } from '@angular/common';
 import { moduleContent } from './module-content.interface';
+import { LifeProjectComponent } from '../../components/life-project/life-project.component';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,7 @@ import { moduleContent } from './module-content.interface';
     NavMenuComponent,
     NgOptimizedImage,
     NgFor,
+    LifeProjectComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
