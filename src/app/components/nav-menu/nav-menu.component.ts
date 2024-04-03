@@ -46,12 +46,14 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
         sectionName: 'finance',
         content: [
           { name: 'O que é?', link: '/finance', fragment: 'what-is-it' },
-          { name: 'Poupança', link: '/finance', fragment: 'savings-account' },
+          { name: 'Taxas', link: '/finance', fragment: 'fees' },
+          { name: 'Impostos', link: '/finance', fragment: 'taxes' },
           { name: 'CDB/CDI', link: '/finance', fragment: 'certificate-of-deposit' },
-          { name: 'LCI/LCA', link: '/finance', fragment: 'lci-lca' },
+          { name: 'LCI', link: '/finance', fragment: 'lci-lca' },
+          { name: 'LCA', link: '/finance', fragment: 'lci-lca' },
           { name: 'Tesouro Direto', link: '/finance', fragment: 'treasury-direct' },
           { name: 'Fundos Imobiliários', link: '/finance', fragment: 'real-estate-funds' },
-          { name: 'Ações', link: '/finance', fragment: 'stocks' },
+          { name: 'Mercado de Ações', link: '/finance', fragment: 'stock-market' },
           { name: 'Criptomoedas', link: '/finance', fragment: 'cryptocurrencies' }
         ],
         hiddenContent: false,
