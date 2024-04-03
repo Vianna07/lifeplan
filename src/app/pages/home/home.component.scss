@@ -8,6 +8,28 @@ $lf-text-secondary: var(--lf-text-secondary);
   align-items: $align;
 }
 
+@mixin default-modules-responsive {
+  .modules {
+    @include flex(column, space-between, stretch);
+    gap: 0;
+
+    .module {
+      .description {
+        @include flex(column, start, center);
+      }
+    }
+  }
+}
+
+@mixin define-title($size, $white-space) {
+  .title {
+    h1 {
+      font-size: $size;
+      white-space: $white-space;
+    }
+  }
+}
+
 .app-home-wrapper {
   main {
     height: 100%;
@@ -19,7 +41,8 @@ $lf-text-secondary: var(--lf-text-secondary);
 
         h1 {
           margin-left: 10px;
-          font-size: 40px;
+          font-size: 38px;
+          white-space: nowrap;
         }
       }
 
@@ -38,9 +61,10 @@ $lf-text-secondary: var(--lf-text-secondary);
           .topics {
             height: 100%;
             @include flex(row, start, start);
-            gap: 15px;
+            gap: 20px;
 
             .topic {
+              flex: 1;
               @include flex(column, start, start);
               list-style: none;
                 li {
@@ -54,6 +78,48 @@ $lf-text-secondary: var(--lf-text-secondary);
       section {
         @include flex(column, center, center);
         margin: 15px 0;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .app-home-wrapper {
+    main {
+      article {
+        @include define-title(34px, nowrap);
+        @include default-modules-responsive();
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .app-home-wrapper {
+    main {
+      article {
+        @include define-title(21px, normal);
+        @include default-modules-responsive();
+
+        h2 {
+          font-size: 20px
+        }
+
+        h3 {
+          font-size: 16px
+        }
+
+        p {
+          font-size: 14px
+        }
+
+        .modules {
+          .module {
+            .topics {
+              @include flex(column, start, start);
+            }
+          }
+        }
       }
     }
   }
