@@ -1,104 +1,24 @@
-$lf-text-primary: var(--lf-text-primary);
-$lf-text-secondary: var(--lf-text-secondary);
-
-@mixin flex($direction, $justify, $align) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
-}
-
-@mixin default-modules-responsive {
-  .modules {
-    @include flex(column, space-between, stretch);
-    gap: 0;
-
-    .module {
-      .description {
-        @include flex(column, start, center);
-      }
-    }
-  }
-}
-
-@mixin define-title($size, $white-space) {
-  .title {
-    h1 {
-      font-size: $size;
-      white-space: $white-space;
-    }
-  }
-}
-
 .app-home-wrapper {
   main {
     height: 100%;
+    width: 100%;
 
     article {
-      letter-spacing: 1.8px;
-
-      .title {
-        @include flex(row, center, center);
-        margin-bottom: 15px;
-
-        h1 {
-          margin-left: 10px;
-          font-size: 38px;
-          white-space: nowrap;
-        }
-      }
-
-      h2 {
-        color: $lf-text-primary;
-      }
-
-      .modules {
-        @include flex(row, space-between, stretch);
-        gap: 55px;
-
-        .module {
-          flex: 1;
-          height: 100%;
-
-          .description {
-            @include flex(column, start, center);
-          }
-
-          .topics {
-            height: 100%;
-            @include flex(row, start, start);
-            gap: 20px;
-
-            .topic {
-              flex: 1;
-              @include flex(column, start, start);
-              list-style: none;
-                li {
-                  @include flex(column, start, start);
-                }
-            }
-          }
-        }
-      }
-
-      section {
-        @include flex(column, center, center);
-        margin: 15px 0;
-      }
-
-      h3, p {
-        color: $lf-text-secondary;
-      }
+      height: 100%;
+      width: 100%;
     }
   }
 }
+
 
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   .app-home-wrapper {
     main {
       article {
-        @include define-title(34px, nowrap);
-        @include default-modules-responsive();
+        h1 {
+          font-size: 38px;
+          white-space: nowrap;
+        }
       }
     }
   }
@@ -108,8 +28,10 @@ $lf-text-secondary: var(--lf-text-secondary);
   .app-home-wrapper {
     main {
       article {
-        @include define-title(21px, normal);
-        @include default-modules-responsive();
+        h1 {
+          font-size: 21px;
+          white-space: normal;
+        }
 
         h2 {
           font-size: 20px
@@ -121,14 +43,6 @@ $lf-text-secondary: var(--lf-text-secondary);
 
         p {
           font-size: 14px
-        }
-
-        .modules {
-          .module {
-            .topics {
-              @include flex(column, start, start);
-            }
-          }
         }
       }
     }

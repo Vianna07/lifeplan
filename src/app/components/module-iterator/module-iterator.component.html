@@ -1,0 +1,24 @@
+<section class="app-module-iterator-wrapper">
+    <section class="module" *ngFor="let module of modules" id="{{module.id}}">
+        <h2>{{module.title}}</h2>
+        <p class="module-description">{{module.description}}</p>
+
+        <section class="topics" *ngIf="module.topics">
+            <section class="topic" *ngFor="let topic of module.topics">
+                <h3>{{topic.title}}</h3>
+                <p>{{topic.description}}</p>
+
+                <ol class="steps" *ngIf="topic.steps">
+                    <li *ngFor="let step of topic.steps" [innerHtml]="step"></li>
+                </ol>
+
+                <section class="sub-topics" *ngIf="topic.subTopics">
+                    <section class="sub-topic" *ngFor="let subTopic of topic.subTopics">
+                        <h3>{{subTopic.title}}</h3>
+                        <p>{{subTopic.description}}</p>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+</section>
