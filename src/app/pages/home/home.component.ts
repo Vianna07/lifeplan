@@ -1,30 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { NavMenuComponent } from '../../components/nav-menu/nav-menu.component';
-import { NgFor, NgOptimizedImage } from '@angular/common';
-import { moduleContent } from './module-content.interface';
+import { NgOptimizedImage } from '@angular/common';
+import { Module } from '../../models/module.interface';
+import { ModuleIteratorComponent } from '../../components/module-iterator/module-iterator.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     NavMenuComponent,
+    ModuleIteratorComponent,
     NgOptimizedImage,
-    NgFor,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
-  public moduleContent!: moduleContent[]
+  public modules!: Module[]
 
   constructor() { }
 
   ngOnInit(): void {
-    this.__setModuleContent()
+    this.__setModules()
   }
 
-  private __setModuleContent():void {
-    this.moduleContent = [
+  private __setModules():void {
+    this.modules = [
+      {
+        title: 'Introdução',
+        description: 'LifePlan é uma plataforma projetada para ajudar os usuários a planejar e gerenciar diversos aspectos de suas vidas, visando um futuro mais promissor e bem-sucedido. Com foco em finanças, carreira e investimentos, o LifePlan oferece recursos, orientações e informações que capacitam os usuários a tomar decisões informadas e alcançar seus objetivos pessoais e profissionais.',
+      },
       {
         title: "Módulo de Finanças",
         description: "O módulo de finanças do LifePlan é projetado para fornecer informações e orientações sobre diversos aspectos financeiros, ajudando os usuários a entender melhor suas opções e tomar decisões informadas sobre suas finanças pessoais. Aqui estão alguns tópicos que podem ser abordados neste módulo:",

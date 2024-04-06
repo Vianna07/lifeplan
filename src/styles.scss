@@ -124,14 +124,12 @@ body {
   .page-content {
     @include flex(column, start, center, 0);
     @include scroll();
-    padding: 15px 25px 25px 25px;
+    padding: 15px 17.5% 25px 17.5%;
     width: 100%;
     height: 100%;
     background-color: $lf-bg-primary;
     overflow-x: hidden;
 
-
-    // TODO: remover tags desnecessárias do home component
     h2, h3, h4, h5, h6, p, li, a {
       letter-spacing: 1.8px;
     }
@@ -152,9 +150,37 @@ body {
   width: 100%;
 }
 
+.title-container {
+  width: 100%;
+  .title {
+    @include flex(row, center, center, 0);
+    margin-bottom: 15px;
+
+    h1 {
+      margin-left: 10px;
+      font-size: 38px;
+      white-space: nowrap;
+    }
+  }
+
+  .uppercase {
+    h1 {
+      text-transform: uppercase;
+    }
+  }
+
+  hr {
+    margin-bottom: 15px;
+  }
+}
+
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   .page {
     grid-template-columns: 75px auto;
+
+    .page-content {
+      padding: 15px 25px 25px 25px;
+    }
   }
 }
 
@@ -162,5 +188,9 @@ body {
   .page {
     grid-template-columns: auto;
     grid-template-rows: 50px auto;
+
+    .page-content {
+      padding: 15px 25px 25px 25px
+    }
   }
 }

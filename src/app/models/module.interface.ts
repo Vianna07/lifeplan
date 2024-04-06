@@ -3,7 +3,7 @@ interface subTopic {
   description: string;
 }
 
-interface Topic {
+export interface Topic {
   title: string;
   description?: string;
   steps?: string[];
@@ -11,7 +11,7 @@ interface Topic {
 }
 
 export interface Module {
-  id: string;
+  id?: string;
   title: string;
   description?: string;
   topics?: Topic[]

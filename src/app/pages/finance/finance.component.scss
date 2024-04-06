@@ -1,142 +1,15 @@
-.app-finance{
-    font-family: sans-serif;
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .app-finance-wrapper {
+    h1 {
+      font-size: 30px
+    }
+  }
+}
 
-    h1, h2 {
-        text-transform: uppercase;
+@media only screen and (max-width: 768px) {
+  .app-finance-wrapper {
+    h1 {
+      font-size: 25px
     }
-
-    .titulo{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        #topics-title{
-            display: flex;
-            gap: 40px;
-            section{
-                flex: 1;
-            }
-        }
-    }
-
-    .fees{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        #topics-fees{
-            display: flex;
-            gap: 40px;
-            section{
-                flex: 1;
-            }
-        }
-    }
-
-    .taxes{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        #topics-taxes{
-            display: flex;
-            gap: 40px;
-            section{
-                flex: 1;
-            }
-        }
-    }
-
-    .CDB{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        #topics-cdb{
-            display: flex;
-            gap: 40px;
-            section {
-                flex: 1;
-            }
-        }
-    }
-    .tesouro{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        #topics-tesouro{
-            display: flex;
-            gap: 40px;
-            section{
-                flex: 1;
-            }
-            .como-investir{
-                li{
-                    margin: 5px;
-                }
-            }
-        }
-    }
-
-    .cripto{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        #topics-cripto{
-            display: flex;
-            gap: 40px;
-            section{
-                flex: 1;
-            }
-        }
-    }
-
-    .lci{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        #topics-lci{
-            display: flex;
-            gap: 40px;
-            section{
-                flex: 1;
-            }
-            .como-investir{
-                li{
-                    margin: 5px;
-                }
-            }
-        }
-    }
-
-    .acoes{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        #topics-acoes{
-            display: flex;
-            gap: 40px;
-            section{
-                flex: 1;
-            }
-        }
-    }
-
-    .fii{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        #topics-fii{
-            display: flex;
-            gap: 40px;
-            section{
-                flex: 1;
-            }
-        }
-    }
+  }
 }
