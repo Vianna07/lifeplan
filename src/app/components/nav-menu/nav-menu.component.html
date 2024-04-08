@@ -5,7 +5,7 @@
            alt="logo"
            [routerLink]="['/']"
            tabindex="-1">
-      <h1 class="lf-title"
+      <h1 class="lp-title"
           [routerLink]="['/']"
           tabindex="-1">
         Lifeplan
@@ -22,7 +22,7 @@
                       tabindex="-1">
               {{module.titleIcon}}
             </mat-icon>
-            <h1 class="lf-title"
+            <h1 class="lp-title"
                 (click)="module.hiddenContent = !module.hiddenContent"
                 tabindex="{{ module.tabindex }}">
                 {{module.title}}
@@ -44,7 +44,7 @@
       <section class="module"
                [ngClass]="{'hidden-content': openedModule.hiddenContent}">
         <section class="module-title">
-            <h1 class="lf-title"
+            <h1 class="lp-title"
                 (click)="openedModule.hiddenContent = !openedModule.hiddenContent">
                 {{openedModule.title}}
             </h1>

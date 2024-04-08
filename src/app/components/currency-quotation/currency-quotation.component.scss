@@ -1,0 +1,28 @@
+$lp-text-secondary: var(--lp-text-secondary);
+
+.app-currency-quotation-wrapper {
+  .selects {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 100%;
+     width: 100%;
+     gap: 25px;
+  }
+
+  table {
+    width: 100%;
+
+    .mat-column-position {
+      width: 0px;
+      border-right: 1px solid black;
+      text-align: center;
+    }
+  }
+
+  .lp-btn {
+    background-color: $lp-text-secondary;
+    border: none;
+    padding: 15px 30px;
+  }
+}

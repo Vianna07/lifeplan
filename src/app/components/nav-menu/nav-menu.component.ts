@@ -54,7 +54,8 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
           { name: 'Tesouro Direto', link: '/finance', fragment: 'treasury-direct' },
           { name: 'Fundos Imobiliários', link: '/finance', fragment: 'real-estate-investment-funds' },
           { name: 'Mercado de Ações', link: '/finance', fragment: 'stock-market' },
-          { name: 'Criptomoedas', link: '/finance', fragment: 'cryptocurrencies' }
+          { name: 'Criptomoedas', link: '/finance', fragment: 'cryptocurrencies' },
+          { name: 'Investimentos', link: '/investments', fragment: '' },
         ],
         hiddenContent: false,
         iconIsSelected: false,
@@ -66,7 +67,6 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
         sectionName: 'lifeProject',
         content: [
           { name: 'Carreira', link: '/career', fragment: '' },
-          { name: 'Investimentos', link: '/investments', fragment: '' },
         ],
         hiddenContent: false,
         iconIsSelected: false,

@@ -4,9 +4,9 @@
 @include mat.core();
 
 // Available color palettes: https://material.io/design/color/
-$lifeplan-primary: mat.define-palette(mat.$indigo-palette);
-$lifeplan-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$lifeplan-warn: mat.define-palette(mat.$red-palette);
+$lifeplan-primary: mat.define-palette(mat.$deep-purple-palette);
+$lifeplan-accent: mat.define-palette(mat.$purple-palette, A200, A100, A400);
+$lifeplan-warn: mat.define-palette(mat.$amber-palette);
 $lifeplan-typography: mat.define-typography-config(
   $font-family: 'Open Sans, Montserrat, sans-serif',
   $headline-1: mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
@@ -34,7 +34,7 @@ $lifeplan-theme: mat.define-light-theme((
 @include mat.all-component-themes($lifeplan-theme);
 
 :root {
-  --lf-primary-gradient: linear-gradient(to right, #a93fff, #ff008c);
+  --lp-primary-gradient: linear-gradient(to right, #a93fff, #ff008c);
 }
 
 * {
@@ -49,32 +49,32 @@ html, body {
 
 
 body.dark {
-  --lf-bg-primary: #1f1f1f;
-  --lf-bg-secondary: #0f0f0f;
-  --lf-text-primary: #eeeeee;
-  --lf-text-secondary: #a0a0a0;
-  --lf-bg-page: #7a7a7a;
+  --lp-bg-primary: #1f1f1f;
+  --lp-bg-secondary: #0f0f0f;
+  --lp-text-primary: #eeeeee;
+  --lp-text-secondary: #a0a0a0;
+  --lp-bg-page: #7a7a7a;
 }
 
 body.light {
 
 }
 
-$lf-bg-primary: var(--lf-bg-primary);
-$lf-bg-secondary: var(--lf-bg-secondary);
-$lf-text-primary: var(--lf-text-primary);
-$lf-text-secondary: var(--lf-text-secondary);
-$lf-bg-page: var(--lf-bg-page);
-$lf-primary-gradient: var(--lf-primary-gradient);
+$lp-bg-primary: var(--lp-bg-primary);
+$lp-bg-secondary: var(--lp-bg-secondary);
+$lp-text-primary: var(--lp-text-primary);
+$lp-text-secondary: var(--lp-text-secondary);
+$lp-bg-page: var(--lp-bg-page);
+$lp-primary-gradient: var(--lp-primary-gradient);
 
 body {
   font-family: 'Open Sans', 'Montserrat', sans-serif;
-  background-color: $lf-bg-primary;
+  background-color: $lp-bg-primary;
   overflow-y: hidden;
 }
 
 .mat-icon {
-  color: $lf-text-primary !important;
+  color: $lp-text-primary !important;
 }
 
 @mixin text-gradient($color) {
@@ -84,8 +84,8 @@ body {
   color: transparent;
 }
 
-.lf-title {
-  @include text-gradient($lf-primary-gradient);
+.lp-title {
+  @include text-gradient($lp-primary-gradient);
 }
 
 @mixin flex($direction, $justify, $align, $gap) {
@@ -103,11 +103,11 @@ body {
       width: 8px;
     }
   &::-webkit-scrollbar-track {
-      background-color: $lf-bg-primary;
+      background-color: $lp-bg-primary;
     }
   &::-webkit-scrollbar-thumb {
     border-radius: 15px;
-      background-color: $lf-text-secondary;
+      background-color: $lp-text-secondary;
   }
 }
 
@@ -127,26 +127,26 @@ body {
     padding: 15px 17.5% 25px 17.5%;
     width: 100%;
     height: 100%;
-    background-color: $lf-bg-primary;
+    background-color: $lp-bg-primary;
     overflow-x: hidden;
 
-    h2, h3, h4, h5, h6, p, li, a {
+    h2, h3, h4, h5, h6, p, li, a, label {
       letter-spacing: 1.8px;
     }
 
-    h2 {
-      color: $lf-text-primary;
+    h2, label {
+      color: $lp-text-primary;
     }
 
     h3, p, li{
-      color: $lf-text-secondary;
+      color: $lp-text-secondary;
     }
   }
 }
 
 .hr {
   border-radius: 5px;
-  border: 1px solid $lf-text-secondary;
+  border: 1px solid $lp-text-secondary;
   width: 100%;
 }
 
