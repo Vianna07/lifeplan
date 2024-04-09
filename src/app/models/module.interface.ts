@@ -3,10 +3,15 @@ interface subTopic {
   description: string;
 }
 
+interface Step {
+  listStyle?: string;
+  list?: string[];
+}
+
 export interface Topic {
   title: string;
   description?: string;
-  steps?: string[];
+  steps?: Step;
   subTopics?: subTopic[]
 }
 

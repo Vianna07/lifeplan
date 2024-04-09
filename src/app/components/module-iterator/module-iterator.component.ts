@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Module } from '../../models/module.interface';
-import { NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-module-iterator',
@@ -8,6 +8,7 @@ import { NgFor, NgIf } from '@angular/common';
   imports: [
     NgFor,
     NgIf,
+    NgClass,
   ],
   templateUrl: './module-iterator.component.html',
   styleUrl: './module-iterator.component.scss'

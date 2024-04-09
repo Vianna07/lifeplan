@@ -91,14 +91,17 @@ export class FinanceComponent implements OnInit, AfterViewInit {
           },
           {
             title: "Como investir:",
-            steps: [
-              "Escolha uma instituição financeira.",
-              "Abra uma conta de investimento.",
-              "Escolha o tipo de LCI que deseja.",
-              "Faça o investimento transferindo os fundos.",
-              "Acompanhe o desempenho do investimento.",
-              "No vencimento, resgate ou renove o investimento."
-            ]
+            steps: {
+              listStyle: "ol",
+              list: [
+                "Escolha uma instituição financeira.",
+                "Abra uma conta de investimento.",
+                "Escolha o tipo de LCI que deseja.",
+                "Faça o investimento transferindo os fundos.",
+                "Acompanhe o desempenho do investimento.",
+                "No vencimento, resgate ou renove o investimento."
+              ]
+            }
           },
         ]
       },
@@ -116,15 +119,18 @@ export class FinanceComponent implements OnInit, AfterViewInit {
           },
           {
             title: "Como investir:",
-            steps: [
-              "Escolha uma instituição financeira.",
-              "Abra uma conta de investimento.",
-              "Se informe sobre as opções de LCA disponíveis.",
-              "Selecione o prazo e a rentabilidade desejada.",
-              "Realize o investimento transferindo os fundos.",
-              "Monitore o desempenho do investimento ao longo do tempo.",
-              "No vencimento, decida entre resgatar ou reinvestir o valor."
-            ]
+            steps: {
+              listStyle: "ol",
+              list:[
+                "Escolha uma instituição financeira.",
+                "Abra uma conta de investimento.",
+                "Se informe sobre as opções de LCA disponíveis.",
+                "Selecione o prazo e a rentabilidade desejada.",
+                "Realize o investimento transferindo os fundos.",
+                "Monitore o desempenho do investimento ao longo do tempo.",
+                "No vencimento, decida entre resgatar ou reinvestir o valor."
+              ]
+            }
           },
         ]
       },
@@ -156,14 +162,17 @@ export class FinanceComponent implements OnInit, AfterViewInit {
           },
           {
             title: "Como investir:",
-            steps: [
-              "Cadastre-se em uma corretora ou banco habilitado.",
-              "Escolha o título que melhor se adapta aos seus objetivos.",
-              "Defina o valor que deseja investir e realize a compra do título.",
-              "Acompanhe o desempenho do seu investimento.",
-              "No vencimento, resgate o valor investido com os juros acumulados.",
-              "O Tesouro Direto é um investimento de baixo risco."
-            ]
+            steps: {
+              listStyle: "ol",
+              list:[
+                "Cadastre-se em uma corretora ou banco habilitado.",
+                "Escolha o título que melhor se adapta aos seus objetivos.",
+                "Defina o valor que deseja investir e realize a compra do título.",
+                "Acompanhe o desempenho do seu investimento.",
+                "No vencimento, resgate o valor investido com os juros acumulados.",
+                "O Tesouro Direto é um investimento de baixo risco."
+              ]
+            }
           },
         ]
       },
@@ -181,14 +190,17 @@ export class FinanceComponent implements OnInit, AfterViewInit {
           },
           {
             title: "Como investir:",
-            steps: [
-              "Abra uma conta em uma corretora de valores.",
-              "Pesquise e analise os diferentes FIIs disponíveis no mercado.",
-              "Analise os relatórios e prospectos de cada FII para entender sua estratégia de investimento, histórico de rendimentos e perspectivas futuras.",
-              "Decida qual FII se adequa melhor aos seus objetivos e perfil de investidor.",
-              "Realize a compra das cotas do FII desejado através da corretora, seguindo os procedimentos estabelecidos por ela.",
-              "Monitore periodicamente o desempenho do seu investimento e faça ajustes na sua carteira conforme necessário."
-            ]
+            steps: {
+              listStyle: "ol",
+              list:[
+                "Abra uma conta em uma corretora de valores.",
+                "Pesquise e analise os diferentes FIIs disponíveis no mercado.",
+                "Analise os relatórios e prospectos de cada FII para entender sua estratégia de investimento, histórico de rendimentos e perspectivas futuras.",
+                "Decida qual FII se adequa melhor aos seus objetivos e perfil de investidor.",
+                "Realize a compra das cotas do FII desejado através da corretora, seguindo os procedimentos estabelecidos por ela.",
+                "Monitore periodicamente o desempenho do seu investimento e faça ajustes na sua carteira conforme necessário."
+              ]
+            }
           },
         ]
       },
@@ -206,15 +218,18 @@ export class FinanceComponent implements OnInit, AfterViewInit {
           },
           {
             title: "Como investir:",
-            steps: [
-              "Abra uma conta em uma corretora de valores.",
-              "Defina seus objetivos e tolerância ao risco.",
-              "Estude sobre o mercado de ações e empresas.",
-              "Analise e selecione ações para investir.",
-              "Faça ordens de compra e venda pela corretora.",
-              "Acompanhe o desempenho de seus investimentos regularmente.",
-              "Reavalie e ajuste sua carteira conforme necessário."
-            ]
+            steps: {
+              listStyle: "ol",
+              list:[
+                "Abra uma conta em uma corretora de valores.",
+                "Defina seus objetivos e tolerância ao risco.",
+                "Estude sobre o mercado de ações e empresas.",
+                "Analise e selecione ações para investir.",
+                "Faça ordens de compra e venda pela corretora.",
+                "Acompanhe o desempenho de seus investimentos regularmente.",
+                "Reavalie e ajuste sua carteira conforme necessário."
+              ]
+            }
           },
         ]
       },
@@ -245,14 +260,17 @@ export class FinanceComponent implements OnInit, AfterViewInit {
           },
           {
             title: "Como investir:",
-            steps: [
-              "Escolha uma plataforma de negociação confiável.",
-              "Crie uma conta e deposite fundos.",
-              "Escolha as criptomoedas desejadas para investir.",
-              "Execute as negociações na plataforma.",
-              "Armazene suas criptomoedas de forma segura.",
-              "Acompanhe o mercado e faça ajustes conforme necessário."
-            ]
+            steps: {
+              listStyle: "ol",
+              list:[
+                "Escolha uma plataforma de negociação confiável.",
+                "Crie uma conta e deposite fundos.",
+                "Escolha as criptomoedas desejadas para investir.",
+                "Execute as negociações na plataforma.",
+                "Armazene suas criptomoedas de forma segura.",
+                "Acompanhe o mercado e faça ajustes conforme necessário."
+              ]
+            }
           }
         ]
       },

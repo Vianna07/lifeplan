@@ -8,9 +8,14 @@
                 <h3>{{topic.title}}</h3>
                 <p>{{topic.description}}</p>
 
-                <ol class="steps" *ngIf="topic.steps">
-                    <li *ngFor="let step of topic.steps" [innerHtml]="step"></li>
-                </ol>
+                <section [ngClass]="{'ordered-list': topics.step.'listStyles === 'ol', 'unordered-list': topic.steps.listStyles === 'ul'}">
+                    <ol class="steps" *ngIf="topic.steps && topic.steps.listStyles === 'ol'">
+                        <li *ngFor="let step of topic.steps" [innerHtml]="step"></li>
+                    </ol>
+                    <ul class="steps" *ngIf="topic.steps && topic.steps.listStyles === 'ul' || topic.steps.listStyles == ''">
+                        <li *ngFor="let step of topic.steps" [innerHtml]="step"></li>
+                    </ul>
+                </section>
 
                 <section class="sub-topics" *ngIf="topic.subTopics">
                     <section class="sub-topic" *ngFor="let subTopic of topic.subTopics">
@@ -22,3 +27,4 @@
         </section>
     </section>
 </section>
+
