@@ -1,21 +1,31 @@
 $lp-text-secondary: var(--lp-text-secondary);
 
 .app-currency-quotation-wrapper {
-  .selects {
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     height: 100%;
-     width: 100%;
-     gap: 25px;
+  .quotation > * {
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .quotation {
+    width: 100%;
+
+    .show {
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    .choose {
+      justify-content: space-between;
+      // gap: 25px;
+    }
   }
 
   table {
     width: 100%;
 
     .mat-column-position {
-      width: 0px;
-      border-right: 1px solid black;
       text-align: center;
     }
   }

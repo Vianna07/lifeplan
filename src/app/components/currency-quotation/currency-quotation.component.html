@@ -1,15 +1,15 @@
 <section class="app-currency-quotation-wrapper">
-  <section class="selects">
-    <app-lp-select *ngFor="let currencyNumber of [1, 2]" [items]="currencies" [selectLabel]="'Selecione a Cotação ' + currencyNumber + ':'" (onChangeSelected)="onChangeSelect($event, currencyNumber)"></app-lp-select>
+  <section class="quotation">
+    <section class="show">
+      <h2>Cotação escolhida: {{firstCurrency || '-- '}}/{{secondCurrency || ' --'}}</h2>
+    </section>
+    <section class="choose">
+      <app-lp-select *ngFor="let currencyNumber of [1, 2]" [items]="currencies" [selectLabel]="'Cotação ' + currencyNumber + ':'" (onChangeSelected)="onChangeSelect($event, currencyNumber)"></app-lp-select>
+    </section>
   </section>
 
-  <section *ngIf="currencyQuotation" class="currency-quotation">
+  <section *ngIf="currencyQuotation" class="show-quotation">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> # </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-      </ng-container>
-
       <ng-container matColumnDef="property">
         <th mat-header-cell *matHeaderCellDef> Propriedade </th>
         <td mat-cell *matCellDef="let element"> {{element.property}} </td>

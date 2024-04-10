@@ -45,7 +45,7 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
         titleIcon: 'monetization_on',
         sectionName: 'finance',
         content: [
-          { name: 'O que é?', link: '/finance', fragment: 'what-is-it' },
+          { name: 'Introdução', link: '/finance', fragment: 'what-is-it' },
           { name: 'Taxas', link: '/finance', fragment: 'fees' },
           { name: 'Impostos', link: '/finance', fragment: 'taxes' },
           { name: 'CDB/CDI', link: '/finance', fragment: 'certificate-of-deposit' },

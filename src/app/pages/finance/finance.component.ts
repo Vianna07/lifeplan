@@ -24,7 +24,7 @@ export class FinanceComponent implements OnInit, AfterViewInit {
     this.modules = [
       {
         id: "what-is-it",
-        title: "O que é:",
+        title: "Introdução:",
         description: "Finanças é a gestão inteligente dos recursos financeiros, desde decisões pessoais até estratégias empresariais. Abrangem orçamentação, investimentos, gestão de dívidas e mais, tanto em nível pessoal quanto corporativo. Nos mercados financeiros, compreender oferta, demanda e diversificação é essencial. Além disso, as finanças públicas garantem estabilidade econômica. Dominar os princípios financeiros é crucial para alcançar metas e garantir um futuro próspero."
       },
       {
@@ -62,11 +62,8 @@ export class FinanceComponent implements OnInit, AfterViewInit {
       {
         id: "certificate-of-deposit",
         title: "CDB/CDI:",
+        description: "O Certificado de Depósito Bancário (CDB) é uma popular opção de investimento em renda fixa. Funciona como um empréstimo ao banco, com remuneração por meio de juros. Com baixo risco e garantido pelo FGC, oferece rentabilidade atrativa, podendo ter diferentes prazos e tipos de remuneração. É uma escolha acessível e diversificada para quem busca segurança e previsibilidade nos investimentos.",
         topics: [
-          {
-            title: "O que é um CDB:",
-            description: "O Certificado de Depósito Bancário (CDB) é uma popular opção de investimento em renda fixa. Funciona como um empréstimo ao banco, com remuneração por meio de juros. Com baixo risco e garantido pelo FGC, oferece rentabilidade atrativa, podendo ter diferentes prazos e tipos de remuneração. É uma escolha acessível e diversificada para quem busca segurança e previsibilidade nos investimentos."
-          },
           {
             title: "Rendimento do CDI:",
             description: "O rendimento do CDI (Certificado de Depósito Interbancário) representa a taxa de juros que os bancos utilizam para emprestar dinheiro entre si. Essa taxa é determinada diariamente com base em fatores como oferta e demanda no mercado financeiro. O CDI serve como referência para diversos investimentos de renda fixa no Brasil, indicando seu potencial de retorno. Investimentos vinculados ao CDI, como CDBs e fundos de investimento, acompanham de perto essa taxa."
@@ -80,11 +77,8 @@ export class FinanceComponent implements OnInit, AfterViewInit {
       {
         id: "lci",
         title: "LCI:",
+        description: "LCI, ou Letra de Crédito Imobiliário, é um título de renda fixa emitido por instituições financeiras para captar recursos destinados ao setor imobiliário. Oferece isenção de Imposto de Renda para pessoas físicas, segurança garantida pelo Fundo Garantidor de Créditos (FGC) e remuneração atrativa ao investidor.",
         topics: [
-          {
-            title: "O que é:",
-            description: "LCI, ou Letra de Crédito Imobiliário, é um título de renda fixa emitido por instituições financeiras para captar recursos destinados ao setor imobiliário. Oferece isenção de Imposto de Renda para pessoas físicas, segurança garantida pelo Fundo Garantidor de Créditos (FGC) e remuneração atrativa ao investidor."
-          },
           {
             title: "Rendimento:",
             description: "O rendimento do LCI (Letra de Crédito Imobiliário) é determinado pela taxa de juros acordada no momento da compra do título, podendo ser pré ou pós-fixada. Esse rendimento também é influenciado pelo prazo de vencimento do título. Importante ressaltar que o LCI oferece isenção de Imposto de Renda para pessoas físicas, tornando seu rendimento líquido mais atrativo."
@@ -108,11 +102,8 @@ export class FinanceComponent implements OnInit, AfterViewInit {
       {
         id: "lca",
         title: "LCA:",
+        description: "LCA, ou Letra de Crédito do Agronegócio, é um título de renda fixa emitido por instituições financeiras com o objetivo de captar recursos para o setor do agronegócio. Assim como a LCI, a LCA oferece isenção de Imposto de Renda para pessoas físicas, segurança garantida pelo Fundo Garantidor de Créditos (FGC) e remuneração atrativa ao investidor.",
         topics: [
-          {
-            title: "O que é:",
-            description: "LCA, ou Letra de Crédito do Agronegócio, é um título de renda fixa emitido por instituições financeiras com o objetivo de captar recursos para o setor do agronegócio. Assim como a LCI, a LCA oferece isenção de Imposto de Renda para pessoas físicas, segurança garantida pelo Fundo Garantidor de Créditos (FGC) e remuneração atrativa ao investidor."
-          },
           {
             title: "Rendimento:",
             description: "O rendimento da LCA (Letra de Crédito do Agronegócio) é determinado pela taxa de juros acordada no momento da compra do título. Assim como a LCI, a LCA pode ter rentabilidade pré ou pós-fixada, e seu rendimento também é influenciado pelo prazo de vencimento do título. Além disso, a LCA oferece isenção de Imposto de Renda para pessoas físicas, o que a torna uma opção interessante para investidores."
@@ -137,11 +128,8 @@ export class FinanceComponent implements OnInit, AfterViewInit {
       {
         id: "treasury-direct",
         title: "Tesouro Direto:",
+        description: "O Tesouro Direto é um programa do governo brasileiro que permite que pessoas físicas comprem títulos públicos federais pela internet. Esses títulos são uma forma de investimento onde o investidor empresta dinheiro ao governo e recebe juros em troca. O programa oferece uma variedade de títulos com diferentes prazos e formas de remuneração, com baixo custo e liquidez diária. É uma opção segura e acessível para diversificar a carteira de investimentos e planejar o futuro financeiro.",
         topics: [
-          {
-            title: "O que é:",
-            description: "O Tesouro Direto é um programa do governo brasileiro que permite que pessoas físicas comprem títulos públicos federais pela internet. Esses títulos são uma forma de investimento onde o investidor empresta dinheiro ao governo e recebe juros em troca. O programa oferece uma variedade de títulos com diferentes prazos e formas de remuneração, com baixo custo e liquidez diária. É uma opção segura e acessível para diversificar a carteira de investimentos e planejar o futuro financeiro."
-          },
           {
             title: "Tipos de Tesouro:",
             description: 'Existem três tipos de Tesouro, são eles:',
@@ -179,11 +167,8 @@ export class FinanceComponent implements OnInit, AfterViewInit {
       {
         id: "real-estate-investment-funds",
         title: "Fundos Imobiliários:",
+        description: "Um Fundo de Investimento Imobiliário (FII) é um tipo de investimento coletivo em que os recursos dos investidores são aplicados em diversos empreendimentos imobiliários, tais como shoppings, edifícios comerciais, hospitais, entre outros. Os FIIs são negociados na Bolsa de Valores e oferecem aos investidores a possibilidade de se tornarem proprietários de parte desses empreendimentos, recebendo rendimentos proporcionais aos aluguéis e ganhos de capital.",
         topics: [
-          {
-            title: "O que é:",
-            description: "Um Fundo de Investimento Imobiliário (FII) é um tipo de investimento coletivo em que os recursos dos investidores são aplicados em diversos empreendimentos imobiliários, tais como shoppings, edifícios comerciais, hospitais, entre outros. Os FIIs são negociados na Bolsa de Valores e oferecem aos investidores a possibilidade de se tornarem proprietários de parte desses empreendimentos, recebendo rendimentos proporcionais aos aluguéis e ganhos de capital."
-          },
           {
             title: "Rendimento:",
             description: "O rendimento de um FII é composto principalmente pelos aluguéis recebidos dos imóveis que compõem sua carteira, que são distribuídos periodicamente aos cotistas na forma de proventos. Além disso, os cotistas podem se beneficiar da valorização das cotas negociadas na Bolsa de Valores, que reflete a valorização dos imóveis e as expectativas do mercado em relação ao fundo. É importante ressaltar que os rendimentos dos FIIs são isentos de imposto de renda para pessoa física quando o fundo possui no mínimo 50 cotistas e é negociado em bolsa."
@@ -207,11 +192,8 @@ export class FinanceComponent implements OnInit, AfterViewInit {
       {
         id: "stock-market",
         title: "Mercado de Ações:",
+        description: "O mercado de ações é onde são negociadas partes de propriedade de empresas, chamadas de ações. Os investidores compram e vendem essas ações em bolsas de valores, como a NYSE e a NASDAQ. Apesar da volatilidade, o mercado de ações tem sido historicamente uma das melhores opções de investimento de longo prazo, proporcionando retornos significativos.",
         topics: [
-          {
-            title: "O que é:",
-            description: "O mercado de ações é onde são negociadas partes de propriedade de empresas, chamadas de ações. Os investidores compram e vendem essas ações em bolsas de valores, como a NYSE e a NASDAQ. Apesar da volatilidade, o mercado de ações tem sido historicamente uma das melhores opções de investimento de longo prazo, proporcionando retornos significativos."
-          },
           {
             title: "Riscos:",
             description: "O mercado de ações apresenta diversos riscos, incluindo volatilidade dos preços das ações, riscos macroeconômicos, riscos de mercado, riscos setoriais, riscos de empresa específica, entre outros. É importante que os investidores compreendam esses riscos e estejam preparados para enfrentá-los, diversificando suas carteiras e investindo com base em objetivos de longo prazo."
@@ -236,11 +218,8 @@ export class FinanceComponent implements OnInit, AfterViewInit {
       {
         id: "cryptocurrencies",
         title: "Criptomoedas:",
+        description: "Criptomoedas são uma forma de dinheiro digital descentralizado, operando em uma tecnologia chamada blockchain. Elas garantem transações seguras por meio de criptografia e não são controladas por nenhum governo ou autoridade central. Caracterizadas por anonimato, segurança e uso variado, as criptomoedas são conhecidas por sua volatilidade e riscos associados ao investimento.",
         topics: [
-          {
-            title: "O que é:",
-            description: "Criptomoedas são uma forma de dinheiro digital descentralizado, operando em uma tecnologia chamada blockchain. Elas garantem transações seguras por meio de criptografia e não são controladas por nenhum governo ou autoridade central. Caracterizadas por anonimato, segurança e uso variado, as criptomoedas são conhecidas por sua volatilidade e riscos associados ao investimento."
-          },
           {
             title: "Rendimento:",
             description: "O rendimento das criptomoedas é altamente volátil e especulativo, influenciado por diversos fatores. Estes incluem oferta e demanda, adoção e popularidade, desenvolvimentos tecnológicos, regulação governamental e eventos do mercado financeiro. É importante entender os riscos antes de investir, pois os preços podem variar significativamente em curtos períodos de tempo."
@@ -250,7 +229,7 @@ export class FinanceComponent implements OnInit, AfterViewInit {
             subTopics: [
               {
                 title: "Bitcoin:",
-                description: "O Bitcoin é uma moeda digital descentralizada, criada em 2009 por Satoshi Nakamoto. Operando em uma rede peer-to-peer, ele não é controlado por nenhum governo ou instituição central. Com oferta limitada a 21 milhões de unidades, o Bitcoin é deflacionário e utiliza criptografia avançada para garantir segurança e anonimato nas transações. Sua volatilidade e riscos associados ao investimento são características marcantes."
+                // description: "O Bitcoin é uma moeda digital descentralizada, criada em 2009 por Satoshi Nakamoto. Operando em uma rede peer-to-peer, ele não é controlado por nenhum governo ou instituição central. Com oferta limitada a 21 milhões de unidades, o Bitcoin é deflacionário e utiliza criptografia avançada para garantir segurança e anonimato nas transações. Sua volatilidade e riscos associados ao investimento são características marcantes."
               },
               {
                 title: "Ethereum:",

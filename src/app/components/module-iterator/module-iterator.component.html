@@ -1,26 +1,26 @@
 <section class="app-module-iterator-wrapper">
     <section class="module" *ngFor="let module of modules" id="{{module.id}}">
-        <h2>{{module.title}}</h2>
-        <p class="module-description">{{module.description}}</p>
+        <h2 *ngIf="module.title" [innerHtml]="module.title"></h2>
+        <p *ngIf="module.description" class="module-description" [innerHtml]="module.description"></p>
 
         <section class="topics" *ngIf="module.topics">
             <section class="topic" *ngFor="let topic of module.topics">
-                <h3>{{topic.title}}</h3>
-                <p>{{topic.description}}</p>
+                <h3 *ngIf="topic.title" [innerHtml]="topic.title"></h3>
+                <p *ngIf="topic.description" [innerHtml]="topic.description"></p>
 
-                <section [ngClass]="{'ordered-list': topics.step.'listStyles === 'ol', 'unordered-list': topic.steps.listStyles === 'ul'}">
-                    <ol class="steps" *ngIf="topic.steps && topic.steps.listStyles === 'ol'">
-                        <li *ngFor="let step of topic.steps" [innerHtml]="step"></li>
+                <section [ngClass]="{'ordered-list': topic.steps?.listStyle === 'ol', 'unordered-list': topic.steps?.listStyle === 'ul', 'no-list': !topic.steps?.listStyle}">
+                    <ol class="steps" *ngIf="topic.steps && topic.steps?.listStyle === 'ol'">
+                        <li *ngFor="let step of topic.steps.list" [innerHtml]="step"></li>
                     </ol>
-                    <ul class="steps" *ngIf="topic.steps && topic.steps.listStyles === 'ul' || topic.steps.listStyles == ''">
-                        <li *ngFor="let step of topic.steps" [innerHtml]="step"></li>
+                    <ul class="steps" *ngIf="topic.steps && topic.steps?.listStyle === 'ul' || topic.steps?.listStyle == ''">
+                        <li *ngFor="let step of topic.steps?.list" [innerHtml]="step"></li>
                     </ul>
                 </section>
 
                 <section class="sub-topics" *ngIf="topic.subTopics">
                     <section class="sub-topic" *ngFor="let subTopic of topic.subTopics">
-                        <h3>{{subTopic.title}}</h3>
-                        <p>{{subTopic.description}}</p>
+                        <h3 *ngIf="subTopic.title" [innerHtml]="subTopic.title"></h3>
+                        <p *ngIf="subTopic.description" [innerHtml]="subTopic.description"></p>
                     </section>
                 </section>
             </section>

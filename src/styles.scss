@@ -4,9 +4,14 @@
 @include mat.core();
 
 // Available color palettes: https://material.io/design/color/
-$lifeplan-primary: mat.define-palette(mat.$deep-purple-palette);
-$lifeplan-accent: mat.define-palette(mat.$purple-palette, A200, A100, A400);
-$lifeplan-warn: mat.define-palette(mat.$amber-palette);
+$lifeplan-light-primary: mat.define-palette(mat.$pink-palette);
+$lifeplan-light-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$lifeplan-light-warn: mat.define-palette(mat.$amber-palette);
+
+$lifeplan-dark-primary: mat.define-palette(mat.$amber-palette);
+$lifeplan-dark-accent: mat.define-palette(mat.$purple-palette, A200, A100, A400);
+$lifeplan-dark-warn: mat.define-palette(mat.$amber-palette);
+
 $lifeplan-typography: mat.define-typography-config(
   $font-family: 'Open Sans, Montserrat, sans-serif',
   $headline-1: mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
@@ -21,17 +26,25 @@ $lifeplan-typography: mat.define-typography-config(
   $caption: mat.define-typography-level(10px, 12px, 400)
 );
 
-$lifeplan-theme: mat.define-light-theme((
+$lifeplan-light-theme: mat.define-light-theme((
   color: (
-    primary: $lifeplan-primary,
-    accent: $lifeplan-accent,
-    warn: $lifeplan-warn,
+    primary: $lifeplan-light-primary,
+    accent: $lifeplan-light-accent,
+    warn: $lifeplan-light-warn,
     ),
     typography: $lifeplan-typography,
     density: 0
 ));
 
-@include mat.all-component-themes($lifeplan-theme);
+$lifeplan-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $lifeplan-dark-primary,
+    accent: $lifeplan-dark-accent,
+    warn: $lifeplan-dark-warn,
+    ),
+    typography: $lifeplan-typography,
+    density: 0
+));
 
 :root {
   --lp-primary-gradient: linear-gradient(to right, #a93fff, #ff008c);
@@ -49,6 +62,7 @@ html, body {
 
 
 body.dark {
+  @include mat.all-component-themes($lifeplan-dark-theme);
   --lp-bg-primary: #1f1f1f;
   --lp-bg-secondary: #0f0f0f;
   --lp-text-primary: #eeeeee;
@@ -57,7 +71,7 @@ body.dark {
 }
 
 body.light {
-
+  @include mat.all-component-themes($lifeplan-light-theme);
 }
 
 $lp-bg-primary: var(--lp-bg-primary);
@@ -129,10 +143,6 @@ body {
     height: 100%;
     background-color: $lp-bg-primary;
     overflow-x: hidden;
-
-    h2, h3, h4, h5, h6, p, li, a, label {
-      letter-spacing: 1.8px;
-    }
 
     h2, label {
       color: $lp-text-primary;

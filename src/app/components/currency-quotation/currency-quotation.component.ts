@@ -31,11 +31,11 @@ import { CurrencyDataSource } from './currency-data-source.interface';
 export class CurrencyQuotationComponent implements OnInit{
   public currencyQuotation: CurrencyQuotation | undefined | null = null;
   public modules!: Module[]
-  public displayedColumns: string[] = ['position', 'property', 'value'];
+  public displayedColumns: string[] = ['property', 'value'];
   public dataSource!: MatTableDataSource<CurrencyDataSource>;
   public currencies!: Option[]
-  private firstCurrency!: string
-  private secondCurrency!: string
+  public firstCurrency!: string
+  public secondCurrency!: string
 
 
   constructor(
@@ -145,13 +145,11 @@ export class CurrencyQuotationComponent implements OnInit{
   private __setDataSource(currencies: CurrencyQuotation | null = null): CurrencyDataSource[] {
     if (currencies) {
       return (Object.entries(currencies || {}).map(([key, value], index) => ({
-        position: index + 1,
         property: this.__translateProperties(key),
         value: value
       })))
     } else {
       return Object.entries(this.currencyQuotation || {}).map(([key, value], index) => ({
-        position: index + 1,
         property: this.__translateProperties(key),
         value: value,
       }));

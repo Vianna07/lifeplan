@@ -1,6 +1,6 @@
 interface subTopic {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 }
 
 interface Step {
@@ -9,7 +9,7 @@ interface Step {
 }
 
 export interface Topic {
-  title: string;
+  title?: string;
   description?: string;
   steps?: Step;
   subTopics?: subTopic[]
@@ -17,7 +17,7 @@ export interface Topic {
 
 export interface Module {
   id?: string;
-  title: string;
+  title?: string;
   description?: string;
   topics?: Topic[]
 }
