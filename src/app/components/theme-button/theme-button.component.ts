@@ -1,50 +1,46 @@
+import { MatButtonModule } from '@angular/material/button';
 import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserStorageService } from '../../services/browser-storage/browser-storage.service';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-theme-button',
   standalone: true,
-  imports: [MatIconModule],
+  imports: [
+    MatIconModule,
+    MatButtonModule,
+    NgIf,
+  ],
   templateUrl: './theme-button.component.html',
   styleUrl: './theme-button.component.scss'
 })
 export class ThemeButtonComponent implements OnInit{
-  private themes!: object
-  private execute: boolean = false
+  public theme!: string;
 
   constructor (
     private storage: BrowserStorageService,
-    private el: ElementRef, 
     private renderer: Renderer2,
 
   ) {}
 
   ngOnInit(): void {
-    this.themes = {
-      dark: "light",
-      light: "dark"
-    }
+    this.theme = this.storage.getItem('theme')
   }
 
-  public changeTheme(): void {
-    if (this.execute) {
-      const theme = this.themes[this.storage.get("theme")]
-    const body = this.el.nativeElement.ownerDocument.body
+  public changeTheme(theme: string): void {
+    if (theme === 'light') {
+      this.renderer.removeClass(document.body, 'dark');
+      this.renderer.addClass(document.body, 'light');
+      this.storage.setItem('theme', 'light');
+    } else { // theme === 'dark'
+      this.renderer.removeClass(document.body, 'light');
+      this.renderer.addClass(document.body, 'dark');
+      this.storage.setItem('theme', 'dark');
+    }
 
-    if (theme) {
-      console.log(theme, this.themes[theme]);
-      
-      this.renderer.addClass(body, theme)
-      this.renderer.removeClass(body, this.themes[theme])
-    }
-    this.storage.set('theme', theme );
-    this.execute = !this.execute
-    } else {
-      this.execute = !this.execute
-    }
-    
+    this.theme = this.storage.getItem('theme')
   }
-  
+
 }
 
