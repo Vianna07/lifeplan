@@ -1,8 +1,0 @@
-<section class="app-lp-select-wrapper">
-    <mat-form-field class="select">
-        <mat-label class="mat-bold"><strong>{{selectLabel}}</strong></mat-label>
-        <mat-select [(ngModel)]="selectedValue" (ngModelChange)="onChangeSelect($event)">
-            <mat-option *ngFor="let item of items" [value]="item">{{item.name}}</mat-option>
-        </mat-select>
-    </mat-form-field>
-</section>

@@ -1,0 +1,13 @@
+<mat-form-field class="search-input-wrapper">
+  <mat-label>{{label}}</mat-label>
+  <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+  <button matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
+    <mat-icon>close</mat-icon>
+  </button>
+
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+    @for (option of filteredOptions | async; track option) {
+      <mat-option [value]="option">{{option.name}}</mat-option>
+    }
+  </mat-autocomplete>
+</mat-form-field>

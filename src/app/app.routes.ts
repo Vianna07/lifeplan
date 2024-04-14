@@ -15,9 +15,11 @@ export const routes: Routes = [
     {
         path: 'finance',
         component: FinanceComponent,
-    },
-    {
-      path: 'investments',
-      component: InvestmentsComponent,
+        children: [
+          {
+            path: 'investments',
+            component: InvestmentsComponent
+          }
+        ]
     },
 ];

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { NavMenuComponent } from '../../components/nav-menu/nav-menu.component';
 import { NgOptimizedImage } from '@angular/common';
 import { Module } from '../../models/module.interface';
 import { ModuleIteratorComponent } from '../../components/module-iterator/module-iterator.component';
+import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    NavMenuComponent,
+    NavBarComponent,
     ModuleIteratorComponent,
     NgOptimizedImage,
   ],

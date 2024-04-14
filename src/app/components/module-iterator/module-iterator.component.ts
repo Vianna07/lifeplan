@@ -14,7 +14,7 @@ import { NgClass, NgFor, NgIf } from '@angular/common';
   styleUrl: './module-iterator.component.scss'
 })
 export class ModuleIteratorComponent {
-  @Input() public modules!: Module[];
+  @Input({required: true}) public modules!: Module[];
 
   constructor() {}
 }

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LpSelectComponent } from './lp-select.component';
+import { SearchInputComponent } from './search-input.component';
 
-describe('LpSelectComponent', () => {
-  let component: LpSelectComponent;
-  let fixture: ComponentFixture<LpSelectComponent>;
+describe('SearchInputComponent', () => {
+  let component: SearchInputComponent;
+  let fixture: ComponentFixture<SearchInputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LpSelectComponent]
+      imports: [SearchInputComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(LpSelectComponent);
+    fixture = TestBed.createComponent(SearchInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,14 +1,14 @@
-interface ModuleContent {
+interface NavLink {
     name: string;
     link: string;
-    fragment: string;
+    fragment?: string;
 }
 
-export interface Module {
+export interface NavModule {
     title: string;
     titleIcon: string;
     sectionName: string;
-    content: ModuleContent[];
+    content: NavLink[];
     hiddenContent: boolean;
     iconIsSelected: boolean;
     tabindex: number;

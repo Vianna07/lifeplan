@@ -74,6 +74,10 @@ body.light {
   @include mat.all-component-themes($lifeplan-light-theme);
 }
 
+.mat-icon {
+  color: var(--lp-text-primary);
+}
+
 $lp-bg-primary: var(--lp-bg-primary);
 $lp-bg-secondary: var(--lp-bg-secondary);
 $lp-text-primary: var(--lp-text-primary);
@@ -85,10 +89,6 @@ body {
   font-family: 'Open Sans', 'Montserrat', sans-serif;
   background-color: $lp-bg-primary;
   overflow-y: hidden;
-}
-
-.mat-icon {
-  color: $lp-text-primary !important;
 }
 
 @mixin text-gradient($color) {
@@ -132,19 +132,19 @@ body {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: 280px auto;
-  grid-template-rows: 100%;
+  grid-template-columns: auto;
+  grid-template-rows: 60px auto;
 
   .page-content {
     @include flex(column, start, center, 0);
     @include scroll();
-    padding: 15px 17.5% 25px 17.5%;
+    padding: 15px 27.5% 25px;
     width: 100%;
     height: 100%;
     background-color: $lp-bg-primary;
     overflow-x: hidden;
 
-    h2, label {
+    h1, h2, label {
       color: $lp-text-primary;
     }
 
@@ -158,49 +158,4 @@ body {
   border-radius: 5px;
   border: 1px solid $lp-text-secondary;
   width: 100%;
-}
-
-.title-container {
-  width: 100%;
-  .title {
-    @include flex(row, center, center, 0);
-    margin-bottom: 15px;
-
-    h1 {
-      margin-left: 10px;
-      font-size: 38px;
-      white-space: nowrap;
-    }
-  }
-
-  .uppercase {
-    h1 {
-      text-transform: uppercase;
-    }
-  }
-
-  hr {
-    margin-bottom: 15px;
-  }
-}
-
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-  .page {
-    grid-template-columns: 75px auto;
-
-    .page-content {
-      padding: 15px 25px 25px 25px;
-    }
-  }
-}
-
-@media screen and (max-width: 768px){
-  .page {
-    grid-template-columns: auto;
-    grid-template-rows: 50px auto;
-
-    .page-content {
-      padding: 15px 25px 25px 25px
-    }
-  }
 }

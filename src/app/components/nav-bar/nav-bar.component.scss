@@ -1,0 +1,51 @@
+$lp-bg-secondary: var(--lp-bg-secondary);
+$lp-text-primary: var(--lp-text-primary);
+$lp-text-secondary: var(--lp-text-secondary);
+$lp-primary-gradient: var(--lp-primary-gradient);
+$section-border: 1.5px solid $lp-text-primary;
+
+.app-nav-bar-wrapper {
+  h1, h2, h3 {
+    color: $lp-text-primary;
+    text-transform: uppercase;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $lp-bg-secondary;
+  padding: 0 120px;
+  height: 100%;
+
+  .navbar {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 8fr 1.5fr;
+    gap: 10px;
+    align-items: center;
+
+    .logo-area {
+      display: flex;
+      gap: 15px;
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .menu {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 15px;
+        border-right: 1px dashed $lp-text-primary;
+      }
+    }
+
+    .title > h1 {
+      text-align: center;
+    }
+  }
+
+}

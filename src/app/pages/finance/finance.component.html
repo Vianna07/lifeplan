@@ -1,12 +1,6 @@
 <section class="app-finance-wrapper page">
-    <app-nav-menu></app-nav-menu>
+    <app-nav-bar [title]="'Finanças'"></app-nav-bar>
     <section class="page-content">
-        <section class="title-container">
-            <section class="title uppercase" id="title">
-                <h1 class="lp-title">Finanças</h1>
-            </section>
-            <hr class="hr">
-        </section>
         <app-module-iterator [modules]="modules"></app-module-iterator>
     </section>
 </section>

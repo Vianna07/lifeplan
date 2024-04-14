@@ -2,15 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { CurrencyQuotationService } from './currency-quotation.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrencyQuotation } from './currency-quotation.interface';
-import { transformToArray, transformToObjectArray } from '../../utils/object.utils';
+import { transformToObjectArray } from '../../utils/object.utils';
 import { NgFor, NgIf } from '@angular/common';
 import { Module } from '../../models/module.interface';
 import { ModuleIteratorComponent } from '../module-iterator/module-iterator.component';
-import { LpSelectComponent } from '../lp-select/lp-select.component';
 import { Option } from '../../models/option.interface';
 import { CurrencyCode } from './currency-code.enum';
 import { MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { CurrencyDataSource } from './currency-data-source.interface';
+import { SearchInputComponent } from '../search-input/search-input.component';
+import { BrowserStorageService } from '../../services/browser-storage/browser-storage.service';
 
 
 @Component({
@@ -21,8 +22,8 @@ import { CurrencyDataSource } from './currency-data-source.interface';
     NgIf,
     NgFor,
     ModuleIteratorComponent,
-    LpSelectComponent,
     MatTableModule,
+    SearchInputComponent,
   ],
   templateUrl: './currency-quotation.component.html',
   styleUrl: './currency-quotation.component.scss',
@@ -33,13 +34,13 @@ export class CurrencyQuotationComponent implements OnInit{
   public modules!: Module[]
   public displayedColumns: string[] = ['property', 'value'];
   public dataSource!: MatTableDataSource<CurrencyDataSource>;
-  public currencies!: Option[]
   public firstCurrency!: string
   public secondCurrency!: string
-
+  public options!: Option[]
 
   constructor(
     private currencyQuotationService: CurrencyQuotationService,
+    private localStorage: BrowserStorageService
   ) {}
 
   ngOnInit(): void {
@@ -114,42 +115,52 @@ export class CurrencyQuotationComponent implements OnInit{
         },
       ]
 
-      this.currencies = Object.keys(CurrencyCode).map(key => ({
+      this.options = Object.keys(CurrencyCode).map(key => ({
         value: key,
         name: CurrencyCode[key as keyof typeof CurrencyCode]
       }))
+
+      this.getCurrencyQuotation('', true)
   }
 
-  public getCurrencyQuotation(currency: string, ignoreLocalStorage = false): any {
-    const savedCurrencyQuote = ignoreLocalStorage ? null : JSON.parse(localStorage.getItem('currency-quotation') || '')
-    this.dataSource = new MatTableDataSource<CurrencyDataSource>(this.__setDataSource(savedCurrencyQuote))
+  public getCurrencyQuotation(currency: string, onInit: boolean = false): any {
+    let dataSource;
 
-    if (savedCurrencyQuote) {
-      this.currencyQuotation = savedCurrencyQuote
-      console.log(savedCurrencyQuote);
-    }
-    else {
+    if (onInit) {
+      const savedCurrencyQuote = onInit ? null : JSON.parse(this.localStorage.get('currency-quotation') || '')
+      dataSource = new MatTableDataSource<CurrencyDataSource>(this.__setDataSource(savedCurrencyQuote))
+
+      if (savedCurrencyQuote) {
+        this.currencyQuotation = savedCurrencyQuote
+      } else {
+        this.currencyQuotation = transformToObjectArray(this.currencyQuotationService.getCurrencyQuotationExample())[0]
+        dataSource = new MatTableDataSource<CurrencyDataSource>(this.__setDataSource())
+      }
+    } else {
       this.currencyQuotationService.getCurrencyQuotation(currency).subscribe({
         next: (data: object) => {
+          this.firstCurrency =
           this.currencyQuotation = transformToObjectArray(data)[0]
-          localStorage.setItem('currency-quotation', JSON.stringify(this.currencyQuotation))
-          this.dataSource = new MatTableDataSource<CurrencyDataSource>(this.__setDataSource())
+          this.localStorage.set('last-currency-quotation', JSON.stringify(this.currencyQuotation))
+          dataSource = new MatTableDataSource<CurrencyDataSource>(this.__setDataSource())
         },
         error: (error) => {
           this.currencyQuotation = undefined
         }
       })
     }
+
+    this.dataSource = dataSource
   }
 
   private __setDataSource(currencies: CurrencyQuotation | null = null): CurrencyDataSource[] {
     if (currencies) {
-      return (Object.entries(currencies || {}).map(([key, value], index) => ({
+      return (Object.entries(currencies || {}).map(([key, value]) => ({
         property: this.__translateProperties(key),
         value: value
       })))
     } else {
-      return Object.entries(this.currencyQuotation || {}).map(([key, value], index) => ({
+      return Object.entries(this.currencyQuotation || {}).map(([key, value]) => ({
         property: this.__translateProperties(key),
         value: value,
       }));
@@ -174,15 +185,17 @@ export class CurrencyQuotationComponent implements OnInit{
     return properties[property] || property
   }
 
-  public onChangeSelect(currency: any, currencyNumber: number) {
-    if (currencyNumber === 1) {
+  public onChangeOption(currency: Option | null, currencyNumber: number) {
+    if (currencyNumber === 1 && currency) {
       this.firstCurrency = currency.value
-    } else { // currencyNumber === 2
-      this.secondCurrency = currency.value
+    } else {
+      this.firstCurrency = ''
     }
 
-    if (this.firstCurrency && this.secondCurrency) {
-      this.getCurrencyQuotation(`${this.firstCurrency}-${this.secondCurrency}`, true)
+    if (currencyNumber === 2 && currency) {
+      this.secondCurrency = currency.value
+    } else {
+      this.secondCurrency = ''
     }
   }
 }

@@ -1,14 +1,14 @@
 import { AfterViewInit, Component, HostListener, OnDestroy, OnInit, inject } from '@angular/core';
-import { NavMenuComponent } from '../../components/nav-menu/nav-menu.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Module } from '../../models/module.interface';
 import { ModuleIteratorComponent } from '../../components/module-iterator/module-iterator.component';
+import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-finance',
   standalone: true,
   imports: [
-    NavMenuComponent,
+    NavBarComponent,
     ModuleIteratorComponent,
   ],
   templateUrl: './finance.component.html',

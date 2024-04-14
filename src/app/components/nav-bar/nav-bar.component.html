@@ -1,0 +1,25 @@
+<header class="app-nav-bar-wrapper" *ngIf="show">
+    <nav class="navbar">
+        <section class="logo-area">
+            <section class="menu">
+                <mat-icon fontIcon="menu" class="menu-icon"></mat-icon>
+                <h1>Menu</h1>
+            </section>
+            <section class="logo">
+                <img ngSrc="favicon.ico"
+                        width="32" height="32"
+                        alt="logo"
+                        [routerLink]="['/']"
+                        tabindex="-1">
+            </section>
+        </section>
+        <section class="title">
+            <h1>{{title}}</h1>
+        </section>
+        <section class="theme">
+
+        </section>
+    </nav>
+    <app-nav-menu [state]="navMenuState"></app-nav-menu>
+</header>
+
