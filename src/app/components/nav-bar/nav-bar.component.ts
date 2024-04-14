@@ -3,6 +3,7 @@ import { NgIf, NgOptimizedImage } from '@angular/common';
 import { Component, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NavMenuComponent } from '../nav-menu/nav-menu.component';
+import { ThemeButtonComponent } from '../theme-button/theme-button.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -13,6 +14,7 @@ import { NavMenuComponent } from '../nav-menu/nav-menu.component';
     RouterLink,
     MatIconModule,
     NavMenuComponent,
+    ThemeButtonComponent,
   ],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.scss'

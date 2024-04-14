@@ -127,7 +127,7 @@ export class CurrencyQuotationComponent implements OnInit{
     let dataSource;
 
     if (onInit) {
-      const savedCurrencyQuote = onInit ? null : JSON.parse(this.localStorage.get('currency-quotation') || '')
+      const savedCurrencyQuote = onInit ? null : JSON.parse(this.localStorage.getItem('currency-quotation') || '')
       dataSource = new MatTableDataSource<CurrencyDataSource>(this.__setDataSource(savedCurrencyQuote))
 
       if (savedCurrencyQuote) {
@@ -141,7 +141,7 @@ export class CurrencyQuotationComponent implements OnInit{
         next: (data: object) => {
           this.firstCurrency =
           this.currencyQuotation = transformToObjectArray(data)[0]
-          this.localStorage.set('last-currency-quotation', JSON.stringify(this.currencyQuotation))
+          this.localStorage.setItem('last-currency-quotation', JSON.stringify(this.currencyQuotation))
           dataSource = new MatTableDataSource<CurrencyDataSource>(this.__setDataSource())
         },
         error: (error) => {

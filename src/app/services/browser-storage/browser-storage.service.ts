@@ -22,15 +22,15 @@ export class BrowserStorageService {
     this.storage = this[storageName];
   }
 
-  public get(key: string): any {
+  public getItem(key: string): any {
     return this.storage?.getItem(key);
   }
 
-  public set(key: string, value: string): void {
+  public setItem(key: string, value: string): void {
     this.storage?.setItem(key, value);
   }
 
-  public remove(key: string): void {
+  public removeItem(key: string): void {
     this.storage?.removeItem(key);
   }
 

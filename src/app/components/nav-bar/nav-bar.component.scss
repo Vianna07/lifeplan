@@ -47,5 +47,26 @@ $section-border: 1.5px solid $lp-text-primary;
       text-align: center;
     }
   }
+}
 
+@media only screen and (max-width: 1024px) {
+  .app-nav-bar-wrapper {
+    padding: 0 40px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .app-nav-bar-wrapper {
+    padding: 0 20px;
+
+    .navbar {
+      .logo-area {
+        .menu {
+          h1 {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }

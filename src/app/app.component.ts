@@ -1,5 +1,5 @@
-import { Component, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core';
-import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { BrowserStorageService } from './services/browser-storage/browser-storage.service';
 
 
@@ -24,14 +24,14 @@ export class AppComponent implements OnInit {
   }
 
   private __setTheme(): void {
-    const theme = this.storage.get('theme')
-    const body = this.el.nativeElement.ownerDocument.body
+    const theme = this.storage?.getItem('theme');
+    const body = this.el.nativeElement.ownerDocument.body;
+    console.log(Array.from(body.classList));
 
     if (theme) {
-      this.renderer.addClass(body, theme)
+      this.renderer.addClass(body, theme);
     } else {
-      this.renderer.addClass(body, 'dark')
-      this.storage.set('theme', 'dark');
+      this.storage.setItem('theme', 'light');
     }
   }
 

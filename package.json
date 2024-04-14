@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:lifeplan": "node dist/lifeplan/server/server.mjs",
-    "deploy:gh-pages": "ng deploy --dir=dist/lifeplan/browser --branch=gh-pages"
+    "deploy:gh-pages": "ng deploy --dir=dist/lifeplan/browser --branch=gh-pages",
+    "clean-dev": "rmdir /s /q node_modules && rmdir /s /q .angular && npm install"
   },
   "private": true,
   "dependencies": {
