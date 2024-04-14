@@ -3,6 +3,7 @@ import { NgClass, NgFor, NgIf, NgOptimizedImage, NgStyle } from '@angular/common
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { Module } from './module.interface';
 import { RouterLink } from '@angular/router';
+import { ThemeButtonComponent } from '../theme-button/theme-button.component';
 
 @Component({
   selector: 'app-nav-menu',
@@ -13,6 +14,7 @@ import { RouterLink } from '@angular/router';
     NgClass,
     RouterLink,
     MatIconModule,
+    ThemeButtonComponent,
   ],
   templateUrl: './nav-menu.component.html',
   styleUrl: './nav-menu.component.scss'

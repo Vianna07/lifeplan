@@ -22,14 +22,14 @@ export class AppComponent implements OnInit {
   }
 
   private __setTheme(): void {
-    const theme = this.storage.get('theme')
+    const theme = this.storage.getItem('theme')
     const body = this.el.nativeElement.ownerDocument.body
 
     if (theme) {
       this.renderer.addClass(body, theme)
     } else {
-      this.renderer.addClass(body, 'dark')
-      this.storage.set('theme', 'dark');
+      this.renderer.addClass(body, 'light')
+      this.storage.setItem('theme', 'light');
     }
   }
 }
