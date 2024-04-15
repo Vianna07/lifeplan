@@ -1,3 +1,12 @@
-<section class="app-nav-menu-wrapper">
+<aside class="app-nav-menu-wrapper">
+  <section class="nav-module" *ngFor="let navModule of navModules">
+    <section class="title">
+      <mat-icon fontIcon="{{navModule.title.icon}}"></mat-icon>
+      <h3>{{navModule.title.name}}</h3>
+      <mat-icon [fontIcon]="'keyboard_arrow_right'"></mat-icon>
+    </section>
+    <section>
 
-</section>
+    </section>
+  </section>
+</aside>

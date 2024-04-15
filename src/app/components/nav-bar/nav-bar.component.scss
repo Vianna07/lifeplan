@@ -61,10 +61,19 @@ $section-border: 1.5px solid $lp-text-primary;
 
     .navbar {
       .logo-area {
+        gap: 0;
+
         .menu {
+          padding-right: 0;
+          border-right: none;
+
           h1 {
             display: none;
           }
+        }
+
+        .logo {
+          display: none;
         }
       }
     }

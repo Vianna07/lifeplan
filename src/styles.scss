@@ -31,9 +31,9 @@ $lifeplan-light-theme: mat.define-light-theme((
     primary: $lifeplan-light-primary,
     accent: $lifeplan-light-accent,
     warn: $lifeplan-light-warn,
-    ),
-    typography: $lifeplan-typography,
-    density: 0
+  ),
+  typography: $lifeplan-typography,
+  density: 0
 ));
 
 $lifeplan-dark-theme: mat.define-dark-theme((
@@ -41,13 +41,12 @@ $lifeplan-dark-theme: mat.define-dark-theme((
     primary: $lifeplan-dark-primary,
     accent: $lifeplan-dark-accent,
     warn: $lifeplan-dark-warn,
-    ),
-    typography: $lifeplan-typography,
-    density: 0
+  )
 ));
 
+@include mat.all-component-colors($lifeplan-light-theme);
+
 :root {
-  @include mat.all-component-themes($lifeplan-light-theme);
   --lp-primary-gradient: linear-gradient(to right, #a93fff, #ff008c);
   --lp-bg-primary: #f7f7f7;
   --lp-bg-secondary: #dddddd;
@@ -56,7 +55,7 @@ $lifeplan-dark-theme: mat.define-dark-theme((
   --lp-bg-page: #fffdfd;
 }
 
-:root > .dark {
+.dark-mode:root {
   @include mat.all-component-themes($lifeplan-dark-theme);
   --lp-bg-primary: #1f1f1f;
   --lp-bg-secondary: #0f0f0f;
@@ -83,7 +82,7 @@ $lp-bg-primary: var(--lp-bg-primary);
 $lp-bg-secondary: var(--lp-bg-secondary);
 $lp-text-primary: var(--lp-text-primary);
 $lp-text-secondary: var(--lp-text-secondary);
-$lp-bg-page: var(--lp-bg-page);
+// $lp-bg-page: var(--lp-bg-page);
 $lp-primary-gradient: var(--lp-primary-gradient);
 
 body {

@@ -1,0 +1,42 @@
+$lp-bg-primary: var(--lp-bg-primary);
+$lp-bg-secondary: var(--lp-bg-secondary);
+$lp-text-primary: var(--lp-text-primary);
+$lp-text-secondary: var(--lp-text-secondary);
+// $lp-bg-page: var(--lp-bg-page);
+$lp-primary-gradient: var(--lp-primary-gradient);
+
+.app-nav-menu-wrapper {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background-color: $lp-bg-secondary;
+  z-index: 999;
+  border: 1px solid $lp-text-primary;
+  padding: 10px 20px 10px;
+  display: flex;
+  flex-direction: column;
+
+  .nav-module {
+    margin-bottom: 20px;
+
+    .title {
+      display: flex;
+      align-items: center;
+
+      .mat-icon {
+        height: auto;
+        width: auto;
+        margin-right: 10px;
+      }
+
+      h3 {
+        background: $lp-primary-gradient;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+
+}

@@ -20,7 +20,8 @@
     }
 
     .one-button {
-      display: block;
+      display: flex;
+      justify-content: end;
     }
   }
 }

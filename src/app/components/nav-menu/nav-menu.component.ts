@@ -1,10 +1,15 @@
 import { Component, OnInit, Renderer2, ElementRef, Input } from '@angular/core';
 import { NavModule } from './nav-module.interface';
+import { NgFor } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-nav-menu',
   standalone: true,
-  imports: [],
+  imports: [
+    NgFor,
+    MatIconModule,
+  ],
   templateUrl: './nav-menu.component.html',
   styleUrl: './nav-menu.component.scss'
 })
@@ -20,35 +25,37 @@ export class NavMenuComponent implements OnInit {
   ngOnInit(): void {
     this.navModules = [
       {
-        title: 'Finanças',
-        titleIcon: 'monetization_on',
-        sectionName: 'finance',
-        content: [
-          { name: 'Introdução', link: '/finance', fragment: 'what-is-it' },
-          { name: 'Taxas', link: '/finance', fragment: 'fees' },
-          { name: 'Impostos', link: '/finance', fragment: 'taxes' },
-          { name: 'CDB/CDI', link: '/finance', fragment: 'certificate-of-deposit' },
-          { name: 'LCI', link: '/finance', fragment: 'lci' },
-          { name: 'LCA', link: '/finance', fragment: 'lca' },
-          { name: 'Tesouro Direto', link: '/finance', fragment: 'treasury-direct' },
-          { name: 'Fundos Imobiliários', link: '/finance', fragment: 'real-estate-investment-funds' },
-          { name: 'Mercado de Ações', link: '/finance', fragment: 'stock-market' },
-          { name: 'Criptomoedas', link: '/finance', fragment: 'cryptocurrencies' },
-          { name: 'Investimentos', link: 'finance/investments' },
+        title: {
+          name: 'Finanças',
+          icon: 'monetization_on'
+        },
+        baseLink: '/finance',
+        anchors: [
+          { name: 'Introdução', fragment: 'what-is-it' },
+          { name: 'Taxas', fragment: 'fees' },
+          { name: 'Impostos', fragment: 'taxes' },
+          { name: 'CDB/CDI', fragment: 'certificate-of-deposit' },
+          { name: 'LCI', fragment: 'lci' },
+          { name: 'LCA', fragment: 'lca' },
+          { name: 'Tesouro Direto', fragment: 'treasury-direct' },
+          { name: 'Fundos Imobiliários', fragment: 'real-estate-investment-funds' },
+          { name: 'Mercado de Ações', fragment: 'stock-market' },
+          { name: 'Criptomoedas', fragment: 'cryptocurrencies' },
+          { name: 'Investimentos', link: '/investments' },
         ],
-        hiddenContent: false,
-        iconIsSelected: false,
+        hiddenAnchors: false,
         tabindex: 0
       },
       {
-        title: 'Projeto de vida',
-        titleIcon: 'manage_accounts',
-        sectionName: 'lifeProject',
-        content: [
-          { name: 'Carreira', link: '/career', fragment: '' },
+        title: {
+          name: 'Projeto de vida',
+          icon: 'manage_accounts',
+        },
+        baseLink: '/life-project',
+        anchors: [
+          { name: 'Carreira', link: '/career' },
         ],
-        hiddenContent: false,
-        iconIsSelected: false,
+        hiddenAnchors: false,
         tabindex: 0
       }
     ]
@@ -60,7 +67,7 @@ export class NavMenuComponent implements OnInit {
   private __setModuleTabindex(): void {
     this.navModules.forEach((module: NavModule, index: number) => {
       try {
-        module.tabindex = (this.navModules[index - 1].tabindex)  + (this.navModules[index -1].content.length) + 1
+        module.tabindex = (this.navModules[index - 1].tabindex)  + (this.navModules[index -1].anchors.length) + 1
       } catch (e) {
         module.tabindex = 1
       }
@@ -85,7 +92,7 @@ export class NavMenuComponent implements OnInit {
     let children;
 
     if (navModule) {
-      children = navModule.content
+      children = navModule.anchors
     } else {
       children = element.querySelectorAll('li')
     }

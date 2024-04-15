@@ -35,7 +35,5 @@ export class NavBarComponent {
     if (!this.el.nativeElement.contains(event.target)) {
       this.navMenuState = 'closed'
     }
-    console.log('oi');
-
   }
 }

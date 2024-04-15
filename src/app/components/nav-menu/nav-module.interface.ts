@@ -1,15 +1,18 @@
 interface NavLink {
     name: string;
-    link: string;
+    link?: string;
     fragment?: string;
 }
 
+interface NavTitle {
+  name: string;
+  icon: string;
+}
+
 export interface NavModule {
-    title: string;
-    titleIcon: string;
-    sectionName: string;
-    content: NavLink[];
-    hiddenContent: boolean;
-    iconIsSelected: boolean;
+    title: NavTitle;
+    baseLink: string;
+    anchors: NavLink[];
+    hiddenAnchors: boolean;
     tabindex: number;
 }
