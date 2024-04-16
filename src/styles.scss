@@ -4,11 +4,11 @@
 @include mat.core();
 
 // Available color palettes: https://material.io/design/color/
-$lifeplan-light-primary: mat.define-palette(mat.$pink-palette);
-$lifeplan-light-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$lifeplan-light-primary: mat.define-palette(mat.$light-blue-palette);
+$lifeplan-light-accent: mat.define-palette(mat.$deep-purple-palette, A200, A100, A400);
 $lifeplan-light-warn: mat.define-palette(mat.$amber-palette);
 
-$lifeplan-dark-primary: mat.define-palette(mat.$amber-palette);
+$lifeplan-dark-primary: mat.define-palette(mat.$deep-orange-palette);
 $lifeplan-dark-accent: mat.define-palette(mat.$purple-palette, A200, A100, A400);
 $lifeplan-dark-warn: mat.define-palette(mat.$amber-palette);
 
@@ -44,24 +44,31 @@ $lifeplan-dark-theme: mat.define-dark-theme((
   )
 ));
 
-@include mat.all-component-colors($lifeplan-light-theme);
+@include mat.all-component-themes($lifeplan-light-theme);
 
-:root {
-  --lp-primary-gradient: linear-gradient(to right, #a93fff, #ff008c);
-  --lp-bg-primary: #f7f7f7;
-  --lp-bg-secondary: #dddddd;
-  --lp-text-primary: #363636;
-  --lp-text-secondary: #414141;
+.light-mode:root {
+  --lp-bg-primary: #039be5;
+  --lp-bg-secondary: #651fff;
   --lp-bg-page: #fffdfd;
+  --lp-bg-nav-menu: #dddddd;
+  --lp-text-primary: #fffdfd;
+  --lp-text-secondary: #414141;
+  --lp-text-thirty: #fff;
+  --lp-primary-gradient: linear-gradient(to right, var(--lp-bg-secondary), var(--lp-bg-primary));
+  --mat-icon-color: #494949;
 }
 
 .dark-mode:root {
-  @include mat.all-component-themes($lifeplan-dark-theme);
-  --lp-bg-primary: #1f1f1f;
-  --lp-bg-secondary: #0f0f0f;
-  --lp-text-primary: #eeeeee;
-  --lp-text-secondary: #a0a0a0;
-  --lp-bg-page: #7a7a7a;
+  @include mat.all-component-colors($lifeplan-dark-theme);
+  --lp-bg-primary: #d84315;
+  --lp-bg-secondary: #fdd835;
+  --lp-bg-page: #363636;
+  --lp-bg-nav-menu: #1d1d1d;
+  --lp-text-primary: #fdfdfd;
+  --lp-text-secondary: #e6e5e5;
+  --lp-text-thirty: #d1d1d1;
+  --lp-primary-gradient: linear-gradient(to right, var(--lp-bg-secondary), var(--lp-bg-primary));
+  --mat-icon-color: #f1f1f1;
 }
 
 * {
@@ -75,19 +82,19 @@ html, body {
 }
 
 .mat-icon {
-  color: var(--lp-text-primary);
+  color: var(--mat-icon-color);
 }
 
 $lp-bg-primary: var(--lp-bg-primary);
 $lp-bg-secondary: var(--lp-bg-secondary);
+$lp-bg-page: var(--lp-bg-page);
 $lp-text-primary: var(--lp-text-primary);
 $lp-text-secondary: var(--lp-text-secondary);
-// $lp-bg-page: var(--lp-bg-page);
+$lp-text-thirty: var(--lp-text-thirty);
 $lp-primary-gradient: var(--lp-primary-gradient);
 
 body {
   font-family: 'Open Sans', 'Montserrat', sans-serif;
-  background-color: $lp-bg-primary;
   overflow-y: hidden;
 }
 
@@ -117,7 +124,7 @@ body {
       width: 8px;
     }
   &::-webkit-scrollbar-track {
-      background-color: $lp-bg-primary;
+      background-color: $lp-bg-page;
     }
   &::-webkit-scrollbar-thumb {
     border-radius: 15px;
@@ -141,7 +148,7 @@ body {
     padding: 15px 26.5% 25px;
     width: 100%;
     height: 100%;
-    background-color: $lp-bg-primary;
+    background-color: $lp-bg-page;
     overflow-x: hidden;
 
     h1, h2, label {
@@ -152,12 +159,6 @@ body {
       color: $lp-text-secondary;
     }
   }
-}
-
-.hr {
-  border-radius: 5px;
-  border: 1px solid $lp-text-secondary;
-  width: 100%;
 }
 
 @media only screen and (max-width: 1024px) {

@@ -1,8 +1,6 @@
-$lp-bg-primary: var(--lp-bg-primary);
-$lp-bg-secondary: var(--lp-bg-secondary);
+$lp-bg-nav-menu: var(--lp-bg-nav-menu);
 $lp-text-primary: var(--lp-text-primary);
-$lp-text-secondary: var(--lp-text-secondary);
-// $lp-bg-page: var(--lp-bg-page);
+// $lp-text-secondary: var(--lp-text-secondary);
 $lp-primary-gradient: var(--lp-primary-gradient);
 
 .app-nav-menu-wrapper {
@@ -11,7 +9,7 @@ $lp-primary-gradient: var(--lp-primary-gradient);
   left: 0;
   width: 300px;
   height: 100%;
-  background-color: $lp-bg-secondary;
+  background-color: $lp-bg-nav-menu;
   z-index: 999;
   border: 1px solid $lp-text-primary;
   padding: 10px 20px 10px;

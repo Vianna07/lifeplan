@@ -1,3 +1,4 @@
+$lp-bg-primary: var(--lp-bg-primary);
 $lp-bg-secondary: var(--lp-bg-secondary);
 $lp-text-primary: var(--lp-text-primary);
 $lp-text-secondary: var(--lp-text-secondary);
@@ -13,7 +14,7 @@ $section-border: 1.5px solid $lp-text-primary;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: $lp-bg-secondary;
+  background-color: $lp-bg-primary;
   padding: 0 120px;
   height: 100%;
 
@@ -40,6 +41,10 @@ $section-border: 1.5px solid $lp-text-primary;
         align-items: center;
         padding-right: 15px;
         border-right: 1px dashed $lp-text-primary;
+
+        .mat-icon {
+          color: $lp-text-primary;
+        }
       }
     }
 

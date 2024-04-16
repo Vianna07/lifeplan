@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, HostListener, Inject, OnInit, Renderer2 } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { BrowserStorageService } from './services/browser-storage/browser-storage.service';
 import { DOCUMENT } from '@angular/common';
 
@@ -18,11 +18,15 @@ export class AppComponent implements OnInit {
     private storage: BrowserStorageService,
     private renderer: Renderer2,
     @Inject(DOCUMENT) private document: Document,
+    private router: Router,
   ) {
   }
 
   ngOnInit(): void {
+    console.time('timer')
     this.__setTheme();
+    // this.router.navigateByUrl('/home')
+    console.timeEnd('timer')
   }
 
   private __setTheme(): void {
