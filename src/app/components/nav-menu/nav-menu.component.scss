@@ -31,7 +31,7 @@ $lp-primary-gradient: var(--lp-primary-gradient);
 
       h3 {
         background: $lp-primary-gradient;
-        background-clip: text;
+        -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
     }
