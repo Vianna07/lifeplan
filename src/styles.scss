@@ -8,7 +8,7 @@ $lifeplan-light-primary: mat.define-palette(mat.$light-blue-palette);
 $lifeplan-light-accent: mat.define-palette(mat.$deep-purple-palette, A200, A100, A400);
 $lifeplan-light-warn: mat.define-palette(mat.$amber-palette);
 
-$lifeplan-dark-primary: mat.define-palette(mat.$deep-orange-palette);
+$lifeplan-dark-primary: mat.define-palette(mat.$indigo-palette);
 $lifeplan-dark-accent: mat.define-palette(mat.$purple-palette, A200, A100, A400);
 $lifeplan-dark-warn: mat.define-palette(mat.$amber-palette);
 
@@ -47,8 +47,8 @@ $lifeplan-dark-theme: mat.define-dark-theme((
 @include mat.all-component-themes($lifeplan-light-theme);
 
 .light-mode:root {
-  --lp-bg-primary: #039be5;
-  --lp-bg-secondary: #b81fff;
+  --lp-bg-primary: #427be4;
+  --lp-bg-secondary: #ca2ef1;
   --lp-bg-page: #fffdfd;
   --lp-bg-nav-menu: #dddddd;
   --lp-text-primary: #fffdfd;
@@ -60,12 +60,12 @@ $lifeplan-dark-theme: mat.define-dark-theme((
 
 .dark-mode:root {
   @include mat.all-component-colors($lifeplan-dark-theme);
-  --lp-bg-primary: #d84315;
-  --lp-bg-secondary: #fdd835;
+  --lp-bg-primary: #341cbd;
+  --lp-bg-secondary: #eb3f5c;
   --lp-bg-page: #363636;
   --lp-bg-nav-menu: #1d1d1d;
   --lp-text-primary: #fdfdfd;
-  --lp-text-secondary: #e6e5e5;
+  --lp-text-secondary: #e6e5e5fa;
   --lp-text-thirty: #d1d1d1;
   --lp-primary-gradient: linear-gradient(to right, var(--lp-bg-secondary), var(--lp-bg-primary));
   --mat-icon-color: #f1f1f1;
