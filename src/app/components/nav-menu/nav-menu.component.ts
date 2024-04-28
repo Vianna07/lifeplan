@@ -3,6 +3,7 @@ import { NgClass, NgFor, NgIf, NgOptimizedImage, NgStyle } from '@angular/common
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { Module } from './module.interface';
 import { RouterLink } from '@angular/router';
+import { ThemeButtonComponent } from '../theme-button/theme-button.component';
 
 @Component({
   selector: 'app-nav-menu',
@@ -13,6 +14,7 @@ import { RouterLink } from '@angular/router';
     NgClass,
     RouterLink,
     MatIconModule,
+    ThemeButtonComponent,
   ],
   templateUrl: './nav-menu.component.html',
   styleUrl: './nav-menu.component.scss'
@@ -46,12 +48,14 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
         sectionName: 'finance',
         content: [
           { name: 'O que é?', link: '/finance', fragment: 'what-is-it' },
-          { name: 'Poupança', link: '/finance', fragment: 'savings-account' },
+          { name: 'Taxas', link: '/finance', fragment: 'fees' },
+          { name: 'Impostos', link: '/finance', fragment: 'taxes' },
           { name: 'CDB/CDI', link: '/finance', fragment: 'certificate-of-deposit' },
-          { name: 'LCI/LCA', link: '/finance', fragment: 'lci-lca' },
+          { name: 'LCI', link: '/finance', fragment: 'lci' },
+          { name: 'LCA', link: '/finance', fragment: 'lca' },
           { name: 'Tesouro Direto', link: '/finance', fragment: 'treasury-direct' },
-          { name: 'Fundos Imobiliários', link: '/finance', fragment: 'real-estate-funds' },
-          { name: 'Ações', link: '/finance', fragment: 'stocks' },
+          { name: 'Fundos Imobiliários', link: '/finance', fragment: 'real-estate-investment-funds' },
+          { name: 'Mercado de Ações', link: '/finance', fragment: 'stock-market' },
           { name: 'Criptomoedas', link: '/finance', fragment: 'cryptocurrencies' }
         ],
         hiddenContent: false,

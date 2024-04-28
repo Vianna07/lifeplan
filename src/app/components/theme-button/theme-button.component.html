@@ -1,0 +1,18 @@
+<section class="app-theme-button-wrapper">
+    <section class="two-buttons">
+      <button class="btn-icon" mat-mini-fab color="" (click)="changeTheme('light')">
+          <mat-icon [fontIcon]="'light_mode'"></mat-icon>
+      </button>
+      <button class="btn-icon" mat-mini-fab color="" (click)="changeTheme('dark')">
+          <mat-icon [fontIcon]="'dark_mode'" ></mat-icon>
+      </button>
+    </section>
+    <section class="one-button">
+        <button class="btn-icon" mat-mini-fab color="" *ngIf="theme === 'dark'" (click)="changeTheme('light')">
+            <mat-icon [fontIcon]="'light_mode'"></mat-icon>
+        </button>
+        <button class="btn-icon" mat-mini-fab color="" *ngIf="theme === 'light'" (click)="changeTheme('dark')">
+            <mat-icon [fontIcon]="'dark_mode'" ></mat-icon>
+        </button>
+    </section>
+</section>
