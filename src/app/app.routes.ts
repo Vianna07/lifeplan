@@ -5,12 +5,16 @@ import { FinanceComponent } from './pages/finance/finance.component';
 
 export const routes: Routes = [
     {
-        path: '**',
+        path: '',
+        component: HomeComponent,
+    },
+    {
+        path: 'page-not-found',
         component: NotFoundComponent,
     },
     {
-        path: '',
-        component: HomeComponent,
+        path: '**',
+        redirectTo: 'page-not-found',
     },
     {
         path: 'finance',

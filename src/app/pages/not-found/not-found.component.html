@@ -1,12 +1,12 @@
-<section class="app-not-found">
+<section class="app-not-found-wrapper">
     <section class="error">
         <h1 class="error-number">404</h1>
         <h2 class="error-description">Pagina não encontrada</h2>
     </section>
-<section class="error-section">
-    <button class="go-back">
-        home page
-    </button>
-    <img id="astronauta" ngSrc="assets/astronaut.png" width="32" height="32">
-    <!-- <img id="stars" src="assets/stars.gif"> -->
+    <section class="error-section">
+        <button class="go-back" [routerLink]="['/']">
+            home page
+        </button>
+        <img class="astronaut" ngSrc="assets/astronaut.png" width="32" height="32">
+    </section>
 </section>
