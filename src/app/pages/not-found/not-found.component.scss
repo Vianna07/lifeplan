@@ -1,0 +1,169 @@
+.app-not-found-wrapper {
+    font-family: 'Montserrat', 'Open Sans', sans-serif;
+    background-image: linear-gradient(to top, #181636, #0b0f22, #000000, #000000, #000000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100vh;
+    text-transform: uppercase;
+    
+
+    color: var(--lp-text-secondary);
+
+    .center {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      max-width: 50em;
+      margin: 0 auto;
+  }
+
+    section {
+      display: block;
+      unicode-bidi: isolate;
+    }
+
+    .error {
+      text-align: center;
+
+      .error-number {
+        font-size: 250px;
+        text-shadow: -2px -2px 0 #c45eff, 2px 2px 0 #ff008c;
+        color: #000000;
+        letter-spacing: -10px;
+        font-weight: 900;
+      }
+
+      .error-description {
+        z-index: 1;
+        letter-spacing: 10px;
+        font-size: 44px;
+        position: absolute;
+        text-transform: uppercase;
+        font-weight: 600;
+        left: 50%;
+        top: 55%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+      }
+    }
+
+    .go-back{
+      position: absolute;
+      border: none;
+      padding: 12px 40px;
+      color: #fff;
+      background: black;
+      text-transform: uppercase;
+      z-index: 1;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: -1px -1px 0 #c45eff, 1px 1px 0 #ff008c; 
+    }
+
+    .go-back::after{
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(196,94,255,1) 0%, rgba(255,0,140,1) 100%);
+      transition: width 0.35s ease-in-out;
+    }
+
+    .go-back:hover::after{
+      left: 0;
+      width: 100%;
+  
+    }
+
+    .astronaut {
+      position: absolute;
+      top: 55%;
+      transition: 0.6s ease-in-out;
+      animation: astronautFly 8s infinite linear;
+  }
+      
+      @keyframes astronautFly {
+        0%{
+          left:-100px;
+        }
+        25%{
+          top:50%;
+          transform:rotate(30deg);
+        }
+        50%{
+          transform:rotate(45deg);
+          top:55%;
+        }
+        75%{
+          top:60%;
+          transform:rotate(30deg);
+        }
+        100%{
+          left:110%;
+          transform:rotate(45deg);
+        }
+      }
+      
+      @keyframes starTwinkle{
+        0%{
+           background:rgba(255,255,255,0.4);
+        }
+        25%{
+          background:rgba(255,255,255,0.8);
+        }
+        50%{
+         background:rgba(255,255,255,1);
+        }
+        75%{
+          background:rgba(255,255,255,0.8);
+        }
+        100%{
+          background:rgba(255,255,255,0.4);
+        }
+      }
+      
+      @media (max-width: 40em) {
+        .error__title {
+          font-size: 10rem;
+        }
+        .error__type {
+          font-size: 1.25rem;
+        }
+        .error__cta {
+          font-size: 1rem;
+        }
+      }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+  .app-not-found {
+    .error {
+      .error-description {
+        font-size: 35px;
+      }
+      .error-number{
+        font-size: 190px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px){
+  .app-not-found {
+    .error {
+      .error-description {
+        font-size: 25px;
+      }
+      .error-number{
+        font-size: 150px;
+      }
+    }
+  }
+}
