@@ -8,7 +8,7 @@
   <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
     @for (option of filteredOptions | async; track option) {
       <mat-option [value]="option">
-        <img *ngIf="option.img?.src" src="{{option.img?.src}}" alt="{{option.img?.alt}}">
+        <img *ngIf="option.img?.src" class="img" [src]="option.img?.src" alt="{{option.img?.alt}}" height="25">
         <span>
           {{option.name}}
         </span>

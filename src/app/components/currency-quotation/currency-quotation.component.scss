@@ -23,6 +23,13 @@ $lp-primary-gradient: var(--lp-primary-gradient);
     }
   }
 
+  .currency-quotation-null {
+    width: 100%;
+    text-align: center;
+    box-shadow: -1.5px -1.5px 0 var(--lp-bg-primary), 1.5px 1.5px 0 var(--lp-bg-secondary);
+    padding: 10px 0;
+  }
+
   .show-quotation, .show-quotation-example {
     margin-bottom: 20px;
     overflow: hidden;

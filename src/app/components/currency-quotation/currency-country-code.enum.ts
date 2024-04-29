@@ -42,7 +42,8 @@ export enum CurrencyCountryCode {
   EGP = 'EG', // Libra Egípcia - Egito (EG)
   ETB = 'ET', // Birr Etíope - Etiópia (ET)
   ETH = 'NA', // Ethereum - Não aplicável
-  EUR = 'EU', // Euro - Vários países da União Europeia (EU)
+  // EUR = 'EU', // Euro - Vários países da União Europeia (EU)
+  EUR = 'NA', // Euro - Não aplicável
   FJD = 'FJ', // Dólar de Fiji - Fiji (FJ)
   GBP = 'GB', // Libra Esterlina - Reino Unido (GB)
   GEL = 'GE', // Lari Georgiano - Geórgia (GE)
