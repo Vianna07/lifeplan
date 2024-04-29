@@ -34,7 +34,7 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
         },
         baseLink: '/finance',
         anchors: [
-          { name: 'Introdução', fragment: 'what-is-it' },
+          { name: 'Introdução', fragment: 'introduction' },
           { name: 'Taxas', fragment: 'fees' },
           { name: 'Impostos', fragment: 'taxes' },
           { name: 'CDB/CDI', fragment: 'certificate-of-deposit' },
