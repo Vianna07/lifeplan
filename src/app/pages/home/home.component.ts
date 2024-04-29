@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
         ]
       },
       {
-        title: "Módulo de Planejamento",
+        title: "Carreira e Guia",
         description: [
           "O módulo de planejamento do LifePlan tem como objetivo ajudar os usuários a desenvolver estratégias para alcançar seus objetivos de vida, incluindo carreira e investimentos. Aqui estão alguns dos tópicos que podem ser abordados neste módulo:"
         ],
