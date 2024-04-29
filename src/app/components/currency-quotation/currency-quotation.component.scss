@@ -67,7 +67,7 @@ $lp-primary-gradient: var(--lp-primary-gradient);
   }
 
   .label-example {
-    color: #5648d3;
+    color: var(--lp-link);
     text-decoration: underline;
     margin-bottom: 5px;
     cursor: pointer;
