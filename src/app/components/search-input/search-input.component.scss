@@ -1,0 +1,14 @@
+.search-input-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.img {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+[dir='rtl'] .img {
+  margin-right: 0;
+  margin-left: 8px;
+}
