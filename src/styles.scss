@@ -49,6 +49,7 @@ $lifeplan-dark-theme: mat.define-dark-theme((
 :root {
   --lp-bg-primary: #427be4;
   --lp-bg-secondary: #ca2ef1;
+  --lp-highlight: #427be477;
   --lp-bg-page: #fffdfd;
   --lp-bg-nav-menu: #dddddd;
   --lp-text-primary: #fffdfd;
@@ -62,6 +63,7 @@ $lifeplan-dark-theme: mat.define-dark-theme((
   @include mat.all-component-colors($lifeplan-dark-theme);
   --lp-bg-primary: #341cbd;
   --lp-bg-secondary: #eb3f5c;
+  --lp-highlight: #eb3f5c7e;
   --lp-bg-page: #363636;
   --lp-bg-nav-menu: #1d1d1d;
   --lp-text-primary: #fdfdfd;
@@ -157,6 +159,10 @@ body {
 
     h3, p, li{
       color: $lp-text-secondary;
+    }
+
+    .highlight {
+      background-image: linear-gradient(to left, var(--lp-highlight), var(--lp-highlight));
     }
   }
 }

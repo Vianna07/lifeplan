@@ -28,15 +28,15 @@ export class HomeComponent implements OnInit {
   private __setModules():void {
     this.modules = [
       {
-        title: 'Introdução' ,
+        title: 'Introdução',
         description: [
           "LifePlan é uma plataforma projetada para ajudar os usuários a planejar e gerenciar diversos aspectos de suas vidas, visando um futuro mais promissor e bem-sucedido. Com foco em finanças, carreira e investimentos, o LifePlan oferece recursos, orientações e informações que capacitam os usuários a tomar decisões informadas e alcançar seus objetivos pessoais e profissionais."],
       },
       {
         title: "Módulo de Finanças",
         description: [
-          "O módulo de finanças do LifePlan é projetado para fornecer informações e orientações sobre diversos aspectos financeiros, ajudando os usuários a entender melhor suas opções e tomar decisões informadas sobre suas finanças pessoais. Aqui estão alguns tópicos que podem ser abordados neste módulo:"]
-          ,
+          "O módulo de finanças do LifePlan é projetado para fornecer informações e orientações sobre diversos aspectos financeiros, ajudando os usuários a entender melhor suas opções e tomar decisões informadas sobre suas finanças pessoais. Aqui estão alguns tópicos que podem ser abordados neste módulo:"
+        ],
         topics: [
           {
             title: "O que é?",
