@@ -23,17 +23,16 @@ export class NavBarComponent {
   @Input() public show: boolean = true;
   @Input({required: true}) public title!: string;
 
-  public navMenuState: string = 'closed';
+  public navMenuIsVisible: boolean = false;
 
   constructor(
     public el: ElementRef,
-    private renderer: Renderer2,
   ) {}
 
   @HostListener('document:click', ['$event'])
   private __onClick(event: MouseEvent): void {
     if (!this.el.nativeElement.contains(event.target)) {
-      this.navMenuState = 'closed'
+      this.navMenuIsVisible = false
     }
   }
 }

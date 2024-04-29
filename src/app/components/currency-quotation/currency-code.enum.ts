@@ -138,7 +138,6 @@ export enum CurrencyCode {
   UAH = 'Hryvinia Ucraniana',
   UGX = 'Shilling Ugandês',
   USD = 'Dólar Americano',
-  USDT = 'Dólar Americano',
   UYU = 'Peso Uruguaio',
   UZS = 'Som Uzbequistanês',
   VEF = 'Bolívar Venezuelano',

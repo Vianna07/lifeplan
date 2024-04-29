@@ -46,7 +46,7 @@ $lifeplan-dark-theme: mat.define-dark-theme((
 
 @include mat.all-component-themes($lifeplan-light-theme);
 
-.light-mode:root {
+:root {
   --lp-bg-primary: #427be4;
   --lp-bg-secondary: #ca2ef1;
   --lp-bg-page: #fffdfd;
@@ -161,7 +161,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .page {
     .page-content {
       padding: 15px 45px 25px;
@@ -169,7 +169,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .page {
     .page-content {
       padding: 15px 15px 25px;

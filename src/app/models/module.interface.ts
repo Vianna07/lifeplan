@@ -1,6 +1,6 @@
 interface subTopic {
   title?: string;
-  description?: string;
+  description?: string[];
 }
 
 interface Step {
@@ -8,16 +8,30 @@ interface Step {
   list?: string[];
 }
 
-export interface Topic {
+interface Topic {
   title?: string;
-  description?: string;
+  description?: string[];
   steps?: Step;
   subTopics?: subTopic[]
+}
+
+interface Image {
+  src: string;
+  alt: string;
+  description?: string;
+}
+
+interface Video {
+  src: string;
+  description?: string;
+  poster?: Image;
 }
 
 export interface Module {
   id?: string;
   title?: string;
-  description?: string;
+  description?: string[];
   topics?: Topic[]
+  img?: Image;
+  video?: Video;
 }

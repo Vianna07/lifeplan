@@ -11,6 +11,7 @@ $section-border: 1.5px solid $lp-text-primary;
     text-transform: uppercase;
   }
 
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,6 +33,7 @@ $section-border: 1.5px solid $lp-text-primary;
       .logo {
         display: flex;
         align-items: center;
+        cursor: pointer;
       }
 
       .menu {
@@ -54,13 +56,13 @@ $section-border: 1.5px solid $lp-text-primary;
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .app-nav-bar-wrapper {
     padding: 0 40px;
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .app-nav-bar-wrapper {
     padding: 0 20px;
 

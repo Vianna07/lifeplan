@@ -1,7 +1,7 @@
 <header class="app-nav-bar-wrapper" *ngIf="show">
     <nav class="navbar">
         <section class="logo-area">
-            <section class="menu">
+            <section class="menu" (click)="navMenuIsVisible = !navMenuIsVisible">
                 <mat-icon fontIcon="menu" class="menu-icon"></mat-icon>
                 <h1>Menu</h1>
             </section>
@@ -20,6 +20,5 @@
           <app-theme-button></app-theme-button>
         </section>
     </nav>
-    <app-nav-menu [state]="navMenuState"></app-nav-menu>
+    <app-nav-menu [visible]="navMenuIsVisible"></app-nav-menu>
 </header>
-

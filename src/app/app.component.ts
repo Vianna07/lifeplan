@@ -18,15 +18,11 @@ export class AppComponent implements OnInit {
     private storage: BrowserStorageService,
     private renderer: Renderer2,
     @Inject(DOCUMENT) private document: Document,
-    private router: Router,
   ) {
   }
 
   ngOnInit(): void {
-    console.time('timer')
     this.__setTheme();
-    // this.router.navigateByUrl('/home')
-    console.timeEnd('timer')
   }
 
   private __setTheme(): void {
@@ -35,7 +31,7 @@ export class AppComponent implements OnInit {
 
     if (theme) {
       this.renderer.addClass(html, theme);
-    } else {
+    } else if (!theme && theme != undefined) {
       this.storage.setItem('theme', 'light-mode');
       this.renderer.addClass(html, 'light-mode');
     }

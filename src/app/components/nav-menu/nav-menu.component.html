@@ -1,12 +1,22 @@
-<aside class="app-nav-menu-wrapper">
-  <section class="nav-module" *ngFor="let navModule of navModules">
-    <section class="title">
-      <mat-icon fontIcon="{{navModule.title.icon}}"></mat-icon>
-      <h3>{{navModule.title.name}}</h3>
-      <mat-icon [fontIcon]="'keyboard_arrow_right'"></mat-icon>
+<aside class="app-nav-menu-wrapper" [ngClass]="{'visible': visible}">
+    <section class="nav-module" *ngFor="let navModule of navModules" [ngClass]="{'hidden-anchors': navModule.hiddenAnchors}">
+        <section class="title">
+            <mat-icon fontIcon="{{navModule.title.icon}}"></mat-icon>
+            <h3 (click)="navModule.hiddenAnchors = !navModule.hiddenAnchors"
+                tabindex="{{navModule.tabindex}}">
+                {{navModule.title.name}}
+            </h3>
+            <mat-icon [fontIcon]="'keyboard_arrow_right'" class="arrow"></mat-icon>
+        </section>
+        <ul class="anchors">
+            <li *ngFor="let anchor of navModule.anchors; index as anchorIndex "
+                [routerLink]="[navModule.baseLink + (anchor.link || '')]"
+                fragment="{{ anchor.fragment || null }}"
+                tabindex="-1">
+                <a tabindex="{{navModule.tabindex + (anchorIndex + 1)}}">
+                    {{anchor.name}}
+                </a>
+            </li>
+        </ul>
     </section>
-    <section>
-
-    </section>
-  </section>
 </aside>

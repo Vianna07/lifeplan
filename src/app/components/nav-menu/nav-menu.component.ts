@@ -1,20 +1,23 @@
-import { Component, OnInit, Renderer2, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef, Input, AfterViewInit } from '@angular/core';
 import { NavModule } from './nav-module.interface';
-import { NgFor } from '@angular/common';
+import { NgClass, NgFor } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nav-menu',
   standalone: true,
   imports: [
     NgFor,
+    NgClass,
     MatIconModule,
+    RouterLink,
   ],
   templateUrl: './nav-menu.component.html',
   styleUrl: './nav-menu.component.scss'
 })
-export class NavMenuComponent implements OnInit {
-  @Input({required: true}) state!: string;
+export class NavMenuComponent implements OnInit, AfterViewInit {
+  @Input({required: true}) visible!: boolean;
   public navModules!: NavModule[];
 
   constructor(
@@ -61,7 +64,10 @@ export class NavMenuComponent implements OnInit {
     ]
 
     this.__setModuleTabindex()
-    this.__setState()
+  }
+
+  ngAfterViewInit(): void {
+    this.__setHeightOf('anchors', this.navModules)
   }
 
   private __setModuleTabindex(): void {
@@ -74,29 +80,13 @@ export class NavMenuComponent implements OnInit {
     })
   }
 
-  private __setState(): void {
-    if (this.state === 'closed') {
-      // this.renderer.selectRootElement('')
-    }
-  }
+  private __setHeightOf(element: string,  navModules: NavModule[]): void {
+    const elements = Array.from(this.el.nativeElement.querySelectorAll(`.${element}`))
 
-  private __setHeightOf(element: string,  navModule: NavModule | null = null): void {
-    const elements = this.el.nativeElement.querySelectorAll(`.${element}`)
+    elements.forEach((element, index: number) => {
+      let children = navModules[index].anchors
 
-    elements.forEach((element: HTMLElement) => {
-      this.__defineHeightValue(element, navModule)
+      this.renderer.setStyle(element, 'height', `${children.length * 29}px`)
     })
-  }
-
-  private __defineHeightValue(element: HTMLElement, navModule: NavModule | null = null): void {
-    let children;
-
-    if (navModule) {
-      children = navModule.anchors
-    } else {
-      children = element.querySelectorAll('li')
-    }
-
-    this.renderer.setStyle(element, 'height', `${children.length * 37}px`)
   }
 }
