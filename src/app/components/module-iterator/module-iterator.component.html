@@ -1,0 +1,53 @@
+<section class="app-module-iterator-wrapper">
+    <section class="module" *ngFor="let module of modules" id="{{module.id}}">
+        <h2 *ngIf="module.title" [innerHtml]="module.title"></h2>
+        @if (module.description) {
+          <section class="descriptions">
+            <p class="module-description" *ngFor="let moduleDescription of module.description" [innerHtml]="moduleDescription"></p>
+          </section>
+        }
+
+        <section class="topics" *ngIf="module.topics">
+            <section class="topic" *ngFor="let topic of module.topics">
+                <h3 *ngIf="topic.title" [innerHtml]="topic.title"></h3>
+
+                @if (topic.description) {
+                  <section class="descriptions">
+                    <p *ngFor="let topicDescription of topic.description" [innerHtml]="topicDescription"></p>
+                  </section>
+                }
+
+                <section [ngClass]="{'ordered-list': topic.steps?.listStyle === 'ol', 'unordered-list': topic.steps?.listStyle === 'ul', 'no-list': !topic.steps?.listStyle}">
+                    <ol class="steps" *ngIf="topic.steps && topic.steps?.listStyle === 'ol'">
+                        <li *ngFor="let step of topic.steps.list" [innerHtml]="step"></li>
+                    </ol>
+                    <ul class="steps" *ngIf="topic.steps && topic.steps?.listStyle === 'ul' || topic.steps?.listStyle == ''">
+                        <li *ngFor="let step of topic.steps?.list" [innerHtml]="step"></li>
+                    </ul>
+                </section>
+
+                <section class="sub-topics" *ngIf="topic.subTopics">
+                    <section class="sub-topic" *ngFor="let subTopic of topic.subTopics">
+                        <h3 *ngIf="subTopic.title" [innerHtml]="subTopic.title"></h3>
+
+                        @if (subTopic.description) {
+                          <section class="descriptions">
+                            <p *ngFor="let subTopicDescription of subTopic.description" [innerHtml]="subTopicDescription"></p>
+                          </section>
+                        }
+                    </section>
+                </section>
+            </section>
+        </section>
+
+        <section *ngIf="module.img" class="module-img">
+          <img ngSrc="assets/{{module.img.src}}" alt="{{module.img.alt}}" width="350" height="350">
+          <h5>{{module.img.description}}</h5>
+        </section>
+
+        <section *ngIf="module.video" class="module-video">
+          <video src="../../../../assets/{{module.video.src}}" controls poster="../../../../../assets/{{module.video.poster?.src}}"></video>
+        </section>
+    </section>
+</section>
+

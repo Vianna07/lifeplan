@@ -1,0 +1,52 @@
+<section class="app-currency-quotation-wrapper">
+    <h3>Cotação: </h3>
+    <section class="quotation">
+        <section class="choose">
+            <app-search-input *ngFor="let searchInput of [1 , 2]" [options]="options" [label]="searchInput === 1 ? 'De:' : 'Para:'" (chosenOption)="onChangeOption($event, searchInput)"></app-search-input>
+        </section>
+    </section>
+    <section *ngIf="!currencyQuotation" class="currency-quotation-null">
+      <h3>Não há dados</h3>
+    </section>
+    <section class="show-quotation" [ngStyle]="{'height': currencyQuotation ? '628px' : '0'}">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="property">
+                <th mat-header-cell *matHeaderCellDef> Propriedade </th>
+                <td mat-cell *matCellDef="let element"> {{element.property}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="value">
+                <th mat-header-cell *matHeaderCellDef> Valor </th>
+                <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </section>
+
+    <h4 (click)="showExample = !showExample"
+        class="label-example">
+        {{showExample ? 'Esconder Exemplo' : 'Mostrar Exemplo'}}
+    </h4>
+    <section class="example" [ngStyle]="{'height': showExample ? '666px' : '0'}">
+      <h5>De: USD, Para: BRL</h5>
+      <section class="show-quotation-example">
+        <table mat-table [dataSource]="dataSourceExample" class="mat-elevation-z8">
+            <ng-container matColumnDef="property">
+                <th mat-header-cell *matHeaderCellDef> Propriedade </th>
+                <td mat-cell *matCellDef="let element"> {{element.property}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="value">
+                <th mat-header-cell *matHeaderCellDef> Valor </th>
+                <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </section>
+    </section>
+    <app-module-iterator [modules]="modules"></app-module-iterator>
+</section>

@@ -1,66 +1,22 @@
-<header class="app-nav-menu-wrapper">
-  <section class="logo">
-      <img ngSrc="favicon.ico"
-           width="32" height="32"
-           alt="logo"
-           [routerLink]="['/']"
-           tabindex="-1">
-      <h1 class="lf-title"
-          [routerLink]="['/']"
-          tabindex="-1">
-        Lifeplan
-      </h1>
-  </section>
-  <aside class="menu">
-    <section class="nav">
-      <section class="module"
-               *ngFor="let module of modules; index as moduleIndex"
-               [ngClass]="{'hidden-content': module.hiddenContent, 'selected': module.iconIsSelected && sectionIsOpen}">
-        <section class="module-title">
-            <mat-icon class="module-icon"
-                      (click)="openSection(module.sectionName)"
-                      tabindex="-1">
-              {{module.titleIcon}}
-            </mat-icon>
-            <h1 class="lf-title"
-                (click)="module.hiddenContent = !module.hiddenContent"
-                tabindex="{{ module.tabindex }}">
-                {{module.title}}
-            </h1>
-            <mat-icon class="arrow">keyboard_arrow_down</mat-icon>
+<aside class="app-nav-menu-wrapper" [ngClass]="{'visible': visible}">
+    <section class="nav-module" *ngFor="let navModule of navModules" [ngClass]="{'hidden-anchors': navModule.hiddenAnchors}">
+        <section class="title">
+            <mat-icon fontIcon="{{navModule.title.icon}}"></mat-icon>
+            <h3 (click)="navModule.hiddenAnchors = !navModule.hiddenAnchors"
+                tabindex="{{navModule.tabindex}}">
+                {{navModule.title.name}}
+            </h3>
+            <mat-icon [fontIcon]="'keyboard_arrow_right'" class="arrow"></mat-icon>
         </section>
-        <ul class="module-content">
-            <li *ngFor="let moduleContent of module.content; index as moduleContentIndex"
-                [routerLink]="moduleContent.link"
-                fragment="{{ moduleContent.fragment }}"
+        <ul class="anchors">
+            <li *ngFor="let anchor of navModule.anchors; index as anchorIndex "
+                [routerLink]="[navModule.baseLink + (anchor.link || '')]"
+                fragment="{{ anchor.fragment || null }}"
                 tabindex="-1">
-                <a tabindex="{{ module.hiddenContent ? - 1 : module.tabindex + moduleContentIndex + 1 }}">{{moduleContent.name}}</a>
+                <a tabindex="{{navModule.tabindex + (anchorIndex + 1)}}">
+                    {{anchor.name}}
+                </a>
             </li>
         </ul>
-      </section>
     </section>
-    <section class="section"
-             [ngClass]="{'open': sectionIsOpen}">
-      <section class="module"
-               [ngClass]="{'hidden-content': openedModule.hiddenContent}">
-        <section class="module-title">
-            <h1 class="lf-title"
-                (click)="openedModule.hiddenContent = !openedModule.hiddenContent">
-                {{openedModule.title}}
-            </h1>
-            <mat-icon class="arrow">keyboard_arrow_down</mat-icon>
-        </section>
-          <ul class="section-module-content">
-              <li *ngFor="let topicContent of openedModule.content">
-                  <a [routerLink]="topicContent.link"
-                     fragment="{{topicContent.fragment}}">
-                  {{topicContent.name}}
-                  </a>
-              </li>
-          </ul>
-      </section>
-      <mat-icon class="close" (click)="sectionIsOpen = false">close</mat-icon>
-    </section>
-  </aside>
-</header>
-
+</aside>
