@@ -61,7 +61,7 @@ export class NavMenuComponent implements OnInit, AfterViewInit, OnChanges {
           { name: 'Autoconhecimento', fragment: 'self-knowledge' },
           { name: 'Meu futuro', fragment: 'my-future' },
           { name: 'Planejamento', fragment: 'planning' },
-          { name: 'Carreira', fragment: 'career' },
+          // { name: 'Carreira', fragment: 'career' }, //TODO: Página de carreiras
         ],
         hiddenAnchors: false,
         tabindex: 0
