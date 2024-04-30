@@ -82,6 +82,7 @@ export class LifeProjectComponent implements OnInit, AfterViewInit {
           {
             title: "DICAS",
             steps: {
+              listStyle: 'ol',
               list: [
                 "A escolha profissional deve compor seu Projeto de Vida, e deverá estar alinhada aos seus objetivos de vida, objetivos acadêmicos, etc. Não esqueça de avaliar todo o contexto do seu projeto de vida para entender como sua escolha profissional influenciará as outras áreas de sua vida.",
                 "Pesquise sobre a profissão que deseja seguir: reúna informações acerca da profissão desejada (o que faz, como é a rotina deste profissional, quais as habilidades e competências necessárias, salários, mercado de trabalho, universidades que oferecem o curso). Avalie se você está disposto a vivenciar o que esta profissão tem a lhe trazer.",
@@ -119,6 +120,7 @@ export class LifeProjectComponent implements OnInit, AfterViewInit {
           {
             title: "Dez dicas para melhorar nos estudos",
             steps: {
+              listStyle: "ol",
               list: [
                 "Participe da aula, preste atenção, tome nota e não tenha vergonha de fazer perguntas.",
                 "Monte um plano de estudo, prevendo o que vai estudar ao longo da semana.",
