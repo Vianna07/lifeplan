@@ -1,4 +1,4 @@
-<aside class="app-nav-menu-wrapper" [ngClass]="{'visible': visible}">
+<aside #navMenu class="app-nav-menu-wrapper" [ngClass]="{'visible': visible}">
     <section class="nav-module" *ngFor="let navModule of navModules" [ngClass]="{'hidden-anchors': navModule.hiddenAnchors}">
         <section class="title">
             <mat-icon fontIcon="{{navModule.title.icon}}"></mat-icon>

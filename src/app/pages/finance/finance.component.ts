@@ -151,7 +151,7 @@ export class FinanceComponent implements OnInit, AfterViewInit {
             title: "Como investir:",
             steps: {
               listStyle: "ol",
-              list:[
+              list: [
                 "Escolha uma instituição financeira.",
                 "Abra uma conta de investimento.",
                 "Se informe sobre as opções de LCA disponíveis.",
