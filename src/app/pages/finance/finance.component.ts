@@ -27,7 +27,7 @@ export class FinanceComponent implements OnInit, AfterViewInit {
         id: "introduction",
         title: "Introdução:",
         description: [
-          "Finanças é a gestão inteligente dos recursos financeiros, desde decisões pessoais até estratégias empresariais. Abrangem orçamentação, investimentos, gestão de dívidas e mais, tanto em nível pessoal quanto corporativo.",
+          addTag("span", "Banco Central do Brasil", [{name: "class", value: "highlight"}]) + " Finanças é a gestão inteligente dos recursos financeiros, desde decisões pessoais até estratégias empresariais. Abrangem orçamentação, investimentos, gestão de dívidas e mais, tanto em nível pessoal quanto corporativo.",
           "Nos mercados financeiros, compreender oferta, demanda e diversificação é essencial. Além disso, as finanças públicas garantem estabilidade econômica. Dominar os princípios financeiros é crucial para alcançar metas e garantir um futuro próspero."
         ]
       },
@@ -38,14 +38,14 @@ export class FinanceComponent implements OnInit, AfterViewInit {
           {
             title: "Taxa Selic:",
             description: [
-              "A Taxa Selic é a taxa básica de juros definida pelo Banco Central do Brasil, influenciando o rendimento de diversos investimentos, como Tesouro Selic e LCIs/LCAs. É utilizada como instrumento de política monetária para controlar a inflação e estimular a economia.",
+              "A Taxa Selic é a taxa básica de juros definida pelo " + addTag("span", "Banco Central do Brasil", [{name: "class", value: "highlight"}]) + ", influenciando o rendimento de diversos investimentos, como Tesouro Selic e LCIs/LCAs. É utilizada como instrumento de política monetária para controlar a inflação e estimular a economia.",
               "Para mais Informações, segue o link para o site do " + addTag('a', ' Tesouro Direto', [{name: 'class', value: 'link-selic'}, { name: 'href', value: 'https://www.tesourodireto.com.br/'}])
             ]
           },
           {
             title: "IPCA:",
             description: [
-              "O IPCA é o Índice Nacional de Preços ao Consumidor Amplo, utilizado como indicador oficial de inflação no Brasil. Investimentos como Tesouro IPCA e CDBs são indexados a este índice para proteção contra a desvalorização da moeda."
+              "O IPCA é o Índice Nacional de Preços ao Consumidor Amplo, utilizado como indicador oficial de inflação no Brasil." + addTag("span", "Investimentos como Tesouro IPCA e CDBs são indexados a este índice para proteção contra a desvalorização da moeda.", [{name: "class", value: "highlight"}])
             ]
           },
           {
@@ -70,7 +70,7 @@ export class FinanceComponent implements OnInit, AfterViewInit {
           {
             title: "IR - Imposto de Renda:",
             description: [
-              "O Imposto de Renda é um tributo federal aplicado sobre a renda de pessoas físicas e jurídicas no Brasil. Incide sobre salários, lucros, rendimentos de investimentos, entre outros. Sua arrecadação é essencial para o financiamento de serviços públicos, como saúde, educação e segurança. Para mais informações sobre impostos, segue o link para o site do " + addTag('a', ' PagBank', [{name: 'class', value: 'link-ipca'}, { name: 'href', value: 'https://blog.pagseguro.uol.com.br/tabela-ir-e-iof-em-investimentos-tudo-que-voce-precisa-saber/'}])
+              "O Imposto de Renda é um tributo federal aplicado sobre a renda de pessoas físicas e jurídicas no Brasil. Incide sobre salários, lucros, rendimentos de investimentos, entre outros. "  + addTag("span", "Sua arrecadação é essencial para o financiamento de serviços públicos, como saúde, educação e segurança.", [{name: "class", value: "highlight"}]) +  " Para mais informações sobre impostos, segue o link para o site do " + addTag('a', ' PagBank', [{name: 'class', value: 'link-ipca'}, { name: 'href', value: 'https://blog.pagseguro.uol.com.br/tabela-ir-e-iof-em-investimentos-tudo-que-voce-precisa-saber/'}])
             ]
           }
         ]
@@ -80,7 +80,7 @@ export class FinanceComponent implements OnInit, AfterViewInit {
         title: "CDB/CDI:",
         description: [
           "O Certificado de Depósito Bancário (CDB) é uma popular opção de investimento em renda fixa. Funciona como um empréstimo ao banco, com remuneração por meio de juros.",
-          "Com baixo risco e garantido pelo FGC, oferece rentabilidade atrativa, podendo ter diferentes prazos e tipos de remuneração. É uma escolha acessível e diversificada para quem busca segurança e previsibilidade nos investimentos.",
+          "Com baixo risco e garantido pelo FGC, oferece rentabilidade atrativa, podendo ter diferentes prazos e tipos de remuneração." + addTag("span", "É uma escolha acessível e diversificada para quem busca segurança e previsibilidade nos investimentos.", [{name: "class", value: "highlight"}]),
           "Para mais Informações sobre o CDB/CDI, segue o link para o site do " + addTag('a', ' PagBank', [{name: 'class', value: 'link-ipca'}, { name: 'href', value: 'https://blog.pagseguro.uol.com.br/cdi-x-cdb-entenda-a-diferenca-entre-eles/'}])
         ],
         topics: [
@@ -115,7 +115,7 @@ export class FinanceComponent implements OnInit, AfterViewInit {
           {
             title: "Rendimento:",
             description: [
-              "O rendimento do LCI (Letra de Crédito Imobiliário) é determinado pela taxa de juros acordada no momento da compra do título, podendo ser pré ou pós-fixada. Esse rendimento também é influenciado pelo prazo de vencimento do título. Importante ressaltar que o LCI oferece isenção de Imposto de Renda para pessoas físicas, tornando seu rendimento líquido mais atrativo."
+              "O rendimento do LCI (Letra de Crédito Imobiliário) " + addTag("span", "é determinado pela taxa de juros acordada no momento da compra do título, podendo ser pré ou pós-fixada.", [{name: "class", value: "highlight"}]) +  " Esse rendimento também é influenciado pelo prazo de vencimento do título. Importante ressaltar que o LCI oferece isenção de Imposto de Renda para pessoas físicas, tornando seu rendimento líquido mais atrativo."
             ]
           },
           {
@@ -151,7 +151,7 @@ export class FinanceComponent implements OnInit, AfterViewInit {
             title: "Como investir:",
             steps: {
               listStyle: "ol",
-              list:[
+              list: [
                 "Escolha uma instituição financeira.",
                 "Abra uma conta de investimento.",
                 "Se informe sobre as opções de LCA disponíveis.",
@@ -168,7 +168,7 @@ export class FinanceComponent implements OnInit, AfterViewInit {
         id: "treasury-direct",
         title: "Tesouro Direto:",
         description: [
-          "O Tesouro Direto é um programa do governo brasileiro que permite que pessoas físicas comprem títulos públicos federais pela internet. Esses títulos são uma forma de investimento onde o investidor empresta dinheiro ao governo e recebe juros em troca. O programa oferece uma variedade de títulos com diferentes prazos e formas de remuneração, com baixo custo e liquidez diária. É uma opção segura e acessível para diversificar a carteira de investimentos e planejar o futuro financeiro.",
+          "O Tesouro Direto é um programa do governo brasileiro que permite que pessoas físicas comprem títulos públicos federais pela internet. Esses títulos são uma forma de investimento onde o " + addTag("span", "investidor empresta dinheiro ao governo e recebe juros em troca.", [{name: "class", value: "highlight"}]) + " O programa oferece uma variedade de títulos com diferentes prazos e formas de remuneração, com baixo custo e liquidez diária. É uma opção segura e acessível para diversificar a carteira de investimentos e planejar o futuro financeiro.",
           "Para mais Informações, segue o link para o site do " + addTag('a', ' Tesouro Direto', [{name: 'class', value: 'link-selic'}, { name: 'href', value: 'https://www.tesourodireto.com.br/'}])
         ],
         topics: [
@@ -255,7 +255,7 @@ export class FinanceComponent implements OnInit, AfterViewInit {
         id: "stock-market",
         title: "Mercado de Ações:",
         description: [
-          "O mercado de ações é onde são negociadas partes de propriedade de empresas, chamadas de ações. Os investidores compram e vendem essas ações em bolsas de valores, como a NYSE e a NASDAQ. Apesar da volatilidade, o mercado de ações tem sido historicamente uma das melhores opções de investimento de longo prazo, proporcionando retornos significativos.",
+          "O mercado de ações é onde são negociadas partes de propriedade de empresas, chamadas de ações. Os investidores compram e vendem essas ações em bolsas de valores, como a NYSE e a NASDAQ. Apesar da volatilidade, " + addTag("span", "o mercado de ações tem sido historicamente uma das melhores opções de investimento de longo prazo", [{name: "class", value: "highlight"}]) + ", proporcionando retornos significativos.",
           "Para mais Informações, segue o link para o site da " + addTag('a', ' TopInvest', [{name: 'class', value: 'link-selic'}, { name: 'href', value: 'https://www.topinvest.com.br/mercado-de-acoes/'}])
         ],
         topics: [
@@ -286,7 +286,7 @@ export class FinanceComponent implements OnInit, AfterViewInit {
         id: "cryptocurrencies",
         title: "Criptomoedas:",
         description: [
-          "Criptomoedas são uma forma de dinheiro digital descentralizado, operando em uma tecnologia chamada blockchain. Elas garantem transações seguras por meio de criptografia e não são controladas por nenhum governo ou autoridade central. Caracterizadas por anonimato, segurança e uso variado, as criptomoedas são conhecidas por sua volatilidade e riscos associados ao investimento.",
+          "Criptomoedas são uma forma de dinheiro digital descentralizado, operando em uma tecnologia chamada blockchain. Elas garantem transações seguras por meio de criptografia e não são controladas por nenhum governo ou autoridade central. Caracterizadas por anonimato, segurança e uso variado, " + addTag("span", "as criptomoedas são conhecidas por sua volatilidade e riscos associados ao investimento.", [{name: "class", value: "highlight"}]),
           "Para mais Informações, segue o link para o site da" + addTag('a', ' BitDegree', [{name: 'class', value: 'link-selic'}, { name: 'href', value: 'https://br.bitdegree.org/crypto/aprender/o-que-e-uma-criptomoeda'}])
         ],
         topics: [

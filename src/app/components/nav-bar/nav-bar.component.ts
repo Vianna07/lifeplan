@@ -1,6 +1,6 @@
 import { MatIconModule } from '@angular/material/icon';
 import { NgIf, NgOptimizedImage } from '@angular/common';
-import { Component, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
+import { Component, ElementRef, HostListener, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NavMenuComponent } from '../nav-menu/nav-menu.component';
 import { ThemeButtonComponent } from '../theme-button/theme-button.component';
@@ -26,7 +26,7 @@ export class NavBarComponent {
   public navMenuIsVisible: boolean = false;
 
   constructor(
-    public el: ElementRef,
+    private el: ElementRef,
   ) {}
 
   @HostListener('document:click', ['$event'])

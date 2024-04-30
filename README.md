@@ -1,27 +1,56 @@
 # Lifeplan
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+Projeto de finalização, Colégio Sesi, Maringá, Equipe 2, TDS(Turma de Desenvolvimento de Sistemas)  
 
-## Development server
+## Integrantes da equipe:
+* Gustavo Vianna da Silva
+* Laira Luiza Pires
+* Joaquim Alexandre Ribeiro Machado
+* Lucas Prado Rosani
+* Maycon Vitor Ribeiro Machado
+* Hector de Santana Lima
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Link do Trello:
+[Trello do Projeto Lifeplan](https://trello.com/b/iZFUSDOZ/lifeplan)  
 
-## Code scaffolding
+### API's Usada:  
+[API de Cotações](https://docs.awesomeapi.com.br/api-de-moedas)  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Instalação
 
-## Build
+Lifeplan requer [Node.js](https://nodejs.org/) e [Angular](https://angular.io/).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Para instalar essas dependências, instale node.js em sua máquina, clone o projeto: `git clone https://github.com/Vianna07/lifeplan.git`, entre na pasta raiz do projeto: `cd lifeplan` e execute os comandos:  
 
-## Running unit tests
+```sh
+npm install
+npm install -g @angular/cli
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) na versão 17.2.2.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Servidor de Desenvolvimento
 
-## Further help
+Execute `ng serve` para iniciar um servidor de desenvolvimento. Navegue para `http://localhost:4200/`. A aplicação será recarregada automaticamente se você alterar algum dos arquivos de origem.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Geração de Código
+
+Execute `ng generate component nome-do-componente` para gerar um novo componente. Você também pode usar `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Compilação
+
+Execute `ng build` para compilar o projeto. Os artefatos de compilação serão armazenados no diretório `dist/`.
+
+## Execução de Testes Unitários
+
+Execute `ng test` para executar os testes unitários via [Karma](https://karma-runner.github.io).
+
+## Execução de Testes End-to-End
+
+Execute `ng e2e` para executar os testes end-to-end através de uma plataforma de sua escolha. Para usar este comando, você precisa primeiro adicionar um pacote que implemente capacidades de teste end-to-end.
+
+## Ajuda Adicional
+
+Para obter mais ajuda sobre o Angular CLI, use `ng help` ou consulte a página [Visão Geral e Referência de Comandos do Angular CLI](https://angular.io/cli).

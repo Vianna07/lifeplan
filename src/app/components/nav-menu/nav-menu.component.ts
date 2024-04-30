@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, ElementRef, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef, Input, AfterViewInit, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { NavModule } from './nav-module.interface';
 import { NgClass, NgFor } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,8 +16,9 @@ import { RouterLink } from '@angular/router';
   templateUrl: './nav-menu.component.html',
   styleUrl: './nav-menu.component.scss'
 })
-export class NavMenuComponent implements OnInit, AfterViewInit {
-  @Input({required: true}) visible!: boolean;
+export class NavMenuComponent implements OnInit, AfterViewInit, OnChanges {
+  @Input({required: true}) public visible!: boolean;
+  @ViewChild('navMenu') private navMenu!: ElementRef;
   public navModules!: NavModule[];
 
   constructor(
@@ -56,7 +57,11 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
         },
         baseLink: '/life-project',
         anchors: [
-          { name: 'Carreira', link: '/career' },
+          { name: 'Guia', fragment: 'guide' },
+          { name: 'Autoconhecimento', fragment: 'self-knowledge' },
+          { name: 'Meu futuro', fragment: 'my-future' },
+          { name: 'Planejamento', fragment: 'planning' },
+          // { name: 'Carreira', fragment: 'career' }, //TODO: Página de carreiras
         ],
         hiddenAnchors: false,
         tabindex: 0
@@ -68,6 +73,12 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.__setHeightOf('anchors', this.navModules)
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+      if (changes['visible'] && this.visible) {
+        this.navMenu.nativeElement.focus() //TODO: Não está aplicando focus, resolver
+      }
   }
 
   private __setModuleTabindex(): void {
