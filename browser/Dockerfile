@@ -8,6 +8,8 @@ RUN npm install -g pnpm@9
 RUN pnpm install
 RUN pnpm run build
 RUN mv ./dist/lifeplan/* /app
+RUN pnpm uninstall all --recursive
+RUN npm uninstall -g pnpm
 
 WORKDIR /app
 
