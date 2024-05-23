@@ -7,7 +7,8 @@
                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
                                        http://www.liquibase.org/xml/ns/dbchangelog-ext
                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
-                                       http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+                                       http://www.liquibase.org/xml/ns/pro
+                                       http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
 
     <changeSet id="LP-00001" author="viannagustavo71@gmail.com">
         <sql>CREATE EXTENSION IF NOT EXISTS "uuid-ossp";</sql>

@@ -15,11 +15,7 @@ WORKDIR /app
 
 RUN rm -rf ./lifeplan
 
-EXPOSE 4000
-
 CMD [ "node", "./server/server.mjs" ]
 
 # Build: docker build -t lifeplan-image .
 # Run: docker run -p 8080:4000 --name lifeplan lifeplan-image
-# Start: docker start lifeplan
-# Open your browser in localhost:8080

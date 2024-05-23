@@ -17,3 +17,4 @@ CMD ["java", "-jar", "app.jar"]
 
 # Build: docker build -t lifeplan-api-image .
 # Run: docker run -p 8080:8080 --name lifeplan-api lifeplan-api-image
+  
