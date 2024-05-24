@@ -63,4 +63,48 @@
         </insert>
     </changeSet>
 
+    <changeSet id="LP-00004" author="viannagustavo71@gmail.com">
+        <createTable tableName="currency_quotation">
+            <column name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(10)"/>
+            <column name="code_in" type="VARCHAR(10)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="high" type="DECIMAL(10,4)"/>
+            <column name="low" type="DECIMAL(10,4)"/>
+            <column name="var_bid" type="DECIMAL(10,4)"/>
+            <column name="pct_change" type="DECIMAL(5,2)"/>
+            <column name="bid" type="DECIMAL(10,4)"/>
+            <column name="ask" type="DECIMAL(10,4)"/>
+            <column name="timestamp" type="BIGINT"/>
+            <column name="create_date" type="TIMESTAMP"/>
+            <column name="user_id" type="UUID"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="currency_quotation"
+                                 baseColumnNames="user_id"
+                                 constraintName="FK_USER_ID"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"/>
+    </changeSet>
+
+    <changeSet id="LP-00005" author="viannagustavo71@gmail.com">
+        <insert tableName="currency_quotation">
+            <column name="code" value="USD"/>
+            <column name="code_in" value="BRL"/>
+            <column name="name" value="Dólar Americano/Real Brasileiro"/>
+            <column name="high" value="5.0932"/>
+            <column name="low" value="5.09"/>
+            <column name="var_bid" value="0.0003"/>
+            <column name="pct_change" value="0"/>
+            <column name="bid" value="5.0917"/>
+            <column name="ask" value="5.0922"/>
+            <column name="timestamp" value="1712871000"/>
+            <column name="create_date" value="2024-04-11 18:30:00"/>
+        </insert>
+    </changeSet>
+
 </databaseChangeLog>

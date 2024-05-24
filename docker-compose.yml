@@ -17,12 +17,8 @@ services:
       - "4001:8080"
     depends_on:
       - database
-    environment:
-      - DATABASE_HOST=database
-      - DATABASE_PORT=5432
-      - DATABASE_USER=${DATABASE_USER}
-      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
-      - DATABASE_NAME=${DATABASE_NAME}
+    env_file:
+      - ./.env
 
   database:
     image: postgres:16-alpine
@@ -31,3 +27,8 @@ services:
       - POSTGRES_USER=${DATABASE_USER}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
       - POSTGRES_DB=${DATABASE_NAME}
+    ports:
+      - "${DATABASE_PORT}:${DATABASE_PORT}"
+    env_file:
+      - ./.env
+    
