@@ -17,6 +17,17 @@ export class CurrencyQuotationService {
   }
 
   public getCurrencyQuotationExample(): object {
+    // const get = this.http.get(`http://localhost:4001/currency-quotation/get-example`);
+
+    // get.subscribe({
+    //   next: (data: object) => {
+    //     console.log(data);
+    //   },
+    //   error: (error) => {
+    //     console.error(error);
+    // }})
+
+    // return this.http.get(`http://localhost:4001/currency-quotation/get-example`);
     return example
   }
 }
